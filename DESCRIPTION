@@ -4,7 +4,7 @@ Version: 0.0.0.9000
 Authors@R: c(
     person(given = "Max", family = "Kuhn", email = "max@rstudio.com", role = c("aut", "cre")),
     person("RStudio", role = "cph"))
-Description: Bindings for additional classification models for use with the 
+Description: Bindings for Poisson regression models for use with the 
     'parsnip' package. 
 License: MIT + file LICENSE
 Suggests: 
