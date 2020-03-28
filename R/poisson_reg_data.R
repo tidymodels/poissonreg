@@ -48,53 +48,6 @@ make_poisson_reg <- function() {
     model = "poisson_reg",
     eng = "glm",
     mode = "regression",
-    type = "conf_int",
-    value = list(
-      pre = NULL,
-      post = function(results, object) {
-        tibble::as_tibble(results) %>%
-          dplyr::select(-fit) %>%
-          setNames(c(".pred_lower", ".pred_upper"))
-      },
-      func = c(fun = "predict"),
-      args =
-        list(
-          object = expr(object$fit),
-          newdata = expr(new_data),
-          interval = "confidence",
-          level = expr(level),
-          type = "response"
-        )
-    )
-  )
-  parsnip::set_pred(
-    model = "poisson_reg",
-    eng = "glm",
-    mode = "regression",
-    type = "pred_int",
-    value = list(
-      pre = NULL,
-      post = function(results, object) {
-        tibble::as_tibble(results) %>%
-          dplyr::select(-fit) %>%
-          setNames(c(".pred_lower", ".pred_upper"))
-      },
-      func = c(fun = "predict"),
-      args =
-        list(
-          object = expr(object$fit),
-          newdata = expr(new_data),
-          interval = "prediction",
-          level = expr(level),
-          type = "response"
-        )
-    )
-  )
-
-  parsnip::set_pred(
-    model = "poisson_reg",
-    eng = "glm",
-    mode = "regression",
     type = "raw",
     value = list(
       pre = NULL,
