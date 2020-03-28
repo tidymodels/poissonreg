@@ -69,7 +69,7 @@ mode will always be "regression".
 The model can be created using the \code{fit()} function using the
 following \emph{engines}:
 \itemize{
-\item \pkg{R}:  \code{"glm"}  (the default) or \code{"glmnet"}
+\item \pkg{R}:  \code{"glm"}  (the default), \code{"glmnet"}, \code{"hurdle"}, or \code{"zeroinfl"}
 \item \pkg{Stan}:  \code{"stan"}
 }
 }
@@ -83,6 +83,14 @@ model, the template of the fit calls are:
 \pkg{glm}
 
 \Sexpr[results=rd]{parsnip:::show_fit(poissonreg::poisson_reg(), "glm")}
+
+\pkg{zeroinfl}
+
+\Sexpr[results=rd]{parsnip:::show_fit(poissonreg::poisson_reg(), "zeroinfl")}
+
+\pkg{hurdle}
+
+\Sexpr[results=rd]{parsnip:::show_fit(poissonreg::poisson_reg(), "hurdle")}
 
 \pkg{glmnet}
 
@@ -116,6 +124,11 @@ these instances, the units are the original outcome and when
 \code{std_error = TRUE}, the standard deviation of the posterior
 distribution (or posterior predictive distribution as
 appropriate) is returned.
+
+For the \code{hurdle} or \code{zeroinfl} engines, note that an extended formula can be
+used to add a model for the zero-count values. Using \code{\link[=fit]{fit()}} for training,
+that extended formula can be passed as usual. For \code{\link[=fit_xy]{fit_xy()}}, the result
+will be to model the zero-counts with all of the predictors.
 }
 
 \examples{
@@ -129,11 +142,22 @@ log_lin_mod <-
 
 summary(log_lin_mod$fit)
 
+# ------------------------------------------------------------------------------
+
+library(pscl)
+
+data("bioChemists", package = "pscl")
+
+poisson_reg() \%>\%
+  set_engine("hurdle") \%>\%
+# Extended formula:
+  fit(art ~ . | phd, data = bioChemists)
+
 model <- poisson_reg(penalty = 10, mixture = 0.1)
 model
 update(model, penalty = 1)
 update(model, penalty = 1, fresh = TRUE)
 }
 \seealso{
-\code{\link[=fit]{fit()}}, \code{\link[=set_engine]{set_engine()}}
+\code{\link[=fit]{fit()}}, \code{\link[=fit_xy]{fit_xy()}}, \code{\link[=set_engine]{set_engine()}}
 }
