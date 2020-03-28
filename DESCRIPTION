@@ -5,18 +5,10 @@ Authors@R: c(
     person(given = "Max", family = "Kuhn", email = "max@rstudio.com", role = c("aut", "cre")),
     person("RStudio", role = "cph"))
 Description: Bindings for Poisson regression models for use with the 
-    'parsnip' package. 
+    'parsnip' package. Models include simple generalized linear models, 
+    Bayesian models, and zero-inflated Poisson models (Zeileis, Kleiber, and 
+    Jackman (2008) <doi:10.18637/jss.v027.i08>). 
 License: MIT + file LICENSE
-Suggests: 
-    testthat,
-    glmnet,
-    rstanarm,
-    pscl,
-    covr
-Encoding: UTF-8
-LazyData: true
-Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.0
 Depends: 
     parsnip (>= 0.0.5.9001),
     R (>= 2.10)
@@ -28,5 +20,15 @@ Imports:
     dplyr,
     tidyr,
     glue
+Suggests: 
+    testthat,
+    glmnet,
+    rstanarm,
+    pscl,
+    covr
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.0
 Remotes:
     tidymodels/parsnip
