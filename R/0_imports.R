@@ -15,3 +15,14 @@
   make_poisson_reg()
 }
 
+# ------------------------------------------------------------------------------
+
+# ------------------------------------------------------------------------------
+# nocov
+
+#' @importFrom utils globalVariables
+utils::globalVariables(
+  c(".pred", "group", "level", "new_data", "object")
+)
+
+# nocov end

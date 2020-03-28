@@ -28,7 +28,20 @@ represents the proportion of regularization that is used for the
 L2 penalty (i.e. weight decay, or ridge regression) versus L1
 (the lasso) (\code{glmnet} only).}
 
-\item{object}{A Poisson regression model specification.}
+\item{object}{A boosted tree model specification.}
+
+\item{parameters}{A 1-row tibble or named list with \emph{main}
+parameters to update. If the individual arguments are used,
+these will supersede the values in \code{parameters}. Also, using
+engine arguments in this object will result in an error.}
+
+\item{fresh}{A logical for whether the arguments should be
+modified in-place of or replaced wholesale.}
+
+\item{...}{Not used for \code{update()}.}
+}
+\value{
+An updated model specification.
 }
 \description{
 \code{poisson_reg()} is a way to generate a \emph{specification} of a model
@@ -69,15 +82,15 @@ model, the template of the fit calls are:
 
 \pkg{glm}
 
-\Sexpr[results=rd]{parsnip:::show_fit(fishy:::poisson_reg(), "glm")}
+\Sexpr[results=rd]{parsnip:::show_fit(fishy::poisson_reg(), "glm")}
 
 \pkg{glmnet}
 
-\Sexpr[results=rd]{parsnip:::show_fit(fishy:::poisson_reg(), "glmnet")}
+\Sexpr[results=rd]{parsnip:::show_fit(fishy::poisson_reg(), "glmnet")}
 
 \pkg{stan}
 
-\Sexpr[results=rd]{parsnip:::show_fit(fishy:::poisson_reg(), "stan")}
+\Sexpr[results=rd]{parsnip:::show_fit(fishy::poisson_reg(), "stan")}
 
 For \code{glmnet} models, the full regularization path is always fit regardless
 of the value given to \code{penalty}. Also, there is the option to pass
@@ -99,6 +112,14 @@ appropriate) is returned.
 
 \examples{
 poisson_reg()
+
+# Model from Agresti (2007) Table 7.6
+log_lin_mod <-
+  poisson_reg() \%>\%
+  set_engine("glm") \%>\%
+  fit(count ~ (.)^2, data = seniors)
+
+summary(log_lin_mod$fit)
 model <- poisson_reg(penalty = 10, mixture = 0.1)
 model
 update(model, penalty = 1)

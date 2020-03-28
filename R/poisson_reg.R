@@ -44,15 +44,15 @@
 #'
 #' \pkg{glm}
 #'
-#' \Sexpr[results=rd]{parsnip:::show_fit(fishy:::poisson_reg(), "glm")}
+#' \Sexpr[results=rd]{parsnip:::show_fit(fishy::poisson_reg(), "glm")}
 #'
 #' \pkg{glmnet}
 #'
-#' \Sexpr[results=rd]{parsnip:::show_fit(fishy:::poisson_reg(), "glmnet")}
+#' \Sexpr[results=rd]{parsnip:::show_fit(fishy::poisson_reg(), "glmnet")}
 #'
 #' \pkg{stan}
 #'
-#' \Sexpr[results=rd]{parsnip:::show_fit(fishy:::poisson_reg(), "stan")}
+#' \Sexpr[results=rd]{parsnip:::show_fit(fishy::poisson_reg(), "stan")}
 #'
 #' For `glmnet` models, the full regularization path is always fit regardless
 #' of the value given to `penalty`. Also, there is the option to pass
@@ -71,9 +71,18 @@
 #'  distribution (or posterior predictive distribution as
 #'  appropriate) is returned.
 #'
-#' @seealso [[fit()], [set_engine()]
+#' @seealso [fit()], [set_engine()]
 #' @examples
 #' poisson_reg()
+#'
+#' # Model from Agresti (2007) Table 7.6
+#' log_lin_mod <-
+#'   poisson_reg() %>%
+#'   set_engine("glm") %>%
+#'   fit(count ~ (.)^2, data = seniors)
+#'
+#' summary(log_lin_mod$fit)
+#'
 #' @export
 #' @importFrom purrr map_lgl
 poisson_reg <-
@@ -128,7 +137,15 @@ translate.poisson_reg <- function(x, engine = x$engine, ...) {
 
 # ------------------------------------------------------------------------------
 
-#' @param object A Poisson regression model specification.
+#' @param object A boosted tree model specification.
+#' @param parameters A 1-row tibble or named list with _main_
+#'  parameters to update. If the individual arguments are used,
+#'  these will supersede the values in `parameters`. Also, using
+#'  engine arguments in this object will result in an error.
+#' @param ... Not used for `update()`.
+#' @param fresh A logical for whether the arguments should be
+#'  modified in-place of or replaced wholesale.
+#' @return An updated model specification.
 #' @examples
 #' model <- poisson_reg(penalty = 10, mixture = 0.1)
 #' model
@@ -291,17 +308,29 @@ predict_numeric._fishnet <- function(object, new_data, ...) {
     rlang::abort("Did you mean to use `new_data` instead of `newdata`?")
 
   object$spec <- eval_args(object$spec)
-  parsnip:::predict_numeric.model_fit(object, new_data = new_data, ...)
+  parsnip::predict_numeric.model_fit(object, new_data = new_data, ...)
 }
 
+#' Model predictions across many sub-models
+#'
+#' For some models, predictions can be made on sub-models in the model object.
+#' @param object A `model_fit` object.
+#' @param new_data A rectangular data object, such as a data frame.
+#' @param opts A list of options..
+#' @param ... Optional arguments to pass to `predict.model_fit(type = "raw")`
+#'  such as `type`.
+#' @return A tibble with the same number of rows as the data being predicted.
+#'  There is a list-column named `.pred` that contains tibbles with
+#'  multiple rows per sub-model.
 #' @export
+#' @keywords internal
 predict_raw._fishnet <- function(object, new_data, opts = list(), ...)  {
   if (any(names(enquos(...)) == "newdata"))
     rlang::abort("Did you mean to use `new_data` instead of `newdata`?")
 
   object$spec <- eval_args(object$spec)
   opts$s <- object$spec$args$penalty
-  parsnip:::predict_raw.model_fit(object, new_data = new_data, opts = opts, ...)
+  parsnip::predict_raw.model_fit(object, new_data = new_data, opts = opts, ...)
 }
 
 #' Model predictions across many sub-models
