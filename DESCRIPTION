@@ -11,13 +11,14 @@ Suggests:
     testthat,
     glmnet,
     rstanarm,
+    pscl,
     covr
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.0
 Depends: 
-    parsnip (>= 0.0.5.9000),
+    parsnip (>= 0.0.5.9001),
     R (>= 2.10)
 Imports: 
     rlang,
