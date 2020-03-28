@@ -54,6 +54,13 @@
 #'
 #' \Sexpr[results=rd]{parsnip:::show_fit(fishy::poisson_reg(), "stan")}
 #'
+#' The standardized parameter names in parsnip can be mapped to their original
+#' names in each engine:
+#'
+#' ```{r echo = FALSE}
+#' parsnip::convert_args("poisson_reg")
+#' ```
+#'
 #' For `glmnet` models, the full regularization path is always fit regardless
 #' of the value given to `penalty`. Also, there is the option to pass
 #'  multiple values (or no values) to the `penalty` argument. When using the

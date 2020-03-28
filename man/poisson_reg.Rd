@@ -92,6 +92,14 @@ model, the template of the fit calls are:
 
 \Sexpr[results=rd]{parsnip:::show_fit(fishy::poisson_reg(), "stan")}
 
+The standardized parameter names in parsnip can be mapped to their original
+names in each engine:\tabular{ll}{
+   \strong{parsnip} \tab \strong{glmnet} \cr
+   penalty \tab lambda \cr
+   mixture \tab alpha \cr
+}
+
+
 For \code{glmnet} models, the full regularization path is always fit regardless
 of the value given to \code{penalty}. Also, there is the option to pass
 multiple values (or no values) to the \code{penalty} argument. When using the
@@ -120,11 +128,12 @@ log_lin_mod <-
   fit(count ~ (.)^2, data = seniors)
 
 summary(log_lin_mod$fit)
+
 model <- poisson_reg(penalty = 10, mixture = 0.1)
 model
 update(model, penalty = 1)
 update(model, penalty = 1, fresh = TRUE)
 }
 \seealso{
-[\code{\link[=fit]{fit()}}, \code{\link[=set_engine]{set_engine()}}
+\code{\link[=fit]{fit()}}, \code{\link[=set_engine]{set_engine()}}
 }
