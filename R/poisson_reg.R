@@ -44,15 +44,15 @@
 #'
 #' \pkg{glm}
 #'
-#' \Sexpr[results=rd]{parsnip:::show_fit(fishy::poisson_reg(), "glm")}
+#' \Sexpr[results=rd]{parsnip:::show_fit(poissonreg::poisson_reg(), "glm")}
 #'
 #' \pkg{glmnet}
 #'
-#' \Sexpr[results=rd]{parsnip:::show_fit(fishy::poisson_reg(), "glmnet")}
+#' \Sexpr[results=rd]{parsnip:::show_fit(poissonreg::poisson_reg(), "glmnet")}
 #'
 #' \pkg{stan}
 #'
-#' \Sexpr[results=rd]{parsnip:::show_fit(fishy::poisson_reg(), "stan")}
+#' \Sexpr[results=rd]{parsnip:::show_fit(poissonreg::poisson_reg(), "stan")}
 #'
 #' The standardized parameter names in parsnip can be mapped to their original
 #' names in each engine:

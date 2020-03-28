@@ -1,4 +1,4 @@
 library(testthat)
-library(fishy)
+library(poissonreg)
 
-test_check("fishy")
+test_check("poissonreg")

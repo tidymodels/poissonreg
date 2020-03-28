@@ -13,19 +13,19 @@ knitr::opts_chunk$set(
 )
 ```
 
-# fishy
+# poissonreg
 
 <!-- badges: start -->
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
-[![CRAN status](https://www.r-pkg.org/badges/version/fishy)](https://CRAN.R-project.org/package=fishy)
+[![CRAN status](https://www.r-pkg.org/badges/version/poissonreg)](https://CRAN.R-project.org/package=poissonreg)
 <!-- badges: end -->
 
-fishy enables the `parsnip` package to fit various types of Poisson regression models. 
+poissonreg enables the `parsnip` package to fit various types of Poisson regression models. 
 
 ## Installation
 
 ``` r
-devtools::install_github("topepo/fishy")
+devtools::install_github("topepo/poissonreg")
 ```
 
 ## Example
@@ -33,7 +33,7 @@ devtools::install_github("topepo/fishy")
 A log-linear model for catgorical data analysis: 
 
 ```{r example}
-library(fishy)
+library(poissonreg)
 
 # 3D contingency table from Agresti (2007): 
 poisson_reg() %>% 

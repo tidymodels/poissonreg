@@ -1,4 +1,4 @@
-Package: fishy
+Package: poissonreg
 Title: Model Wrappers for Poisson Regression
 Version: 0.0.0.9000
 Authors@R: c(
