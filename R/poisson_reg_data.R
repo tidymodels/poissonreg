@@ -59,6 +59,100 @@ make_poisson_reg <- function() {
 
   # ------------------------------------------------------------------------------
 
+  parsnip::set_model_engine("poisson_reg", "regression", "hurdle")
+  parsnip::set_dependency("poisson_reg", "hurdle", "pscl")
+
+  parsnip::set_fit(
+    model = "poisson_reg",
+    eng = "hurdle",
+    mode = "regression",
+    value = list(
+      interface = "formula",
+      protect = c("formula", "data", "weights"),
+      func = c(pkg = "pscl", fun = "hurdle"),
+      defaults = list()
+    )
+  )
+
+  parsnip::set_pred(
+    model = "poisson_reg",
+    eng = "hurdle",
+    mode = "regression",
+    type = "numeric",
+    value = list(
+      pre = NULL,
+      post = NULL,
+      func = c(fun = "predict"),
+      args =
+        list(
+          object = expr(object$fit),
+          newdata = expr(new_data)
+        )
+    )
+  )
+
+  parsnip::set_pred(
+    model = "poisson_reg",
+    eng = "hurdle",
+    mode = "regression",
+    type = "raw",
+    value = list(
+      pre = NULL,
+      post = NULL,
+      func = c(fun = "predict"),
+      args = list(object = expr(object$fit), newdata = expr(new_data))
+    )
+  )
+
+  # ------------------------------------------------------------------------------
+
+  parsnip::set_model_engine("poisson_reg", "regression", "zeroinfl")
+  parsnip::set_dependency("poisson_reg", "zeroinfl", "pscl")
+
+  parsnip::set_fit(
+    model = "poisson_reg",
+    eng = "zeroinfl",
+    mode = "regression",
+    value = list(
+      interface = "formula",
+      protect = c("formula", "data", "weights"),
+      func = c(pkg = "pscl", fun = "zeroinfl"),
+      defaults = list()
+    )
+  )
+
+  parsnip::set_pred(
+    model = "poisson_reg",
+    eng = "zeroinfl",
+    mode = "regression",
+    type = "numeric",
+    value = list(
+      pre = NULL,
+      post = NULL,
+      func = c(fun = "predict"),
+      args =
+        list(
+          object = expr(object$fit),
+          newdata = expr(new_data)
+        )
+    )
+  )
+
+  parsnip::set_pred(
+    model = "poisson_reg",
+    eng = "zeroinfl",
+    mode = "regression",
+    type = "raw",
+    value = list(
+      pre = NULL,
+      post = NULL,
+      func = c(fun = "predict"),
+      args = list(object = expr(object$fit), newdata = expr(new_data))
+    )
+  )
+
+  # ------------------------------------------------------------------------------
+
   parsnip::set_model_engine("poisson_reg", "regression", "glmnet")
   parsnip::set_dependency("poisson_reg", "glmnet", "glmnet")
 

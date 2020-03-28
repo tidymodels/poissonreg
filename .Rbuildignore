@@ -4,3 +4,7 @@
 ^README\.Rmd$
 ^cran-comments\.md$
 ^\.github$
+^codecov\.yml$
+^poissonreg\.Rproj$
+^\.Rhistory$
+^docs$

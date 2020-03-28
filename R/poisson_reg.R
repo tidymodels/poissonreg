@@ -32,7 +32,7 @@
 #' The model can be created using the `fit()` function using the
 #'  following _engines_:
 #' \itemize{
-#' \item \pkg{R}:  `"glm"`  (the default) or `"glmnet"`
+#' \item \pkg{R}:  `"glm"`  (the default), `"glmnet"`, `"hurdle"`, or `"zeroinfl"`
 #' \item \pkg{Stan}:  `"stan"`
 #' }
 #'
@@ -45,6 +45,14 @@
 #' \pkg{glm}
 #'
 #' \Sexpr[results=rd]{parsnip:::show_fit(poissonreg::poisson_reg(), "glm")}
+#'
+#' \pkg{zeroinfl}
+#'
+#' \Sexpr[results=rd]{parsnip:::show_fit(poissonreg::poisson_reg(), "zeroinfl")}
+#'
+#' \pkg{hurdle}
+#'
+#' \Sexpr[results=rd]{parsnip:::show_fit(poissonreg::poisson_reg(), "hurdle")}
 #'
 #' \pkg{glmnet}
 #'
@@ -78,7 +86,12 @@
 #'  distribution (or posterior predictive distribution as
 #'  appropriate) is returned.
 #'
-#' @seealso [fit()], [set_engine()]
+#' For the `hurdle` or `zeroinfl` engines, note that an extended formula can be
+#' used to add a model for the zero-count values. Using [fit()] for training,
+#' that extended formula can be passed as usual. For [fit_xy()], the result
+#' will be to model the zero-counts with all of the predictors.
+#'
+#' @seealso [fit()], [fit_xy()], [set_engine()]
 #' @examples
 #' poisson_reg()
 #'
@@ -89,6 +102,17 @@
 #'   fit(count ~ (.)^2, data = seniors)
 #'
 #' summary(log_lin_mod$fit)
+#'
+#' # ------------------------------------------------------------------------------
+#'
+#' library(pscl)
+#'
+#' data("bioChemists", package = "pscl")
+#'
+#' poisson_reg() %>%
+#'   set_engine("hurdle") %>%
+#' # Extended formula:
+#'   fit(art ~ . | phd, data = bioChemists)
 #'
 #' @export
 #' @importFrom purrr map_lgl
