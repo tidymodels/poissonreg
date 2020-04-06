@@ -1,3 +1,4 @@
+# nocov
 #' @import parsnip
 #' @importFrom rlang enquo expr enquos
 #' @importFrom purrr map_lgl map
@@ -16,9 +17,6 @@
 }
 
 # ------------------------------------------------------------------------------
-
-# ------------------------------------------------------------------------------
-# nocov
 
 #' @importFrom utils globalVariables
 utils::globalVariables(
