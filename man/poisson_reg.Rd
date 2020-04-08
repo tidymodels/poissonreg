@@ -74,61 +74,64 @@ following \emph{engines}:
 }
 }
 \section{Engine Details}{
+Engines may have pre-set default arguments when executing the model fit
+call. For this type of model, the template of the fit calls are:\if{html}{\out{<div class="r">}}\preformatted{poisson_reg() \%>\% 
+  set_engine("glm") \%>\% 
+  translate()
+}\if{html}{\out{</div>}}\preformatted{## Poisson Regression Model Specification (regression)
+## 
+## Computational engine: glm 
+## 
+## Model fit template:
+## stats::glm(formula = missing_arg(), data = missing_arg(), weights = missing_arg(), 
+##     family = stats::poisson)
+}\if{html}{\out{<div class="r">}}\preformatted{poisson_reg() \%>\% 
+  set_engine("zeroinfl") \%>\% 
+  translate()
+}\if{html}{\out{</div>}}\preformatted{## Poisson Regression Model Specification (regression)
+## 
+## Computational engine: zeroinfl 
+## 
+## Model fit template:
+## pscl::zeroinfl(formula = missing_arg(), data = missing_arg(), 
+##     weights = missing_arg())
+}\if{html}{\out{<div class="r">}}\preformatted{poisson_reg() \%>\% 
+  set_engine("hurdle") \%>\% 
+  translate()
+}\if{html}{\out{</div>}}\preformatted{## Poisson Regression Model Specification (regression)
+## 
+## Computational engine: hurdle 
+## 
+## Model fit template:
+## pscl::hurdle(formula = missing_arg(), data = missing_arg(), weights = missing_arg())
+}\if{html}{\out{<div class="r">}}\preformatted{poisson_reg() \%>\% 
+  set_engine("glmnet") \%>\% 
+  translate()
+}\if{html}{\out{</div>}}\preformatted{## Poisson Regression Model Specification (regression)
+## 
+## Computational engine: glmnet 
+## 
+## Model fit template:
+## glmnet::glmnet(x = missing_arg(), y = missing_arg(), weights = missing_arg(), 
+##     family = "poisson")
+}\if{html}{\out{<div class="r">}}\preformatted{poisson_reg() \%>\% 
+  set_engine("stan") \%>\% 
+  translate()
+}\if{html}{\out{</div>}}\preformatted{## Poisson Regression Model Specification (regression)
+## 
+## Computational engine: stan 
+## 
+## Model fit template:
+## rstanarm::stan_glm(formula = missing_arg(), data = missing_arg(), 
+##     weights = missing_arg(), family = stats::poisson)
+}
 
-
-Engines may have pre-set default arguments when executing the
-model fit call. For this type of
-model, the template of the fit calls are:
-
-\pkg{glm}
-
-\Sexpr[results=rd]{parsnip:::show_fit(poissonreg::poisson_reg(), "glm")}
-
-\pkg{zeroinfl}
-
-\Sexpr[results=rd]{parsnip:::show_fit(poissonreg::poisson_reg(), "zeroinfl")}
-
-\pkg{hurdle}
-
-\Sexpr[results=rd]{parsnip:::show_fit(poissonreg::poisson_reg(), "hurdle")}
-
-\pkg{glmnet}
-
-\Sexpr[results=rd]{parsnip:::show_fit(poissonreg::poisson_reg(), "glmnet")}
-
-\pkg{stan}
-
-\Sexpr[results=rd]{parsnip:::show_fit(poissonreg::poisson_reg(), "stan")}
-
-The standardized parameter names in parsnip can be mapped to their original
-names in each engine:\tabular{ll}{
+The standardized parameter names in parsnip can be mapped to their
+original names in each engine that has main parameters:\tabular{ll}{
    \strong{parsnip} \tab \strong{glmnet} \cr
    penalty \tab lambda \cr
    mixture \tab alpha \cr
 }
-
-
-For \code{glmnet} models, the full regularization path is always fit regardless
-of the value given to \code{penalty}. Also, there is the option to pass
-multiple values (or no values) to the \code{penalty} argument. When using the
-\code{predict()} method in these cases, the return value depends on
-the value of \code{penalty}. When using \code{predict()}, only a single
-value of the penalty can be used. When predicting on multiple
-penalties, the \code{multi_predict()} function can be used. It
-returns a tibble with a list column called \code{.pred} that contains
-a tibble with all of the penalty results.
-
-For prediction, the \code{stan} engine can compute posterior
-intervals analogous to confidence and prediction intervals. In
-these instances, the units are the original outcome and when
-\code{std_error = TRUE}, the standard deviation of the posterior
-distribution (or posterior predictive distribution as
-appropriate) is returned.
-
-For the \code{hurdle} or \code{zeroinfl} engines, note that an extended formula can be
-used to add a model for the zero-count values. Using \code{\link[=fit]{fit()}} for training,
-that extended formula can be passed as usual. For \code{\link[=fit_xy]{fit_xy()}}, the result
-will be to model the zero-counts with all of the predictors.
 }
 
 \examples{
@@ -157,7 +160,4 @@ model <- poisson_reg(penalty = 10, mixture = 0.1)
 model
 update(model, penalty = 1)
 update(model, penalty = 1, fresh = TRUE)
-}
-\seealso{
-\code{\link[=fit]{fit()}}, \code{\link[=fit_xy]{fit_xy()}}, \code{\link[=set_engine]{set_engine()}}
 }

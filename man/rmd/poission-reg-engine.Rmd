@@ -1,0 +1,52 @@
+# Engine Details
+
+Engines may have pre-set default arguments when executing the model fit call. For this type of model, the template of the fit calls are:
+
+\pkg{glm}
+
+```{r glm}
+poisson_reg() %>% 
+  set_engine("glm") %>% 
+  translate()
+```
+
+\pkg{zeroinfl}
+
+```{r zeroinfl}
+poisson_reg() %>% 
+  set_engine("zeroinfl") %>% 
+  translate()
+```
+
+\pkg{hurdle}
+
+```{r hurdle}
+poisson_reg() %>% 
+  set_engine("hurdle") %>% 
+  translate()
+```
+
+
+\pkg{glmnet}
+
+```{r glmnet}
+poisson_reg() %>% 
+  set_engine("glmnet") %>% 
+  translate()
+```
+
+
+\pkg{stan}
+
+```{r stan}
+poisson_reg() %>% 
+  set_engine("stan") %>% 
+  translate()
+```
+
+The standardized parameter names in parsnip can be mapped to their original names in each engine that has main parameters:
+
+```{r echo = FALSE, results = "asis"}
+parsnip::convert_args("poisson_reg")
+```
+

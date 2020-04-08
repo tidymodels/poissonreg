@@ -153,6 +153,11 @@ test_that('bad input', {
   expect_error(translate(poisson_reg(formula = y ~ x)  %>% set_engine("glm")))
 })
 
+test_that('printing', {
+  expect_output(print(poisson_reg()))
+})
+
+
 # ------------------------------------------------------------------------------
 
 test_that('glm execution', {

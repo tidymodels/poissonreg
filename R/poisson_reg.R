@@ -36,38 +36,7 @@
 #' \item \pkg{Stan}:  `"stan"`
 #' }
 #'
-#' @section Engine Details:
-#'
-#' Engines may have pre-set default arguments when executing the
-#'  model fit call. For this type of
-#'  model, the template of the fit calls are:
-#'
-#' \pkg{glm}
-#'
-#' \Sexpr[results=rd]{parsnip:::show_fit(poissonreg::poisson_reg(), "glm")}
-#'
-#' \pkg{zeroinfl}
-#'
-#' \Sexpr[results=rd]{parsnip:::show_fit(poissonreg::poisson_reg(), "zeroinfl")}
-#'
-#' \pkg{hurdle}
-#'
-#' \Sexpr[results=rd]{parsnip:::show_fit(poissonreg::poisson_reg(), "hurdle")}
-#'
-#' \pkg{glmnet}
-#'
-#' \Sexpr[results=rd]{parsnip:::show_fit(poissonreg::poisson_reg(), "glmnet")}
-#'
-#' \pkg{stan}
-#'
-#' \Sexpr[results=rd]{parsnip:::show_fit(poissonreg::poisson_reg(), "stan")}
-#'
-#' The standardized parameter names in parsnip can be mapped to their original
-#' names in each engine:
-#'
-#' ```{r echo = FALSE}
-#' parsnip::convert_args("poisson_reg")
-#' ```
+#' @includeRmd man/rmd/poission-reg-engine.Rmd details
 #'
 #' For `glmnet` models, the full regularization path is always fit regardless
 #' of the value given to `penalty`. Also, there is the option to pass
@@ -91,7 +60,6 @@
 #' that extended formula can be passed as usual. For [fit_xy()], the result
 #' will be to model the zero-counts with all of the predictors.
 #'
-#' @seealso [fit()], [fit_xy()], [set_engine()]
 #' @examples
 #' poisson_reg()
 #'
