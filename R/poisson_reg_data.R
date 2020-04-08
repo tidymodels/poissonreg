@@ -261,12 +261,12 @@ make_poisson_reg <- function() {
         res <-
           tibble(
             .pred_lower =
-              convert_stan_interval(
+              parsnip::convert_stan_interval(
                 results,
                 level = object$spec$method$pred$conf_int$extras$level
               ),
             .pred_upper =
-              convert_stan_interval(
+              parsnip::convert_stan_interval(
                 results,
                 level = object$spec$method$pred$conf_int$extras$level,
                 lower = FALSE
@@ -298,12 +298,12 @@ make_poisson_reg <- function() {
         res <-
           tibble(
             .pred_lower =
-              convert_stan_interval(
+              parsnip::convert_stan_interval(
                 results,
                 level = object$spec$method$pred$pred_int$extras$level
               ),
             .pred_upper =
-              convert_stan_interval(
+              parsnip::convert_stan_interval(
                 results,
                 level = object$spec$method$pred$pred_int$extras$level,
                 lower = FALSE

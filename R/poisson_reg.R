@@ -329,7 +329,7 @@ predict._fishnet <-
 
     object$spec$args$penalty <- check_penalty(penalty, object, multi)
 
-    object$spec <- eval_args(object$spec)
+    object$spec <- parsnip::eval_args(object$spec)
     predict.model_fit(object, new_data = new_data, type = type, opts = opts, ...)
   }
 
@@ -338,7 +338,7 @@ predict_numeric._fishnet <- function(object, new_data, ...) {
   if (any(names(enquos(...)) == "newdata"))
     rlang::abort("Did you mean to use `new_data` instead of `newdata`?")
 
-  object$spec <- eval_args(object$spec)
+  object$spec <- parsnip::eval_args(object$spec)
   parsnip::predict_numeric.model_fit(object, new_data = new_data, ...)
 }
 
@@ -359,7 +359,7 @@ predict_raw._fishnet <- function(object, new_data, opts = list(), ...)  {
   if (any(names(enquos(...)) == "newdata"))
     rlang::abort("Did you mean to use `new_data` instead of `newdata`?")
 
-  object$spec <- eval_args(object$spec)
+  object$spec <- parsnip::eval_args(object$spec)
   opts$s <- object$spec$args$penalty
   parsnip::predict_raw.model_fit(object, new_data = new_data, opts = opts, ...)
 }
@@ -377,7 +377,7 @@ multi_predict._fishnet <-
 
     dots <- list(...)
 
-    object$spec <- eval_args(object$spec)
+    object$spec <- parsnip::eval_args(object$spec)
 
     if (is.null(penalty)) {
       # See discussion in https://github.com/tidymodels/parsnip/issues/195
