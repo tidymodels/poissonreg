@@ -8,8 +8,8 @@ source("helper-objects.R")
 # ------------------------------------------------------------------------------
 
 test_that('stan_glm execution', {
-  # skip_if_not_installed("rstanarm")
-  # skip_on_cran()
+  skip_if_not_installed("rstanarm")
+  skip_on_cran()
 
   expect_error(
     res <- fit(
