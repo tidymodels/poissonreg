@@ -72,7 +72,7 @@ test_that('stan prediction', {
 
 
 test_that('stan intervals', {
-  skip_if_not_installed("rstanarm")
+  # skip_if_not_installed("rstanarm")
   skip_on_cran()
 
   res_xy <- fit_xy(
