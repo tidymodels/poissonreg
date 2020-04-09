@@ -5,9 +5,8 @@ source("helper-objects.R")
 # ------------------------------------------------------------------------------
 
 test_that('glmnet execution', {
-
+  skip_on_cran()
   skip_if_not_installed("glmnet")
-  # skip_if(run_glmnet)
 
   expect_error(
     res <- fit_xy(
@@ -44,9 +43,8 @@ test_that('glmnet execution', {
 })
 
 test_that('glmnet prediction, single lambda', {
-
+  skip_on_cran()
   skip_if_not_installed("glmnet")
-  # skip_if(run_glmnet)
 
   res_xy <- fit_xy(
     glmn_spec,
@@ -72,9 +70,8 @@ test_that('glmnet prediction, single lambda', {
 
 
 test_that('glmnet prediction, multiple lambda', {
-
+  skip_on_cran()
   skip_if_not_installed("glmnet")
-  # skip_if(run_glmnet)
 
   lams <- c(0, 0.00001)
 
@@ -171,9 +168,8 @@ test_that('glmnet prediction, multiple lambda', {
 })
 
 test_that('glmnet prediction, all lambda', {
-
+  skip_on_cran()
   skip_if_not_installed("glmnet")
-  # skip_if(run_glmnet)
 
   glmn_all <- poisson_reg(mixture = .3) %>%
     set_engine("glmnet")
@@ -223,9 +219,8 @@ test_that('glmnet prediction, all lambda', {
 
 
 test_that('submodel prediction', {
-
+  skip_on_cran()
   skip_if_not_installed("glmnet")
-  # skip_if(run_glmnet)
 
   reg_fit <-
     poisson_reg(penalty = 0.01) %>%
@@ -266,9 +261,8 @@ test_that('submodel prediction', {
 
 
 test_that('error traps', {
-
+  skip_on_cran()
   skip_if_not_installed("glmnet")
-  # skip_if(run_glmnet)
 
   expect_error(
     poisson_reg() %>%
