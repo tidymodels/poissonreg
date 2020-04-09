@@ -220,7 +220,7 @@ test_that('glmnet prediction, all lambda', {
 
 test_that('submodel prediction', {
   skip_on_cran()
-  skip_if_not_installed("glmnet")
+  # skip_if_not_installed("glmnet")
 
   reg_fit <-
     poisson_reg(penalty = 0.01) %>%
