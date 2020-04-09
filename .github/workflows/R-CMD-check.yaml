@@ -56,8 +56,8 @@ jobs:
         run: |
           remotes::install_deps(dependencies = TRUE)
           remotes::install_cran("rcmdcheck")
-          Rscript -e "try(remotes::install_cran('glmnet'), silent = TRUE)"
-          Rscript -e "try(remotes::install_cran('rstanarm'), silent = TRUE)"
+          try(remotes::install_cran('glmnet'), silent = TRUE)
+          try(remotes::install_cran('rstanarm'), silent = TRUE)
         shell: Rscript {0}
 
       - name: Check
