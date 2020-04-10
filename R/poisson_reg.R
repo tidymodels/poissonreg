@@ -324,8 +324,9 @@ predict_numeric._fishnet <- function(object, new_data, ...) {
 #' @export
 #' @keywords internal
 predict_raw._fishnet <- function(object, new_data, opts = list(), ...)  {
-  if (any(names(enquos(...)) == "newdata"))
+  if (any(names(enquos(...)) == "newdata")) {
     rlang::abort("Did you mean to use `new_data` instead of `newdata`?")
+  }
 
   object$spec <- parsnip::eval_args(object$spec)
   opts$s <- object$spec$args$penalty
