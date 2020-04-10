@@ -24,13 +24,3 @@ utils::globalVariables(
   # This defines poisson_reg in the model database
   make_poisson_reg()
 }
-
-# ------------------------------------------------------------------------------
-# The generic for predict_raw is not exported so make one here (if needed)
-
-if (!any(getNamespaceExports("parsnip") == "predict_raw")) {
-  predict_raw <- function(object, ...) {
-    UseMethod("predict_raw")
-  }
-}
-
