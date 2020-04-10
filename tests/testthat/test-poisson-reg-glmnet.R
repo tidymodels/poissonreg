@@ -1,6 +1,7 @@
 
 context("Poisson regression execution with glmnet")
-source("helper-objects.R")
+
+source(test_path("helper-objects.R"))
 
 # ------------------------------------------------------------------------------
 

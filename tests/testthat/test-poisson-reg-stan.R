@@ -1,9 +1,8 @@
 
 context("Poisson regression execution with stan")
 
-
-source("helpers.R")
-source("helper-objects.R")
+source(test_path("helpers.R"))
+source(test_path("helper-objects.R"))
 
 # ------------------------------------------------------------------------------
 
