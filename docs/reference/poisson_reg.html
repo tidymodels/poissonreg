@@ -85,7 +85,7 @@ in lieu of recreating the object from scratch." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">poissonreg</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1</span>
       </span>
     </div>
 
@@ -208,62 +208,61 @@ following <em>engines</em>:</p><ul>
 
     <h2 class="hasAnchor" id="engine-details"><a class="anchor" href="#engine-details"></a>Engine Details</h2>
 
-    
+    <p>Engines may have pre-set default arguments when executing the model fit
+call. For this type of model, the template of the fit calls are:<div class="r"></p><pre><span class='fu'>poisson_reg</span>() <span class='kw'>%&amp;gt;%</span>
+  <span class='fu'>set_engine</span>(<span class='st'>"glm"</span>) <span class='kw'>%&amp;gt;%</span>
+  <span class='fu'>translate</span>()</pre><p></div></p><pre>## Poisson Regression Model Specification (regression)
+## 
+## Computational engine: glm 
+## 
+## Model fit template:
+## stats::glm(formula = missing_arg(), data = missing_arg(), weights = missing_arg(), 
+##     family = stats::poisson)
+</pre><p><div class="r"></p><pre><span class='fu'>poisson_reg</span>() <span class='kw'>%&amp;gt;%</span>
+  <span class='fu'>set_engine</span>(<span class='st'>"zeroinfl"</span>) <span class='kw'>%&amp;gt;%</span>
+  <span class='fu'>translate</span>()</pre><p></div></p><pre>## Poisson Regression Model Specification (regression)
+## 
+## Computational engine: zeroinfl 
+## 
+## Model fit template:
+## pscl::zeroinfl(formula = missing_arg(), data = missing_arg(), 
+##     weights = missing_arg())
+</pre><p><div class="r"></p><pre><span class='fu'>poisson_reg</span>() <span class='kw'>%&amp;gt;%</span>
+  <span class='fu'>set_engine</span>(<span class='st'>"hurdle"</span>) <span class='kw'>%&amp;gt;%</span>
+  <span class='fu'>translate</span>()</pre><p></div></p><pre>## Poisson Regression Model Specification (regression)
+## 
+## Computational engine: hurdle 
+## 
+## Model fit template:
+## pscl::hurdle(formula = missing_arg(), data = missing_arg(), weights = missing_arg())
+</pre><p><div class="r"></p><pre><span class='fu'>poisson_reg</span>() <span class='kw'>%&amp;gt;%</span>
+  <span class='fu'>set_engine</span>(<span class='st'>"glmnet"</span>) <span class='kw'>%&amp;gt;%</span>
+  <span class='fu'>translate</span>()</pre><p></div></p><pre>## Poisson Regression Model Specification (regression)
+## 
+## Computational engine: glmnet 
+## 
+## Model fit template:
+## glmnet::glmnet(x = missing_arg(), y = missing_arg(), weights = missing_arg(), 
+##     family = "poisson")
+</pre><p><div class="r"></p><pre><span class='fu'>poisson_reg</span>() <span class='kw'>%&amp;gt;%</span>
+  <span class='fu'>set_engine</span>(<span class='st'>"stan"</span>) <span class='kw'>%&amp;gt;%</span>
+  <span class='fu'>translate</span>()</pre><p></div></p><pre>## Poisson Regression Model Specification (regression)
+## 
+## Computational engine: stan 
+## 
+## Model fit template:
+## rstanarm::stan_glm(formula = missing_arg(), data = missing_arg(), 
+##     weights = missing_arg(), family = stats::poisson)
+</pre>
 
-
-<p>Engines may have pre-set default arguments when executing the
-model fit call. For this type of
-model, the template of the fit calls are:</p>
-<p><span class="pkg">glm</span></p>
-<p><pre>
-<span class='kw pkg'>stats</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/r/stats/glm.html'>glm</a></span>(<span class='kw'>formula</span> <span class='kw'>=</span> <span class='fu'>missing_arg</span>(), <span class='kw'>data</span> <span class='kw'>=</span> <span class='fu'>missing_arg</span>(), <span class='kw'>weights</span> <span class='kw'>=</span> <span class='fu'>missing_arg</span>(),
-    <span class='kw'>family</span> <span class='kw'>=</span> <span class='kw pkg'>stats</span><span class='kw ns'>::</span><span class='no'><a href='https://rdrr.io/r/stats/family.html'>poisson</a></span>)</pre></p>
-<p><span class="pkg">zeroinfl</span></p>
-<p><pre>
-<span class='kw pkg'>pscl</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/pscl/man/zeroinfl.html'>zeroinfl</a></span>(<span class='kw'>formula</span> <span class='kw'>=</span> <span class='fu'>missing_arg</span>(), <span class='kw'>data</span> <span class='kw'>=</span> <span class='fu'>missing_arg</span>(),
-    <span class='kw'>weights</span> <span class='kw'>=</span> <span class='fu'>missing_arg</span>())</pre></p>
-<p><span class="pkg">hurdle</span></p>
-<p><pre>
-<span class='kw pkg'>pscl</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/pscl/man/hurdle.html'>hurdle</a></span>(<span class='kw'>formula</span> <span class='kw'>=</span> <span class='fu'>missing_arg</span>(), <span class='kw'>data</span> <span class='kw'>=</span> <span class='fu'>missing_arg</span>(), <span class='kw'>weights</span> <span class='kw'>=</span> <span class='fu'>missing_arg</span>())</pre></p>
-<p><span class="pkg">glmnet</span></p>
-<p><pre>
-<span class='kw pkg'>glmnet</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/glmnet/man/glmnet.html'>glmnet</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'>missing_arg</span>(), <span class='kw'>y</span> <span class='kw'>=</span> <span class='fu'>missing_arg</span>(), <span class='kw'>weights</span> <span class='kw'>=</span> <span class='fu'>missing_arg</span>(),
-    <span class='kw'>family</span> <span class='kw'>=</span> <span class='st'>"poisson"</span>)</pre></p>
-<p><span class="pkg">stan</span></p>
-<p><pre>
-<span class='kw pkg'>rstanarm</span><span class='kw ns'>::</span><span class='fu'><a href='https://mc-stan.org/rstanarm/reference/stan_glm.html'>stan_glm</a></span>(<span class='kw'>formula</span> <span class='kw'>=</span> <span class='fu'>missing_arg</span>(), <span class='kw'>data</span> <span class='kw'>=</span> <span class='fu'>missing_arg</span>(),
-    <span class='kw'>weights</span> <span class='kw'>=</span> <span class='fu'>missing_arg</span>(), <span class='kw'>family</span> <span class='kw'>=</span> <span class='kw pkg'>stats</span><span class='kw ns'>::</span><span class='no'><a href='https://rdrr.io/r/stats/family.html'>poisson</a></span>)</pre></p>
-<p>The standardized parameter names in parsnip can be mapped to their original
-names in each engine:</p><table class='table'>
+<p>The standardized parameter names in parsnip can be mapped to their
+original names in each engine that has main parameters:</p><table class='table'>
 <tr><td><strong>parsnip</strong></td><td><strong>glmnet</strong></td></tr>
 <tr><td>penalty</td><td>lambda</td></tr>
 <tr><td>mixture</td><td>alpha</td></tr>
 </table>
 
 
-
-<p>For <code>glmnet</code> models, the full regularization path is always fit regardless
-of the value given to <code>penalty</code>. Also, there is the option to pass
-multiple values (or no values) to the <code>penalty</code> argument. When using the
-<code><a href='https://rdrr.io/r/stats/predict.html'>predict()</a></code> method in these cases, the return value depends on
-the value of <code>penalty</code>. When using <code><a href='https://rdrr.io/r/stats/predict.html'>predict()</a></code>, only a single
-value of the penalty can be used. When predicting on multiple
-penalties, the <code>multi_predict()</code> function can be used. It
-returns a tibble with a list column called <code>.pred</code> that contains
-a tibble with all of the penalty results.</p>
-<p>For prediction, the <code>stan</code> engine can compute posterior
-intervals analogous to confidence and prediction intervals. In
-these instances, the units are the original outcome and when
-<code>std_error = TRUE</code>, the standard deviation of the posterior
-distribution (or posterior predictive distribution as
-appropriate) is returned.</p>
-<p>For the <code>hurdle</code> or <code>zeroinfl</code> engines, note that an extended formula can be
-used to add a model for the zero-count values. Using <code>fit()</code> for training,
-that extended formula can be passed as usual. For <code>fit_xy()</code>, the result
-will be to model the zero-counts with all of the predictors.</p>
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
-
-    <div class='dont-index'><p><code>fit()</code>, <code>fit_xy()</code>, <code>set_engine()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>poisson_reg</span>()</div><div class='output co'>#&gt; Poisson Regression Model Specification (regression)
@@ -317,7 +316,7 @@ will be to model the zero-counts with all of the predictors.</p>
 <span class='co'># Extended formula:</span>
   <span class='fu'>fit</span>(<span class='no'>art</span> ~ <span class='no'>.</span> <span class='kw'>|</span> <span class='no'>phd</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>bioChemists</span>)</div><div class='output co'>#&gt; parsnip model object
 #&gt; 
-#&gt; Fit time:  19ms 
+#&gt; Fit time:  21ms 
 #&gt; 
 #&gt; Call:
 #&gt; pscl::hurdle(formula = formula, data = data)

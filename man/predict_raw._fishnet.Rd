@@ -4,7 +4,7 @@
 \alias{predict_raw._fishnet}
 \title{Model predictions across many sub-models}
 \usage{
-predict_raw._fishnet(object, new_data, opts = list(), ...)
+\method{predict_raw}{`_fishnet`}(object, new_data, opts = list(), ...)
 }
 \arguments{
 \item{object}{A \code{model_fit} object.}
