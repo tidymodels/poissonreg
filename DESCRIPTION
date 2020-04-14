@@ -13,6 +13,8 @@ Description: Bindings for Poisson regression models for use with the
     Bayesian models, and zero-inflated Poisson models (Zeileis, Kleiber, and 
     Jackman (2008) <doi:10.18637/jss.v027.i08>). 
 License: MIT + file LICENSE
+URL: https://github.com/tidymodels/poissonreg
+BugReports: https://github.com/tidymodels/poissonreg/issues
 Depends: 
     parsnip (>= 0.1.0),
     R (>= 2.10)
@@ -27,8 +29,10 @@ Imports:
 Suggests: 
     testthat,
     pscl,
-    covr
+    covr,
+    spelling
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.0.9000
+Language: en-US
