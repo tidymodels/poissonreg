@@ -1,14 +1,20 @@
 Package: poissonreg
 Title: Model Wrappers for Poisson Regression
-Version: 0.0.0.9000
+Version: 0.0.1
 Authors@R: c(
-    person(given = "Max", family = "Kuhn", email = "max@rstudio.com", role = c("aut", "cre")),
+    person(given = "Max",
+           family = "Kuhn",
+           role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0003-2402-136X"),
+           email = "max@rstudio.com"),
     person("RStudio", role = "cph"))
 Description: Bindings for Poisson regression models for use with the 
     'parsnip' package. Models include simple generalized linear models, 
     Bayesian models, and zero-inflated Poisson models (Zeileis, Kleiber, and 
     Jackman (2008) <doi:10.18637/jss.v027.i08>). 
 License: MIT + file LICENSE
+URL: https://github.com/tidymodels/poissonreg
+BugReports: https://github.com/tidymodels/poissonreg/issues
 Depends: 
     parsnip (>= 0.1.0),
     R (>= 2.10)
@@ -22,14 +28,11 @@ Imports:
     glue
 Suggests: 
     testthat,
-    glmnet,
-    rstanarm,
     pscl,
-    covr
+    covr,
+    spelling
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.0.9000
-Remotes:
-    tidymodels/parsnip@0-1-0-rc,
-    stan-dev/rstanarm
+Language: en-US

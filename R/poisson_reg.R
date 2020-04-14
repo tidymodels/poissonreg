@@ -324,50 +324,11 @@ predict_numeric._fishnet <- function(object, new_data, ...) {
 #' @export
 #' @keywords internal
 predict_raw._fishnet <- function(object, new_data, opts = list(), ...)  {
-  if (any(names(enquos(...)) == "newdata"))
+  if (any(names(enquos(...)) == "newdata")) {
     rlang::abort("Did you mean to use `new_data` instead of `newdata`?")
+  }
 
   object$spec <- parsnip::eval_args(object$spec)
   opts$s <- object$spec$args$penalty
   parsnip::predict_raw.model_fit(object, new_data = new_data, opts = opts, ...)
 }
-
-#' Model predictions across many sub-models
-#' @importFrom dplyr full_join as_tibble arrange
-#' @importFrom tidyr gather
-#' @export
-#' @keywords internal
-#' @param penalty A numeric vector of penalty values.
-multi_predict._fishnet <-
-  function(object, new_data, type = NULL, penalty = NULL, ...) {
-    if (any(names(enquos(...)) == "newdata"))
-      rlang::abort("Did you mean to use `new_data` instead of `newdata`?")
-
-    dots <- list(...)
-
-    object$spec <- parsnip::eval_args(object$spec)
-
-    if (is.null(penalty)) {
-      # See discussion in https://github.com/tidymodels/parsnip/issues/195
-      if (!is.null(object$spec$args$penalty)) {
-        penalty <- object$spec$args$penalty
-      } else {
-        penalty <- object$fit$lambda
-      }
-    }
-
-    pred <- predict._fishnet(object, new_data = new_data, type = "raw",
-                           opts = dots, penalty = penalty, multi = TRUE)
-    param_key <- tibble(group = colnames(pred), penalty = penalty)
-    pred <- as_tibble(pred)
-    pred$.row <- 1:nrow(pred)
-    pred <- gather(pred, group, .pred, -.row)
-    pred <- full_join(param_key, pred, by = "group")
-    pred$group <- NULL
-    pred <- arrange(pred, .row, penalty)
-    .row <- pred$.row
-    pred$.row <- NULL
-    pred <- split(pred, .row)
-    names(pred) <- NULL
-    tibble(.pred = pred)
-  }
