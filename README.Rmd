@@ -26,13 +26,22 @@ poissonreg enables the parsnip package to fit various types of Poisson regressio
 
 ## Installation
 
+You can install the released version of poissonreg from [CRAN](https://CRAN.R-project.org) with:
+
 ``` r
-devtools::install_github("tidymodels/poissonreg")
+install.packages("poissonreg")
+```
+
+Install the development version from GitHub with:
+
+``` r
+require("devtools")
+install_github("tidymodels/poissonreg")
 ```
 
 ## Example
 
-A log-linear model for catgorical data analysis: 
+A log-linear model for categorical data analysis: 
 
 ```{r example}
 library(poissonreg)
@@ -42,4 +51,16 @@ poisson_reg() %>%
   set_engine("glm") %>% 
   fit(count ~ (.)^2, data = seniors)
 ```
+
+## Contributing
+
+This project is released with a [Contributor Code of Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.
+
+- For questions and discussions about tidymodels packages, modeling, and machine learning, please [post on RStudio Community](https://rstd.io/tidymodels-community).
+
+- If you think you have encountered a bug, please [submit an issue](https://github.com/tidymodels/poissonreg/issues).
+
+- Either way, learn how to create and share a [reprex](https://rstd.io/reprex) (a minimal, reproducible example), to clearly communicate about your code.
+
+- Check out further details on [contributing guidelines for tidymodels packages](https://www.tidymodels.org/contribute/) and [how to get help](https://www.tidymodels.org/help/).
 
