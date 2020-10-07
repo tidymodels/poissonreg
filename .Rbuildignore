@@ -10,3 +10,4 @@
 ^docs$
 ^\.covrignore$
 ^CODE_OF_CONDUCT\.md$
+^_pkgdown\.yml$
