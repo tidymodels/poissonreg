@@ -20,6 +20,7 @@ knitr::opts_chunk$set(
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![CRAN status](https://www.r-pkg.org/badges/version/poissonreg)](https://CRAN.R-project.org/package=poissonreg)
 [![Codecov test coverage](https://codecov.io/gh/tidymodels/poissonreg/branch/master/graph/badge.svg)](https://codecov.io/gh/tidymodels/poissonreg?branch=master)
+[![R-CMD-check](https://github.com/tidymodels/poissonreg/workflows/R-CMD-check/badge.svg)](https://github.com/tidymodels/poissonreg/actions)
 <!-- badges: end -->
 
 poissonreg enables the parsnip package to fit various types of Poisson regression models including ordinary generalized linear models, simple Bayesian models (via rstanarm), and two zero-inflated Poisson models (via pscl). 

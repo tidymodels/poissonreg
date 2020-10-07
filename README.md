@@ -13,6 +13,7 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 status](https://www.r-pkg.org/badges/version/poissonreg)](https://CRAN.R-project.org/package=poissonreg)
 [![Codecov test
 coverage](https://codecov.io/gh/tidymodels/poissonreg/branch/master/graph/badge.svg)](https://codecov.io/gh/tidymodels/poissonreg?branch=master)
+[![R-CMD-check](https://github.com/tidymodels/poissonreg/workflows/R-CMD-check/badge.svg)](https://github.com/tidymodels/poissonreg/actions)
 <!-- badges: end -->
 
 poissonreg enables the parsnip package to fit various types of Poisson
@@ -50,9 +51,10 @@ poisson_reg() %>%
   fit(count ~ (.)^2, data = seniors)
 #> parsnip model object
 #> 
-#> Fit time:  7ms 
+#> Fit time:  6ms 
 #> 
-#> Call:  stats::glm(formula = formula, family = stats::poisson, data = data)
+#> Call:  stats::glm(formula = count ~ (.)^2, family = stats::poisson, 
+#>     data = data)
 #> 
 #> Coefficients:
 #>               (Intercept)               marijuanayes  
