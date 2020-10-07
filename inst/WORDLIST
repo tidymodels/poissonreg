@@ -9,7 +9,9 @@ Kleiber
 Lifecycle
 pre
 pscl
+reprex
 rstanarm
 tibble
 tibbles
+tidymodels
 Zeileis

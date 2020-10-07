@@ -23,10 +23,10 @@ The only possible value for this model is "regression".}
 \item{penalty}{A non-negative number representing the total
 amount of regularization (\code{glmnet} only).}
 
-\item{mixture}{A number between zero and one (inclusive) that
-represents the proportion of regularization that is used for the
-L2 penalty (i.e. weight decay, or ridge regression) versus L1
-(the lasso) (\code{glmnet} only).}
+\item{mixture}{A number between zero and one (inclusive) that is the
+proportion of L1 regularization (i.e. lasso) in the model. When
+\code{mixture = 1}, it is a pure lasso model while \code{mixture = 0} indicates that
+ridge regression is being used. (\code{glmnet} and \code{spark} only).}
 
 \item{object}{A boosted tree model specification.}
 
@@ -51,8 +51,8 @@ arguments for the model are:
 \itemize{
 \item \code{penalty}: The total amount of regularization
 in the model. Note that this must be zero for some engines.
-\item \code{mixture}: The proportion of L1 regularization in
-the model. Note that this will be ignored for some engines.
+\item \code{mixture}: The mixture amounts of different types of
+regularization (see below). Note that this will be ignored for some engines.
 }
 These arguments are converted to their specific names at the
 time that the model is fit. Other options and argument can be
@@ -124,13 +124,6 @@ call. For this type of model, the template of the fit calls are:\if{html}{\out{<
 ## Model fit template:
 ## rstanarm::stan_glm(formula = missing_arg(), data = missing_arg(), 
 ##     weights = missing_arg(), family = stats::poisson)
-}
-
-The standardized parameter names in parsnip can be mapped to their
-original names in each engine that has main parameters:\tabular{ll}{
-   \strong{parsnip} \tab \strong{glmnet} \cr
-   penalty \tab lambda \cr
-   mixture \tab alpha \cr
 }
 }
 

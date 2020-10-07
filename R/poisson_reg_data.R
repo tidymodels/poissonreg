@@ -27,6 +27,18 @@ make_poisson_reg <- function() {
     )
   )
 
+  parsnip::set_encoding(
+    model = "poisson_reg",
+    eng = "glm",
+    mode = "regression",
+    options = list(
+      predictor_indicators = "none",
+      compute_intercept = FALSE,
+      remove_intercept = FALSE,
+      allow_sparse_x = FALSE
+    )
+  )
+
   parsnip::set_pred(
     model = "poisson_reg",
     eng = "glm",
@@ -73,6 +85,18 @@ make_poisson_reg <- function() {
       protect = c("formula", "data", "weights"),
       func = c(pkg = "pscl", fun = "hurdle"),
       defaults = list()
+    )
+  )
+
+  parsnip::set_encoding(
+    model = "poisson_reg",
+    eng = "hurdle",
+    mode = "regression",
+    options = list(
+      predictor_indicators = "none",
+      compute_intercept = FALSE,
+      remove_intercept = FALSE,
+      allow_sparse_x = FALSE
     )
   )
 
@@ -124,6 +148,18 @@ make_poisson_reg <- function() {
     )
   )
 
+  parsnip::set_encoding(
+    model = "poisson_reg",
+    eng = "zeroinfl",
+    mode = "regression",
+    options = list(
+      predictor_indicators = "none",
+      compute_intercept = FALSE,
+      remove_intercept = FALSE,
+      allow_sparse_x = FALSE
+    )
+  )
+
   parsnip::set_pred(
     model = "poisson_reg",
     eng = "zeroinfl",
@@ -169,6 +205,7 @@ make_poisson_reg <- function() {
     has_submodel = TRUE
   )
 
+
   parsnip::set_model_arg(
     model = "poisson_reg",
     eng = "glmnet",
@@ -187,6 +224,18 @@ make_poisson_reg <- function() {
       protect = c("x", "y", "weights"),
       func = c(pkg = "glmnet", fun = "glmnet"),
       defaults = list(family = "poisson")
+    )
+  )
+
+  parsnip::set_encoding(
+    model = "poisson_reg",
+    eng = "glmnet",
+    mode = "regression",
+    options = list(
+      predictor_indicators = "traditional",
+      compute_intercept = TRUE,
+      remove_intercept = TRUE,
+      allow_sparse_x = TRUE
     )
   )
 
@@ -239,6 +288,18 @@ make_poisson_reg <- function() {
       protect = c("formula", "data", "weights"),
       func = c(pkg = "rstanarm", fun = "stan_glm"),
       defaults = list(family = expr(stats::poisson))
+    )
+  )
+
+  parsnip::set_encoding(
+    model = "poisson_reg",
+    eng = "stan",
+    mode = "regression",
+    options = list(
+      predictor_indicators = "none",
+      compute_intercept = FALSE,
+      remove_intercept = FALSE,
+      allow_sparse_x = FALSE
     )
   )
 
