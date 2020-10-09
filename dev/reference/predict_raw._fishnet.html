@@ -128,7 +128,10 @@
     </div>
 
     <pre class="usage"><span class='co'># S3 method for `_fishnet`</span>
-<span class='fu'>predict_raw</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>new_data</span>, opts <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='va'>...</span><span class='op'>)</span></pre>
+<span class='fu'>predict_raw</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>new_data</span>, opts <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='va'>...</span><span class='op'>)</span>
+
+<span class='co'># S3 method for `_fishnet`</span>
+<span class='fu'>multi_predict</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>new_data</span>, type <span class='op'>=</span> <span class='cn'>NULL</span>, penalty <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -149,6 +152,10 @@
       <th>...</th>
       <td><p>Optional arguments to pass to <code>predict.model_fit(type = "raw")</code>
 such as <code>type</code>.</p></td>
+    </tr>
+    <tr>
+      <th>penalty</th>
+      <td><p>A numeric vector of penalty values.</p></td>
     </tr>
     </table>
 
