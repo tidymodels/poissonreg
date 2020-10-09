@@ -2,9 +2,12 @@
 % Please edit documentation in R/poisson_reg.R
 \name{predict_raw._fishnet}
 \alias{predict_raw._fishnet}
+\alias{multi_predict._fishnet}
 \title{Model predictions across many sub-models}
 \usage{
 \method{predict_raw}{`_fishnet`}(object, new_data, opts = list(), ...)
+
+\method{multi_predict}{`_fishnet`}(object, new_data, type = NULL, penalty = NULL, ...)
 }
 \arguments{
 \item{object}{A \code{model_fit} object.}
@@ -15,6 +18,8 @@
 
 \item{...}{Optional arguments to pass to \code{predict.model_fit(type = "raw")}
 such as \code{type}.}
+
+\item{penalty}{A numeric vector of penalty values.}
 }
 \value{
 A tibble with the same number of rows as the data being predicted.

@@ -15,17 +15,6 @@ utils::globalVariables(
 # nocov end
 
 # ------------------------------------------------------------------------------
-
-# The functions below define the model information. These access the model
-# environment inside of parsnip so they have to be executed once parsnip has
-# been loaded.
-
-.onLoad <- function(libname, pkgname) {
-  # This defines poisson_reg in the model database
-  make_poisson_reg()
-}
-
-# ------------------------------------------------------------------------------
 # The generic for predict_raw is not exported so make one here (if needed)
 
 if (!any(getNamespaceExports("parsnip") == "predict_raw")) {
