@@ -190,14 +190,6 @@ test_that('glm execution', {
     )
   )
 
-  glm_form_catch <- fit(
-    glm_spec,
-    y ~ x,
-    data = seniors,
-    control = caught_ctrl
-  )
-  expect_true(inherits(glm_form_catch$fit, "try-error"))
-
 })
 
 test_that('glm prediction', {
