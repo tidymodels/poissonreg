@@ -251,7 +251,7 @@ make_poisson_reg <- function() {
       args =
         list(
           object = expr(object$fit),
-          newx = expr(as.matrix(new_data)),
+          newx = expr(as.matrix(new_data[, rownames(object$fit$beta)])),
           type = "response",
           s = expr(object$spec$args$penalty)
         )
@@ -269,7 +269,7 @@ make_poisson_reg <- function() {
       func = c(fun = "predict"),
       args =
         list(object = expr(object$fit),
-             newx = expr(as.matrix(new_data)))
+             newx = expr(as.matrix(new_data[, rownames(object$fit$beta)])))
     )
   )
 
