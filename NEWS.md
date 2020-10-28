@@ -1,3 +1,5 @@
+# poissonreg (development version)
+
 # poissonreg 0.1.0
 
 * Work-around for a `glmnet` bug where different column order will silently produce incorrect predictions. 
