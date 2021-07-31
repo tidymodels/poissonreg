@@ -32,9 +32,9 @@ make_poisson_reg <- function() {
     eng = "glm",
     mode = "regression",
     options = list(
-      predictor_indicators = "none",
-      compute_intercept = FALSE,
-      remove_intercept = FALSE,
+      predictor_indicators = "traditional",
+      compute_intercept = TRUE,
+      remove_intercept = TRUE,
       allow_sparse_x = FALSE
     )
   )
