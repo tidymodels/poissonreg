@@ -1,5 +1,7 @@
 # poissonreg (development version)
 
+* Added `tidy()` methods for `pscl::hurdle()` and `pscl::zeroinfl()`.
+
 # poissonreg 0.1.0
 
 * Work-around for a `glmnet` bug where different column order will silently produce incorrect predictions. 
