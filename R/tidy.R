@@ -1,17 +1,17 @@
 
-tidy_mat <- function(x, model) {
+tidy_mat <- function(x, type) {
   ret <- tibble::as_tibble(x, rownames = "term")
   colnames(ret) <- c("term", "estimate", "std.error", "statistic", "p.value")
-  ret$model <- model
-  dplyr::relocate(ret, model, .after = "term")
+  ret$type <- type
+  dplyr::relocate(ret, type, .after = "term")
 }
 
-.tidy <- function(x, model = "count", ...) {
-  model <- rlang::arg_match0(model, c("count", "zero", "all"), "model")
+.tidy <- function(x, type = "count", ...) {
+  type <- rlang::arg_match0(type, c("count", "zero", "all"), "type")
   x <- summary(x)
-  if (model == "count") {
+  if (type == "count") {
     res <- tidy_mat(x$coefficients$count, "count")
-  } else if (model == "zero") {
+  } else if (type == "zero") {
     res <- tidy_mat(x$coefficients$zero, "zero")
   } else {
     res <-
@@ -27,7 +27,7 @@ tidy_mat <- function(x, model) {
 #' Turn zero-inflated model results into a tidy tibble
 #'
 #' @param x A `hurdle` or `zeroinfl` model object.
-#' @param model A character string for which model coefficients to return:
+#' @param type A character string for which model coefficients to return:
 #' "all", "count", or "zero".
 #' @param ... Not currently used.
 #' @return A tibble

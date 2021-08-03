@@ -6,14 +6,14 @@
 \alias{tidy.hurdle}
 \title{Turn zero-inflated model results into a tidy tibble}
 \usage{
-\method{tidy}{zeroinfl}(x, model = "count", ...)
+\method{tidy}{zeroinfl}(x, type = "count", ...)
 
-\method{tidy}{hurdle}(x, model = "count", ...)
+\method{tidy}{hurdle}(x, type = "count", ...)
 }
 \arguments{
 \item{x}{A \code{hurdle} or \code{zeroinfl} model object.}
 
-\item{model}{A character string for which model coefficients to return:
+\item{type}{A character string for which model coefficients to return:
 "all", "count", or "zero".}
 
 \item{...}{Not currently used.}
