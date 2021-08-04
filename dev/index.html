@@ -14,10 +14,10 @@
 <script src="pkgdown.js"></script><link href="tidyverse-2.css" rel="stylesheet">
 <!--optional theme--><link href="tidymodels.css" rel="stylesheet">
 <meta property="og:title" content="Model Wrappers for Poisson Regression">
-<meta property="og:description" content="Bindings for Poisson regression models for use with the 
-    parsnip package. Models include simple generalized linear models, 
-    Bayesian models, and zero-inflated Poisson models (Zeileis, Kleiber, and 
-    Jackman (2008) &lt;doi:10.18637/jss.v027.i08&gt;). ">
+<meta property="og:description" content="Bindings for Poisson regression models for use with the
+    parsnip package. Models include simple generalized linear models,
+    Bayesian models, and zero-inflated Poisson models (Zeileis, Kleiber,
+    and Jackman (2008) &lt;doi:10.18637/jss.v027.i08&gt;).">
 <meta name="twitter:card" content="summary">
 <meta name="robots" content="noindex">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
@@ -86,7 +86,7 @@
 <p>poissonreg enables the parsnip package to fit various types of Poisson regression models including ordinary generalized linear models, simple Bayesian models (via rstanarm), and two zero-inflated Poisson models (via pscl).</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
-<a href="#installation" class="anchor"></a>Installation</h2>
+<a href="#installation" class="anchor" aria-hidden="true"></a>Installation</h2>
 <p>You can install the released version of poissonreg from <a href="https://CRAN.R-project.org" class="external-link">CRAN</a> with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"poissonreg"</span><span class="op">)</span></code></pre></div>
@@ -97,16 +97,16 @@
 </div>
 <div id="example" class="section level2">
 <h2 class="hasAnchor">
-<a href="#example" class="anchor"></a>Example</h2>
+<a href="#example" class="anchor" aria-hidden="true"></a>Example</h2>
 <p>A log-linear model for categorical data analysis:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/tidymodels/poissonreg" class="external-link">poissonreg</a></span><span class="op">)</span>
 <span class="co">#&gt; Loading required package: parsnip</span>
 
 <span class="co"># 3D contingency table from Agresti (2007): </span>
-<span class="fu"><a href="reference/poisson_reg.html">poisson_reg</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu">set_engine</span><span class="op">(</span><span class="st">"glm"</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu">fit</span><span class="op">(</span><span class="va">count</span> <span class="op">~</span> <span class="op">(</span><span class="va">.</span><span class="op">)</span><span class="op">^</span><span class="fl">2</span>, data <span class="op">=</span> <span class="va">seniors</span><span class="op">)</span>
+<span class="fu"><a href="reference/poisson_reg.html">poisson_reg</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
+  <span class="fu"><a href="https://parsnip.tidymodels.org/reference/set_engine.html" class="external-link">set_engine</a></span><span class="op">(</span><span class="st">"glm"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
+  <span class="fu"><a href="https://generics.r-lib.org/reference/fit.html" class="external-link">fit</a></span><span class="op">(</span><span class="va">count</span> <span class="op">~</span> <span class="op">(</span><span class="va">.</span><span class="op">)</span><span class="op">^</span><span class="fl">2</span>, data <span class="op">=</span> <span class="va">seniors</span><span class="op">)</span>
 <span class="co">#&gt; parsnip model object</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Fit time:  6ms </span>
@@ -130,7 +130,7 @@
 </div>
 <div id="contributing" class="section level2">
 <h2 class="hasAnchor">
-<a href="#contributing" class="anchor"></a>Contributing</h2>
+<a href="#contributing" class="anchor" aria-hidden="true"></a>Contributing</h2>
 <p>This project is released with a <a href="https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html" class="external-link">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
 <ul>
 <li><p>For questions and discussions about tidymodels packages, modeling, and machine learning, please <a href="https://rstd.io/tidymodels-community" class="external-link">post on RStudio Community</a>.</p></li>
