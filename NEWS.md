@@ -1,5 +1,7 @@
 # poissonreg (development version)
 
+* A default engine of `glm` was added for `poisson_reg()`. 
+
 * Added `tidy()` methods for `pscl::hurdle()` and `pscl::zeroinfl()`.
 
 # poissonreg 0.1.0

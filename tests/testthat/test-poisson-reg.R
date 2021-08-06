@@ -224,12 +224,3 @@ test_that('newdata error trapping', {
   )
   expect_error(predict(res_xy, newdata = seniors[1:3, 1:3]), "Did you mean")
 })
-
-test_that('default engine', {
-  expect_warning(
-    fit <- poisson_reg() %>% fit(mpg ~ ., data = mtcars),
-    "Engine set to"
-  )
-  expect_true(inherits(fit$fit, "glm"))
-})
-

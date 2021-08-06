@@ -3,9 +3,14 @@
 \name{poisson_reg}
 \alias{poisson_reg}
 \alias{update.poisson_reg}
-\title{General Interface for Poisson Regression Models}
+\title{Poisson regression models}
 \usage{
-poisson_reg(mode = "regression", penalty = NULL, mixture = NULL)
+poisson_reg(
+  mode = "regression",
+  penalty = NULL,
+  mixture = NULL,
+  engine = "glm"
+)
 
 \method{update}{poisson_reg}(
   object,
@@ -28,6 +33,9 @@ proportion of L1 regularization (i.e. lasso) in the model. When
 \code{mixture = 1}, it is a pure lasso model while \code{mixture = 0} indicates that
 ridge regression is being used. (\code{glmnet} and \code{spark} only).}
 
+\item{engine}{A single character string specifying what computational engine
+to use for fitting.}
+
 \item{object}{A boosted tree model specification.}
 
 \item{parameters}{A 1-row tibble or named list with \emph{main}
@@ -44,89 +52,23 @@ modified in-place of or replaced wholesale.}
 An updated model specification.
 }
 \description{
-\code{poisson_reg()} is a way to generate a \emph{specification} of a model
-before fitting and allows the model to be created using
-different packages in R or Stan. The main
-arguments for the model are:
-\itemize{
-\item \code{penalty}: The total amount of regularization
-in the model. Note that this must be zero for some engines.
-\item \code{mixture}: The mixture amounts of different types of
-regularization (see below). Note that this will be ignored for some engines.
-}
-These arguments are converted to their specific names at the
-time that the model is fit. Other options and argument can be
-set using \code{set_engine()}. If left to their defaults
-here (\code{NULL}), the values are taken from the underlying model
-functions. If parameters need to be modified, \code{update()} can be used
-in lieu of recreating the object from scratch.
+\code{poisson_reg()} defines a generalized linear model for count data that follow
+a Poisson distribution.
+There are different ways to fit this model. See the engine-specific pages
+for more details:
+
+\Sexpr[stage=render,results=rd]{parsnip:::make_engine_list("poisson_reg", "poissonreg")}
+
+More information on how \pkg{parsnip} is used for modeling is at
+\url{https://www.tidymodels.org/}.
 }
 \details{
-The data given to the function are not saved and are only used
-to determine the \emph{mode} of the model. For \code{poisson_reg()}, the
-mode will always be "regression".
+This function only defines what \emph{type} of model is being fit. Once an engine
+is specified, the \emph{method} to fit the model is also defined.
 
-The model can be created using the \code{fit()} function using the
-following \emph{engines}:
-\itemize{
-\item \pkg{R}:  \code{"glm"}  (the default), \code{"glmnet"}, \code{"hurdle"}, or \code{"zeroinfl"}
-\item \pkg{Stan}:  \code{"stan"}
+The model is not trained or fit until the \code{\link[=fit.model_spec]{fit.model_spec()}} function is used
+with the data.
 }
-}
-\section{Engine Details}{
-Engines may have pre-set default arguments when executing the model fit
-call. For this type of model, the template of the fit calls are:\if{html}{\out{<div class="r">}}\preformatted{poisson_reg() \%>\% 
-  set_engine("glm") \%>\% 
-  translate()
-}\if{html}{\out{</div>}}\preformatted{## Poisson Regression Model Specification (regression)
-## 
-## Computational engine: glm 
-## 
-## Model fit template:
-## stats::glm(formula = missing_arg(), data = missing_arg(), weights = missing_arg(), 
-##     family = stats::poisson)
-}\if{html}{\out{<div class="r">}}\preformatted{poisson_reg() \%>\% 
-  set_engine("zeroinfl") \%>\% 
-  translate()
-}\if{html}{\out{</div>}}\preformatted{## Poisson Regression Model Specification (regression)
-## 
-## Computational engine: zeroinfl 
-## 
-## Model fit template:
-## pscl::zeroinfl(formula = missing_arg(), data = missing_arg(), 
-##     weights = missing_arg())
-}\if{html}{\out{<div class="r">}}\preformatted{poisson_reg() \%>\% 
-  set_engine("hurdle") \%>\% 
-  translate()
-}\if{html}{\out{</div>}}\preformatted{## Poisson Regression Model Specification (regression)
-## 
-## Computational engine: hurdle 
-## 
-## Model fit template:
-## pscl::hurdle(formula = missing_arg(), data = missing_arg(), weights = missing_arg())
-}\if{html}{\out{<div class="r">}}\preformatted{poisson_reg() \%>\% 
-  set_engine("glmnet") \%>\% 
-  translate()
-}\if{html}{\out{</div>}}\preformatted{## Poisson Regression Model Specification (regression)
-## 
-## Computational engine: glmnet 
-## 
-## Model fit template:
-## glmnet::glmnet(x = missing_arg(), y = missing_arg(), weights = missing_arg(), 
-##     family = "poisson")
-}\if{html}{\out{<div class="r">}}\preformatted{poisson_reg() \%>\% 
-  set_engine("stan") \%>\% 
-  translate()
-}\if{html}{\out{</div>}}\preformatted{## Poisson Regression Model Specification (regression)
-## 
-## Computational engine: stan 
-## 
-## Model fit template:
-## rstanarm::stan_glm(formula = missing_arg(), data = missing_arg(), 
-##     weights = missing_arg(), family = stats::poisson)
-}
-}
-
 \examples{
 poisson_reg()
 
@@ -153,4 +95,10 @@ model <- poisson_reg(penalty = 10, mixture = 0.1)
 model
 update(model, penalty = 1)
 update(model, penalty = 1, fresh = TRUE)
+}
+\references{
+\url{https://www.tidymodels.org}, \href{https://tmwr.org}{\emph{Tidy Models with R}}
+}
+\seealso{
+\Sexpr[stage=render,results=rd]{parsnip:::make_seealso_list("poisson_reg", "poissonreg")}
 }

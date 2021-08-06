@@ -1,21 +1,19 @@
-#' General Interface for Poisson Regression Models
+#' Poisson regression models
 #'
-#' `poisson_reg()` is a way to generate a _specification_ of a model
-#'  before fitting and allows the model to be created using
-#'  different packages in R or Stan. The main
-#'  arguments for the model are:
-#' \itemize{
-#'   \item \code{penalty}: The total amount of regularization
-#'  in the model. Note that this must be zero for some engines.
-#'   \item \code{mixture}: The mixture amounts of different types of
-#'   regularization (see below). Note that this will be ignored for some engines.
-#' }
-#' These arguments are converted to their specific names at the
-#'  time that the model is fit. Other options and argument can be
-#'  set using `set_engine()`. If left to their defaults
-#'  here (`NULL`), the values are taken from the underlying model
-#'  functions. If parameters need to be modified, `update()` can be used
-#'  in lieu of recreating the object from scratch.
+#' @description
+#'
+#' `poisson_reg()` defines a generalized linear model for count data that follow
+#' a Poisson distribution.
+
+#' There are different ways to fit this model. See the engine-specific pages
+#' for more details:
+#'
+#' \Sexpr[stage=render,results=rd]{parsnip:::make_engine_list("poisson_reg", "poissonreg")}
+#'
+#' More information on how \pkg{parsnip} is used for modeling is at
+#' \url{https://www.tidymodels.org/}.
+#' @param engine A single character string specifying what computational engine
+#'  to use for fitting.
 #' @param mode A single character string for the type of model.
 #'  The only possible value for this model is "regression".
 #' @param penalty A non-negative number representing the total
@@ -24,42 +22,12 @@
 #'  proportion of L1 regularization (i.e. lasso) in the model. When
 #'  `mixture = 1`, it is a pure lasso model while `mixture = 0` indicates that
 #'  ridge regression is being used. (`glmnet` and `spark` only).
-#' @details
-#' The data given to the function are not saved and are only used
-#'  to determine the _mode_ of the model. For `poisson_reg()`, the
-#'  mode will always be "regression".
 #'
-#' The model can be created using the `fit()` function using the
-#'  following _engines_:
-#' \itemize{
-#' \item \pkg{R}:  `"glm"`  (the default), `"glmnet"`, `"hurdle"`, or `"zeroinfl"`
-#' \item \pkg{Stan}:  `"stan"`
-#' }
+#' @template spec-details
 #'
-#' @includeRmd man/rmd/poission-reg-engine.Rmd details
+#' @template spec-references
 #'
-#' For `glmnet` models, the full regularization path is always fit regardless
-#' of the value given to `penalty`. Also, there is the option to pass
-#'  multiple values (or no values) to the `penalty` argument. When using the
-#'  `predict()` method in these cases, the return value depends on
-#'  the value of `penalty`. When using `predict()`, only a single
-#'  value of the penalty can be used. When predicting on multiple
-#'  penalties, the `multi_predict()` function can be used. It
-#'  returns a tibble with a list column called `.pred` that contains
-#'  a tibble with all of the penalty results.
-#'
-#' For prediction, the `stan` engine can compute posterior
-#'  intervals analogous to confidence and prediction intervals. In
-#'  these instances, the units are the original outcome and when
-#'  `std_error = TRUE`, the standard deviation of the posterior
-#'  distribution (or posterior predictive distribution as
-#'  appropriate) is returned.
-#'
-#' For the `hurdle` or `zeroinfl` engines, note that an extended formula can be
-#' used to add a model for the zero-count values. Using [fit()] for training,
-#' that extended formula can be passed as usual. For [fit_xy()], the result
-#' will be to model the zero-counts with all of the predictors.
-#'
+#' @seealso \Sexpr[stage=render,results=rd]{parsnip:::make_seealso_list("poisson_reg", "poissonreg")}
 #' @examples
 #' poisson_reg()
 #'
@@ -87,7 +55,8 @@
 poisson_reg <-
   function(mode = "regression",
            penalty = NULL,
-           mixture = NULL) {
+           mixture = NULL,
+           engine = "glm") {
 
     args <- list(
       penalty = enquo(penalty),
@@ -100,7 +69,7 @@ poisson_reg <-
       eng_args = NULL,
       mode = mode,
       method = NULL,
-      engine = NULL
+      engine = engine
     )
   }
 
