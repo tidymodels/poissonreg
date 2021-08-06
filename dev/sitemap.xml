@@ -25,6 +25,21 @@
     <loc>https://poissonreg.tidymodels.org/news/index.html</loc>
   </url>
   <url>
+    <loc>https://poissonreg.tidymodels.org/reference/details_poisson_reg_glm.html</loc>
+  </url>
+  <url>
+    <loc>https://poissonreg.tidymodels.org/reference/details_poisson_reg_glmnet.html</loc>
+  </url>
+  <url>
+    <loc>https://poissonreg.tidymodels.org/reference/details_poisson_reg_hurdle.html</loc>
+  </url>
+  <url>
+    <loc>https://poissonreg.tidymodels.org/reference/details_poisson_reg_stan.html</loc>
+  </url>
+  <url>
+    <loc>https://poissonreg.tidymodels.org/reference/details_poisson_reg_zeroinfl.html</loc>
+  </url>
+  <url>
     <loc>https://poissonreg.tidymodels.org/reference/index.html</loc>
   </url>
   <url>
