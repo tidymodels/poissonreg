@@ -4,7 +4,7 @@
 \alias{details_poisson_reg_glmnet}
 \title{Poisson regression via glmnet}
 \description{
-\code{\link[glmnet:glmnet]{glmnet::glmnet()}} uses penalized maximum likelihood to fit a model for
+`glmnet::glmnet()`` uses penalized maximum likelihood to fit a model for
 count data.
 }
 \details{
@@ -55,8 +55,8 @@ Predictors should have the same scale. One way to achieve this is to
 center and scale each so that each predictor has mean zero and a
 variance of one.
 
-By default, \code{\link[glmnet:glmnet]{glmnet::glmnet()}} uses the argument
-\code{standardize = TRUE} to center and scale the data.
+By default, \code{glmnet::glmnet()} uses the argument \code{standardize = TRUE} to
+center and scale the data.
 }
 }
 \keyword{internal}
