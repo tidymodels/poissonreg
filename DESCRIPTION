@@ -39,3 +39,5 @@ Language: en-US
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
+Remotes:
+    tidymodels/parsnip@model-migration

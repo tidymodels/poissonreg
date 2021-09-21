@@ -52,7 +52,7 @@ poisson_reg() \%>\%
   fit(art ~ fem + mar | ment, data = bioChemists)
 }\if{html}{\out{</div>}}\preformatted{## parsnip model object
 ## 
-## Fit time:  20ms 
+## Fit time:  17ms 
 ## 
 ## Call:
 ## pscl::zeroinfl(formula = art ~ fem + mar | ment, data = data)

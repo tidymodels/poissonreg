@@ -51,7 +51,7 @@ poisson_reg() \%>\%
   fit(art ~ fem + mar | ment, data = bioChemists)
 }\if{html}{\out{</div>}}\preformatted{## parsnip model object
 ## 
-## Fit time:  20ms 
+## Fit time:  18ms 
 ## 
 ## Call:
 ## pscl::hurdle(formula = art ~ fem + mar | ment, data = data)

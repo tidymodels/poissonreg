@@ -4,7 +4,7 @@
 \alias{details_poisson_reg_glmnet}
 \title{Poisson regression via glmnet}
 \description{
-`glmnet::glmnet()`` uses penalized maximum likelihood to fit a model for
+\code{glmnet::glmnet()} uses penalized maximum likelihood to fit a model for
 count data.
 }
 \details{
