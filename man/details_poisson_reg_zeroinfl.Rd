@@ -15,7 +15,7 @@ For this engine, there is a single mode: regression
 This engine has no tuning parameters.
 }
 
-\subsection{Translation from parsnip to the underlying model call (regression)}{\if{html}{\out{<div class="r">}}\preformatted{poisson_reg() \%>\%
+\subsection{Translation from parsnip to the underlying model call (regression)}{\if{html}{\out{<div class="sourceCode r">}}\preformatted{poisson_reg() \%>\%
   set_engine("zeroinfl") \%>\%
   translate()
 }\if{html}{\out{</div>}}\preformatted{## Poisson Regression Model Specification (regression)
@@ -43,7 +43,7 @@ of zero counts. These sets of terms are separated by a bar. For example,
 infrastructure (e.g. \code{model.matrix()})
 
 When fitting a parsnip model with this engine directly, the formula
-method is required and the formula is just passed through. For example:\if{html}{\out{<div class="r">}}\preformatted{library(tidymodels)
+method is required and the formula is just passed through. For example:\if{html}{\out{<div class="sourceCode r">}}\preformatted{library(tidymodels)
 tidymodels_prefer()
 
 data("bioChemists", package = "pscl")
@@ -52,7 +52,7 @@ poisson_reg() \%>\%
   fit(art ~ fem + mar | ment, data = bioChemists)
 }\if{html}{\out{</div>}}\preformatted{## parsnip model object
 ## 
-## Fit time:  29ms 
+## Fit time:  20ms 
 ## 
 ## Call:
 ## pscl::zeroinfl(formula = art ~ fem + mar | ment, data = data)
@@ -69,7 +69,7 @@ poisson_reg() \%>\%
 However, when using a workflow, the best approach is to avoid using
 \code{\link[workflows:add_formula]{workflows::add_formula()}} and use
 \code{\link[workflows:add_variables]{workflows::add_variables()}} in
-conjunction with a model formula:\if{html}{\out{<div class="r">}}\preformatted{data("bioChemists", package = "pscl")
+conjunction with a model formula:\if{html}{\out{<div class="sourceCode r">}}\preformatted{data("bioChemists", package = "pscl")
 spec <- 
   poisson_reg() \%>\% 
   set_engine("zeroinfl")

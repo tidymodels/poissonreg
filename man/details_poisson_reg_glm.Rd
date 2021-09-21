@@ -13,7 +13,7 @@ For this engine, there is a single mode: regression
 This engine has no tuning parameters.
 }
 
-\subsection{Translation from parsnip to the underlying model call (regression)}{\if{html}{\out{<div class="r">}}\preformatted{poisson_reg() \%>\%
+\subsection{Translation from parsnip to the underlying model call (regression)}{\if{html}{\out{<div class="sourceCode r">}}\preformatted{poisson_reg() \%>\%
   set_engine("glm") \%>\%
   translate()
 }\if{html}{\out{</div>}}\preformatted{## Poisson Regression Model Specification (regression)

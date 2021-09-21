@@ -8,7 +8,6 @@
 
 .onLoad <- function(libname, pkgname) {
   make_poisson_reg()
-  s3_register("parsnip::multi_predict", "_fishnet")
 }
 
 ## -----------------------------------------------------------------------------
