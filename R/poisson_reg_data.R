@@ -242,7 +242,7 @@ make_poisson_reg <- function() {
     type = "numeric",
     value = list(
       pre = NULL,
-      post = organize_glmnet_pred,
+      post = parsnip::.organize_glmnet_pred,
       func = c(fun = "predict"),
       args =
         list(
