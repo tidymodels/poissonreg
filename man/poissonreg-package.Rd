@@ -15,7 +15,7 @@ The model function works with the tidymodels infrastructure so that the model
 can be resampled, tuned, tided, etc.
 }
 \section{Example}{
-Let’s a model to the data from Agresti (2007) Table 7.6:\if{html}{\out{<div class="sourceCode r">}}\preformatted{library(poissonreg)
+Let’s fit a model to the data from Agresti (2007) Table 7.6:\if{html}{\out{<div class="sourceCode r">}}\preformatted{library(poissonreg)
 library(tidymodels)
 tidymodels_prefer()
 

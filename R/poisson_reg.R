@@ -1,20 +1,3 @@
-#' @export
-translate.poisson_reg <- function(x, engine = x$engine, ...) {
-  x <- parsnip::translate.default(x, engine, ...)
-
-  if (engine == "glmnet") {
-    # See discussion in https://github.com/tidymodels/parsnip/issues/195
-    x$method$fit$args$lambda <- NULL
-    # Since the `fit` infomration is gone for the penalty, we need to have an
-    # evaludated value for the parameter.
-    x$args$penalty <- rlang::eval_tidy(x$args$penalty)
-  }
-
-  x
-}
-
-
-# ------------------------------------------------------------------------------
 
 check_args.poisson_reg <- function(object) {
 
