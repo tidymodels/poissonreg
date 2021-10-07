@@ -69,15 +69,9 @@ count data." />
   gtag('config', 'UA-115082821-1');
 </script>
 
-  
-
-  
-
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    
-
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -139,15 +133,15 @@ count data.</p>
 
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>For this engine, there is a single mode: regression</p><h3 class='hasAnchor' id='tuning-parameters'><a class='anchor' aria-hidden='true' href='#tuning-parameters'></a>Tuning Parameters</h3>
+    <p>For this engine, there is a single mode: regression</p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Tuning Parameters</h3>
 
 
 <p>This engine has no tuning parameters.</p>
 
-<h3 class='hasAnchor' id='important-engine-specific-options'><a class='anchor' aria-hidden='true' href='#important-engine-specific-options'></a>Important engine-specific options</h3>
+<h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Important engine-specific options</h3>
 
 
-<p>Some relevant arguments that can be passed to <code><a href='https://parsnip.tidymodels.org/reference/set_engine.html'>set_engine()</a></code>:</p><ul>
+<p>Some relevant arguments that can be passed to <code>set_engine()</code>:</p><ul>
 <li><p><code>chains</code>: A positive integer specifying the number of Markov chains.
 The default is 4.</p></li>
 <li><p><code>iter</code>: A positive integer specifying the number of iterations for
@@ -166,32 +160,32 @@ centering all predictors).</p></li>
 <code>rstanarm::priors()</code> for more information on these
 and other options.</p>
 
-<h3 class='hasAnchor' id='translation-from-parsnip-to-the-original-package'><a class='anchor' aria-hidden='true' href='#translation-from-parsnip-to-the-original-package'></a>Translation from parsnip to the original package</h3>
-<p><div class="r"></p><pre class='sourceCode r'><code><span class='fu'><a href='poisson_reg.html'>poisson_reg</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
-  <span class='fu'><a href='https://parsnip.tidymodels.org/reference/set_engine.html'>set_engine</a></span><span class='op'>(</span><span class='st'>"stan"</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> 
-  <span class='fu'><a href='https://parsnip.tidymodels.org/reference/translate.html'>translate</a></span><span class='op'>(</span><span class='op'>)</span>
-</code></pre><p></div></p><pre class='sourceCode r'><code><span class='co'>## Poisson Regression Model Specification (regression)</span>
+<h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Translation from parsnip to the original package</h3>
+<p><div class="sourceCode r"></p><pre><span class='fu'>poisson_reg</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>set_engine</span><span class='op'>(</span><span class='st'>"stan"</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>translate</span><span class='op'>(</span><span class='op'>)</span>
+</pre><p></div></p><pre><span class='co'>## Poisson Regression Model Specification (regression)</span>
 <span class='co'>## </span>
 <span class='co'>## Computational engine: stan </span>
 <span class='co'>## </span>
 <span class='co'>## Model fit template:</span>
 <span class='co'>## rstanarm::stan_glm(formula = missing_arg(), data = missing_arg(), </span>
 <span class='co'>##     weights = missing_arg(), family = stats::poisson)</span>
-</code></pre>
+</pre>
 
 <p>Note that the <code>refresh</code> default prevents logging of the estimation
-process. Change this value in <code><a href='https://parsnip.tidymodels.org/reference/set_engine.html'>set_engine()</a></code> to show the MCMC logs.</p>
+process. Change this value in <code>set_engine()</code> to show the MCMC logs.</p>
 
-<h3 class='hasAnchor' id='preprocessing-requirements'><a class='anchor' aria-hidden='true' href='#preprocessing-requirements'></a>Preprocessing requirements</h3>
+<h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Preprocessing requirements</h3>
 
 
 <p>Factor/categorical predictors need to be converted to numeric values
 (e.g., dummy or indicator variables) for this engine. When using the
 formula method via
-<code><a href='https://parsnip.tidymodels.org/reference/fit.html'>fit.model_spec()</a></code>, parsnip will
+<code>fit.model_spec()</code>, parsnip will
 convert factor columns to indicators.</p>
 
-<h3 class='hasAnchor' id='other-details'><a class='anchor' aria-hidden='true' href='#other-details'></a>Other details</h3>
+<h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Other details</h3>
 
 
 <p>For prediction, the <code>"stan"</code> engine can compute posterior intervals
@@ -200,14 +194,14 @@ the units are the original outcome and when <code>std_error = TRUE</code>, the
 standard deviation of the posterior distribution (or posterior
 predictive distribution as appropriate) is returned.</p>
 
-<h3 class='hasAnchor' id='examples'><a class='anchor' aria-hidden='true' href='#examples'></a>Examples</h3>
+<h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Examples</h3>
 
 
 <p>The “Fitting and Predicting with parsnip” article contains
 <a href='https://parsnip.tidymodels.org/articles/articles/Examples.html#linear-reg-stan'>examples</a>
-for <code><a href='poisson_reg.html'>poisson_reg()</a></code> with the <code>"stan"</code> engine.</p>
+for <code>poisson_reg()</code> with the <code>"stan"</code> engine.</p>
 
-<h3 class='hasAnchor' id='references'><a class='anchor' aria-hidden='true' href='#references'></a>References</h3>
+<h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>References</h3>
 
 <ul>
 <li><p>McElreath, R. 2020 <em>Statistical Rethinking</em>. CRC Press.</p></li>
@@ -241,8 +235,6 @@ for <code><a href='poisson_reg.html'>poisson_reg()</a></code> with the <code>"st
 
   
 
-
-  
 
   </body>
 </html>
