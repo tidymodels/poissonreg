@@ -1,0 +1,26 @@
+# Example
+
+Let's fit a model to the data from Agresti (2007) Table 7.6:
+
+```{r, message = FALSE}
+library(poissonreg)
+library(tidymodels)
+tidymodels_prefer()
+
+log_lin_fit <-
+  # Define the model
+  poisson_reg() %>%
+  # Choose an engine for fitting. The default is 'glm' so
+  # this next line is not strictly needed:
+  set_engine("glm") %>%
+  # Fit the model to the data:
+  fit(count ~ (.)^2, data = seniors)
+
+log_lin_fit
+```
+
+The different engines for the model that are provided by this package are:
+
+```{r}
+show_engines("poisson_reg")
+```

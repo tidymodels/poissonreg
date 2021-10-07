@@ -5,10 +5,6 @@
 
 # nocov
 make_poisson_reg <- function() {
-  parsnip::set_new_model("poisson_reg")
-
-  parsnip::set_model_mode("poisson_reg", "regression")
-
   # ------------------------------------------------------------------------------
 
   parsnip::set_model_engine("poisson_reg", "regression", "glm")
@@ -246,7 +242,7 @@ make_poisson_reg <- function() {
     type = "numeric",
     value = list(
       pre = NULL,
-      post = organize_glmnet_pred,
+      post = parsnip::.organize_glmnet_pred,
       func = c(fun = "predict"),
       args =
         list(
