@@ -74,4 +74,18 @@ test_that('zeroinfl prediction', {
   expect_equal(form_pred, predict(res_form, bioChemists[1:5, ])$.pred, tolerance = 0.001)
 })
 
+test_that('mode specific package dependencies', {
+  expect_identical(
+    get_from_env(paste0("poisson_reg", "_pkgs")) %>%
+      dplyr::filter(engine == "zeroinfl", mode == "classification") %>%
+      dplyr::pull(pkg),
+    list()
+  )
 
+  expect_identical(
+    get_from_env(paste0("poisson_reg", "_pkgs")) %>%
+      dplyr::filter(engine == "zeroinfl", mode == "regression") %>%
+      dplyr::pull(pkg),
+    list(c("pscl", "poissonreg"))
+  )
+})

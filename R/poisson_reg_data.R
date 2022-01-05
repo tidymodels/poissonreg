@@ -8,8 +8,8 @@ make_poisson_reg <- function() {
   # ------------------------------------------------------------------------------
 
   parsnip::set_model_engine("poisson_reg", "regression", "glm")
-  parsnip::set_dependency("poisson_reg", "glm", "stats")
-  parsnip::set_dependency("poisson_reg", "glm", "poissonreg")
+  parsnip::set_dependency("poisson_reg", "glm", "stats", "regression")
+  parsnip::set_dependency("poisson_reg", "glm", "poissonreg", "regression")
 
   parsnip::set_fit(
     model = "poisson_reg",
@@ -69,8 +69,8 @@ make_poisson_reg <- function() {
   # ------------------------------------------------------------------------------
 
   parsnip::set_model_engine("poisson_reg", "regression", "hurdle")
-  parsnip::set_dependency("poisson_reg", "hurdle", "pscl")
-  parsnip::set_dependency("poisson_reg", "hurdle", "poissonreg")
+  parsnip::set_dependency("poisson_reg", "hurdle", "pscl", "regression")
+  parsnip::set_dependency("poisson_reg", "hurdle", "poissonreg", "regression")
 
   parsnip::set_fit(
     model = "poisson_reg",
@@ -129,8 +129,14 @@ make_poisson_reg <- function() {
   # ------------------------------------------------------------------------------
 
   parsnip::set_model_engine("poisson_reg", "regression", "zeroinfl")
-  parsnip::set_dependency("poisson_reg", "zeroinfl", "pscl")
-  parsnip::set_dependency("poisson_reg", "zeroinfl", "poissonreg")
+  parsnip::set_dependency("poisson_reg",
+                          eng = "zeroinfl",
+                          pkg = "pscl",
+                          mode = "regression")
+  parsnip::set_dependency("poisson_reg",
+                          eng = "zeroinfl",
+                          pkg = "poissonreg",
+                          mode = "regression")
 
   parsnip::set_fit(
     model = "poisson_reg",
@@ -189,8 +195,8 @@ make_poisson_reg <- function() {
   # ------------------------------------------------------------------------------
 
   parsnip::set_model_engine("poisson_reg", "regression", "glmnet")
-  parsnip::set_dependency("poisson_reg", "glmnet", "glmnet")
-  parsnip::set_dependency("poisson_reg", "glmnet", "poissonreg")
+  parsnip::set_dependency("poisson_reg", "glmnet", "glmnet", "regression")
+  parsnip::set_dependency("poisson_reg", "glmnet", "poissonreg", "regression")
 
   parsnip::set_model_arg(
     model = "poisson_reg",
@@ -272,8 +278,8 @@ make_poisson_reg <- function() {
   # ------------------------------------------------------------------------------
 
   parsnip::set_model_engine("poisson_reg", "regression", "stan")
-  parsnip::set_dependency("poisson_reg", "stan", "rstanarm")
-  parsnip::set_dependency("poisson_reg", "stan", "poissonreg")
+  parsnip::set_dependency("poisson_reg", "stan", "rstanarm", "regression")
+  parsnip::set_dependency("poisson_reg", "stan", "poissonreg", "regression")
 
   parsnip::set_fit(
     model = "poisson_reg",

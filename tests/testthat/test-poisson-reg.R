@@ -224,3 +224,47 @@ test_that('newdata error trapping', {
   )
   expect_error(predict(res_xy, newdata = seniors[1:3, 1:3]), "Did you mean")
 })
+
+test_that('mode specific package dependencies', {
+  expect_identical(
+    get_from_env(paste0("poisson_reg", "_pkgs")) %>%
+      dplyr::filter(engine == "glm", mode == "classification") %>%
+      dplyr::pull(pkg),
+    list()
+  )
+
+  expect_identical(
+    get_from_env(paste0("poisson_reg", "_pkgs")) %>%
+      dplyr::filter(engine == "glm", mode == "regression") %>%
+      dplyr::pull(pkg),
+    list(c("stats", "poissonreg"))
+  )
+
+  expect_identical(
+    get_from_env(paste0("poisson_reg", "_pkgs")) %>%
+      dplyr::filter(engine == "glmnet", mode == "classification") %>%
+      dplyr::pull(pkg),
+    list()
+  )
+
+  expect_identical(
+    get_from_env(paste0("poisson_reg", "_pkgs")) %>%
+      dplyr::filter(engine == "glmnet", mode == "regression") %>%
+      dplyr::pull(pkg),
+    list(c("glmnet", "poissonreg"))
+  )
+
+  expect_identical(
+    get_from_env(paste0("poisson_reg", "_pkgs")) %>%
+      dplyr::filter(engine == "stan", mode == "classification") %>%
+      dplyr::pull(pkg),
+    list()
+  )
+
+  expect_identical(
+    get_from_env(paste0("poisson_reg", "_pkgs")) %>%
+      dplyr::filter(engine == "stan", mode == "regression") %>%
+      dplyr::pull(pkg),
+    list(c("rstanarm", "poissonreg"))
+  )
+})
