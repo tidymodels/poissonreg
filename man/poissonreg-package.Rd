@@ -31,7 +31,6 @@ log_lin_fit <-
 log_lin_fit
 }\if{html}{\out{</div>}}\preformatted{## parsnip model object
 ## 
-## Fit time:  5ms 
 ## 
 ## Call:  stats::glm(formula = count ~ (.)^2, family = stats::poisson, 
 ##     data = data)
