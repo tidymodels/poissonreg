@@ -86,12 +86,50 @@
 <span class="fu">install_github</span><span class="op">(</span><span class="st">"tidymodels/poissonreg"</span><span class="op">)</span></code></pre></div>
 </div>
 <div class="section level2">
+<h2 id="avaliable-engines">Avaliable Engines<a class="anchor" aria-label="anchor" href="#avaliable-engines"></a>
+</h2>
+<p>The poissonreg package provides engines for the models in the following table.</p>
+<table class="table">
+<thead><tr class="header">
+<th align="left">model</th>
+<th align="left">engine</th>
+<th align="left">mode</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">poisson_reg</td>
+<td align="left">glm</td>
+<td align="left">regression</td>
+</tr>
+<tr class="even">
+<td align="left">poisson_reg</td>
+<td align="left">hurdle</td>
+<td align="left">regression</td>
+</tr>
+<tr class="odd">
+<td align="left">poisson_reg</td>
+<td align="left">zeroinfl</td>
+<td align="left">regression</td>
+</tr>
+<tr class="even">
+<td align="left">poisson_reg</td>
+<td align="left">glmnet</td>
+<td align="left">regression</td>
+</tr>
+<tr class="odd">
+<td align="left">poisson_reg</td>
+<td align="left">stan</td>
+<td align="left">regression</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section level2">
 <h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
 </h2>
 <p>A log-linear model for categorical data analysis:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/tidymodels/poissonreg" class="external-link">poissonreg</a></span><span class="op">)</span>
-<span class="co">#&gt; Loading required package: parsnip</span>
 
 <span class="co"># 3D contingency table from Agresti (2007): </span>
 <span class="fu"><a href="https://parsnip.tidymodels.org/reference/poisson_reg.html" class="external-link">poisson_reg</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
@@ -99,7 +137,6 @@
   <span class="fu"><a href="https://generics.r-lib.org/reference/fit.html" class="external-link">fit</a></span><span class="op">(</span><span class="va">count</span> <span class="op">~</span> <span class="op">(</span><span class="va">.</span><span class="op">)</span><span class="op">^</span><span class="fl">2</span>, data <span class="op">=</span> <span class="va">seniors</span><span class="op">)</span>
 <span class="co">#&gt; parsnip model object</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; Fit time:  6ms </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Call:  stats::glm(formula = count ~ (.)^2, family = stats::poisson, </span>
 <span class="co">#&gt;     data = data)</span>
