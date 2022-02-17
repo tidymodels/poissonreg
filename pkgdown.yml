@@ -1,8 +1,8 @@
-pandoc: 2.7.3
+pandoc: 2.14.2
 pkgdown: 2.0.2
 pkgdown_sha: ~
 articles: {}
-last_built: 2022-02-15T22:51Z
+last_built: 2022-02-17T19:28Z
 urls:
   reference: https://poissonreg.tidymodels.org/reference
   article: https://poissonreg.tidymodels.org/articles
