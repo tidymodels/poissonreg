@@ -37,7 +37,7 @@ require("devtools")
 install_github("tidymodels/poissonreg")
 ```
 
-## Avaliable Engines
+## Available Engines
 
 The poissonreg package provides engines for the models in the following
 table.
