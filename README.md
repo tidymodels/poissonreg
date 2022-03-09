@@ -12,7 +12,7 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 [![CRAN
 status](https://www.r-pkg.org/badges/version/poissonreg)](https://CRAN.R-project.org/package=poissonreg)
 [![Codecov test
-coverage](https://codecov.io/gh/tidymodels/poissonreg/branch/main/graph/badge.svg)](https://codecov.io/gh/tidymodels/poissonreg?branch=main)
+coverage](https://codecov.io/gh/tidymodels/poissonreg/branch/main/graph/badge.svg)](https://app.codecov.io/gh/tidymodels/poissonreg?branch=main)
 [![R-CMD-check](https://github.com/tidymodels/poissonreg/workflows/R-CMD-check/badge.svg)](https://github.com/tidymodels/poissonreg/actions)
 <!-- badges: end -->
 
@@ -37,7 +37,7 @@ require("devtools")
 install_github("tidymodels/poissonreg")
 ```
 
-## Avaliable Engines
+## Available Engines
 
 The poissonreg package provides engines for the models in the following
 table.
@@ -85,7 +85,7 @@ poisson_reg() %>%
 ## Contributing
 
 This project is released with a [Contributor Code of
-Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html).
+Conduct](https://www.contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html).
 By contributing to this project, you agree to abide by its terms.
 
 -   For questions and discussions about tidymodels packages, modeling,

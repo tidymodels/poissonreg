@@ -1,4 +1,4 @@
-# poissonreg (development version)
+# poissonreg 0.2.0
 
 * Model definition functions (e.g. `poisson_reg()`) were moved to the parsnip package.
 
