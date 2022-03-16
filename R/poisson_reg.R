@@ -2,23 +2,23 @@
 # Only one value of the penalty should be allowed when called by `predict()`:
 
 check_penalty <- function(penalty = NULL, object, multi = FALSE) {
-
   if (is.null(penalty)) {
     penalty <- object$fit$lambda
   }
 
   # when using `predict()`, allow for a single lambda
   if (!multi) {
-    if (length(penalty) != 1)
+    if (length(penalty) != 1) {
       rlang::abort(
         glue::glue(
           "`penalty` should be a single numeric value. `multi_predict()` ",
           "can be used to get multiple predictions per row of data.",
         )
       )
+    }
   }
 
-  if (length(object$fit$lambda) == 1 && penalty != object$fit$lambda)
+  if (length(object$fit$lambda) == 1 && penalty != object$fit$lambda) {
     rlang::abort(
       glue::glue(
         "The glmnet model was fit with a single penalty value of ",
@@ -26,6 +26,7 @@ check_penalty <- function(penalty = NULL, object, multi = FALSE) {
         "will give incorrect results from `glmnet()`."
       )
     )
+  }
 
   penalty
 }
@@ -59,8 +60,9 @@ check_penalty <- function(penalty = NULL, object, multi = FALSE) {
 #' @export
 predict._fishnet <-
   function(object, new_data, type = NULL, opts = list(), penalty = NULL, multi = FALSE, ...) {
-    if (any(names(enquos(...)) == "newdata"))
+    if (any(names(enquos(...)) == "newdata")) {
       rlang::abort("Did you mean to use `new_data` instead of `newdata`?")
+    }
 
     # See discussion in https://github.com/tidymodels/parsnip/issues/195
     if (is.null(penalty) & !is.null(object$spec$args$penalty)) {
@@ -75,8 +77,9 @@ predict._fishnet <-
 
 #' @export
 predict_numeric._fishnet <- function(object, new_data, ...) {
-  if (any(names(enquos(...)) == "newdata"))
+  if (any(names(enquos(...)) == "newdata")) {
     rlang::abort("Did you mean to use `new_data` instead of `newdata`?")
+  }
 
   object$spec <- parsnip::eval_args(object$spec)
   parsnip::predict_numeric.model_fit(object, new_data = new_data, ...)
@@ -95,7 +98,7 @@ predict_numeric._fishnet <- function(object, new_data, ...) {
 #'  multiple rows per sub-model.
 #' @export
 #' @keywords internal
-predict_raw._fishnet <- function(object, new_data, opts = list(), ...)  {
+predict_raw._fishnet <- function(object, new_data, opts = list(), ...) {
   if (any(names(enquos(...)) == "newdata")) {
     rlang::abort("Did you mean to use `new_data` instead of `newdata`?")
   }
@@ -112,8 +115,9 @@ predict_raw._fishnet <- function(object, new_data, opts = list(), ...)  {
 #' @param penalty A numeric vector of penalty values.
 multi_predict._fishnet <-
   function(object, new_data, type = NULL, penalty = NULL, ...) {
-    if (any(names(enquos(...)) == "newdata"))
+    if (any(names(enquos(...)) == "newdata")) {
       rlang::abort("Did you mean to use `new_data` instead of `newdata`?")
+    }
 
     dots <- list(...)
 
@@ -128,8 +132,11 @@ multi_predict._fishnet <-
       }
     }
 
-    pred <- predict._fishnet(object, new_data = new_data, type = "raw",
-                             opts = dots, penalty = penalty, multi = TRUE)
+    pred <- predict._fishnet(
+      object,
+      new_data = new_data, type = "raw",
+      opts = dots, penalty = penalty, multi = TRUE
+    )
     param_key <- tibble(group = colnames(pred), penalty = penalty)
     pred <- as_tibble(pred)
     pred$.row <- 1:nrow(pred)

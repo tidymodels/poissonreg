@@ -3,10 +3,10 @@ context("Poisson regression execution with pscl::hurdle")
 
 # ------------------------------------------------------------------------------
 
-test_that('hurdle', {
+test_that("hurdle", {
   library(pscl)
   data("bioChemists", package = "pscl")
-  hurd <- hurdle(art ~ fem|ment, data = bioChemists)
+  hurd <- hurdle(art ~ fem | ment, data = bioChemists)
   summ <- summary(hurd)
 
   expect_error(counts <- tidy(hurd), regexp = NA)
@@ -29,4 +29,3 @@ test_that('hurdle', {
     both$estimate
   )
 })
-
