@@ -264,8 +264,10 @@ make_poisson_reg <- function() {
       post = NULL,
       func = c(fun = "predict"),
       args =
-        list(object = expr(object$fit),
-             newx = expr(as.matrix(new_data[, rownames(object$fit$beta)])))
+        list(
+          object = expr(object$fit),
+          newx = expr(as.matrix(new_data[, rownames(object$fit$beta)]))
+        )
     )
   )
 
@@ -334,8 +336,9 @@ make_poisson_reg <- function() {
                 lower = FALSE
               ),
           )
-        if (object$spec$method$pred$conf_int$extras$std_error)
+        if (object$spec$method$pred$conf_int$extras$std_error) {
           res$.std_error <- apply(results, 2, sd, na.rm = TRUE)
+        }
         res
       },
       func = c(pkg = "rstanarm", fun = "posterior_linpred"),
@@ -371,8 +374,9 @@ make_poisson_reg <- function() {
                 lower = FALSE
               ),
           )
-        if (object$spec$method$pred$pred_int$extras$std_error)
+        if (object$spec$method$pred$pred_int$extras$std_error) {
           res$.std_error <- apply(results, 2, sd, na.rm = TRUE)
+        }
         res
       },
       func = c(pkg = "rstanarm", fun = "posterior_predict"),
@@ -397,8 +401,6 @@ make_poisson_reg <- function() {
       args = list(object = expr(object$fit), newdata = expr(new_data))
     )
   )
-
 }
 
 # nocov end
-

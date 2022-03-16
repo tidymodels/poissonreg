@@ -22,4 +22,3 @@ if (!any(getNamespaceExports("parsnip") == "predict_raw")) {
     UseMethod("predict_raw")
   }
 }
-

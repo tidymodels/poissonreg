@@ -1,12 +1,4 @@
-
-context("Poisson regression execution with pscl::zeroinfl")
-
-source(test_path("helpers.R"))
-source(test_path("helper-objects.R"))
-
-# ------------------------------------------------------------------------------
-
-test_that('zeroinfl execution', {
+test_that("zeroinfl execution", {
   skip_if_not_installed("pscl")
   skip_on_cran()
 
@@ -42,16 +34,18 @@ test_that('zeroinfl execution', {
       control = ctrl
     )
   )
-
 })
 
 
-test_that('zeroinfl prediction', {
+test_that("zeroinfl prediction", {
   skip_if_not_installed("pscl")
   skip_on_cran()
 
-  zeroinfl_pred <- c(2.03795552288294, 1.32312378302603, 1.30870432888435, 1.43998196151274,
-                     2.36323310634688)
+  zeroinfl_pred <- c(
+    2.03795552288294, 1.32312378302603,
+    1.30870432888435, 1.43998196151274,
+    2.36323310634688
+  )
 
   res_xy <- fit_xy(
     zeroinfl_spec,
@@ -62,8 +56,11 @@ test_that('zeroinfl prediction', {
 
   expect_equal(zeroinfl_pred, predict(res_xy, bioChemists[1:5, 2:6])$.pred, tolerance = 0.001)
 
-  form_pred <- c(1.95901387152585, 1.33126661829735, 1.33699534952439, 1.51045647275656,
-                 2.05706336705877)
+  form_pred <- c(
+    1.95901387152585, 1.33126661829735,
+    1.33699534952439, 1.51045647275656,
+    2.05706336705877
+  )
 
   res_form <- fit(
     zeroinfl_spec,
@@ -73,5 +70,3 @@ test_that('zeroinfl prediction', {
   )
   expect_equal(form_pred, predict(res_form, bioChemists[1:5, ])$.pred, tolerance = 0.001)
 })
-
-

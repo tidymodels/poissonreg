@@ -5,15 +5,13 @@
 
 <!-- badges: start -->
 
-[![R build
-status](https://github.com/tidymodels/poissonreg/workflows/R-CMD-check/badge.svg)](https://github.com/tidymodels/poissonreg/actions)
-[![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html)
+[![R-CMD-check](https://github.com/tidymodels/poissonreg/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/tidymodels/poissonreg/actions/workflows/R-CMD-check.yaml)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/poissonreg)](https://CRAN.R-project.org/package=poissonreg)
 [![Codecov test
 coverage](https://codecov.io/gh/tidymodels/poissonreg/branch/main/graph/badge.svg)](https://app.codecov.io/gh/tidymodels/poissonreg?branch=main)
-[![R-CMD-check](https://github.com/tidymodels/poissonreg/workflows/R-CMD-check/badge.svg)](https://github.com/tidymodels/poissonreg/actions)
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 <!-- badges: end -->
 
 poissonreg enables the parsnip package to fit various types of Poisson
@@ -85,7 +83,7 @@ poisson_reg() %>%
 ## Contributing
 
 This project is released with a [Contributor Code of
-Conduct](https://www.contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html).
+Conduct](https://www.contributor-covenant.org/version/2/1/CODE_OF_CONDUCT.html).
 By contributing to this project, you agree to abide by its terms.
 
 -   For questions and discussions about tidymodels packages, modeling,
