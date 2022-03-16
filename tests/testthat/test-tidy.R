@@ -1,8 +1,4 @@
 
-context("Poisson regression execution with pscl::hurdle")
-
-# ------------------------------------------------------------------------------
-
 test_that("hurdle", {
   library(pscl)
   data("bioChemists", package = "pscl")

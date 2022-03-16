@@ -1,11 +1,3 @@
-
-context("Poisson regression execution with pscl::hurdle")
-
-source(test_path("helpers.R"))
-source(test_path("helper-objects.R"))
-
-# ------------------------------------------------------------------------------
-
 test_that("hurdle execution", {
   skip_if_not_installed("pscl")
   skip_on_cran()
@@ -50,7 +42,8 @@ test_that("hurdle prediction", {
   skip_on_cran()
 
   hurdle_pred <- c(
-    2.00569689955261, 1.29916133671851, 1.30005204940495, 1.43756150261801,
+    2.00569689955261, 1.29916133671851,
+    1.30005204940495, 1.43756150261801,
     2.37677697507562
   )
 
@@ -64,7 +57,8 @@ test_that("hurdle prediction", {
   expect_equal(hurdle_pred, predict(res_xy, bioChemists[1:5, 2:6])$.pred, tolerance = 0.001)
 
   form_pred <- c(
-    1.83402584880366, 1.45332695575065, 1.43412114470316, 1.58891378718055,
+    1.83402584880366, 1.45332695575065,
+    1.43412114470316, 1.58891378718055,
     1.855682964733
   )
 

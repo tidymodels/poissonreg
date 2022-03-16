@@ -1,10 +1,3 @@
-context("Poisson regression")
-
-source(test_path("helpers.R"))
-source(test_path("helper-objects.R"))
-
-# ------------------------------------------------------------------------------
-
 test_that("primary arguments", {
   basic <- poisson_reg()
   basic_lm <- translate(basic %>% set_engine("glm"))
@@ -63,7 +56,7 @@ test_that("primary arguments", {
     )
   )
 
-  mixture_v <- poisson_reg(mixture = varying())
+  mixture_v <- poisson_reg(mixture = tune())
   mixture_v_glmnet <- translate(mixture_v %>% set_engine("glmnet"))
   expect_equal(
     mixture_v_glmnet$method$fit$args,
@@ -71,7 +64,7 @@ test_that("primary arguments", {
       x = expr(missing_arg()),
       y = expr(missing_arg()),
       weights = expr(missing_arg()),
-      alpha = new_empty_quosure(varying()),
+      alpha = new_quosure(tune()),
       family = "poisson"
     )
   )
