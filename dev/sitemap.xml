@@ -1,36 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://poissonreg.tidymodels.org/index.html</loc>
+    <loc>https://poissonreg.tidymodels.org/dev/CODE_OF_CONDUCT.html</loc>
   </url>
   <url>
-    <loc>https://poissonreg.tidymodels.org/reference/details_poisson_reg_glm.html</loc>
+    <loc>https://poissonreg.tidymodels.org/dev/CONTRIBUTING.html</loc>
   </url>
   <url>
-    <loc>https://poissonreg.tidymodels.org/reference/details_poisson_reg_glmnet.html</loc>
+    <loc>https://poissonreg.tidymodels.org/dev/LICENSE-text.html</loc>
   </url>
   <url>
-    <loc>https://poissonreg.tidymodels.org/reference/details_poisson_reg_hurdle.html</loc>
+    <loc>https://poissonreg.tidymodels.org/dev/LICENSE.html</loc>
   </url>
   <url>
-    <loc>https://poissonreg.tidymodels.org/reference/details_poisson_reg_stan.html</loc>
+    <loc>https://poissonreg.tidymodels.org/dev/SUPPORT.html</loc>
   </url>
   <url>
-    <loc>https://poissonreg.tidymodels.org/reference/details_poisson_reg_zeroinfl.html</loc>
+    <loc>https://poissonreg.tidymodels.org/dev/authors.html</loc>
   </url>
   <url>
-    <loc>https://poissonreg.tidymodels.org/reference/poissonreg-package.html</loc>
+    <loc>https://poissonreg.tidymodels.org/dev/index.html</loc>
   </url>
   <url>
-    <loc>https://poissonreg.tidymodels.org/reference/predict_raw._fishnet.html</loc>
+    <loc>https://poissonreg.tidymodels.org/dev/news/index.html</loc>
   </url>
   <url>
-    <loc>https://poissonreg.tidymodels.org/reference/reexports.html</loc>
+    <loc>https://poissonreg.tidymodels.org/dev/reference/index.html</loc>
   </url>
   <url>
-    <loc>https://poissonreg.tidymodels.org/reference/seniors.html</loc>
+    <loc>https://poissonreg.tidymodels.org/dev/reference/poissonreg-package.html</loc>
   </url>
   <url>
-    <loc>https://poissonreg.tidymodels.org/reference/tidy_zip.html</loc>
+    <loc>https://poissonreg.tidymodels.org/dev/reference/predict_raw._fishnet.html</loc>
+  </url>
+  <url>
+    <loc>https://poissonreg.tidymodels.org/dev/reference/reexports.html</loc>
+  </url>
+  <url>
+    <loc>https://poissonreg.tidymodels.org/dev/reference/seniors.html</loc>
+  </url>
+  <url>
+    <loc>https://poissonreg.tidymodels.org/dev/reference/tidy_zip.html</loc>
   </url>
 </urlset>
