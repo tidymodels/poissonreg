@@ -2,8 +2,10 @@ Package: poissonreg
 Title: Model Wrappers for Poisson Regression
 Version: 0.2.0.9000
 Authors@R: c(
-    person("Max", "Kuhn", , "max@rstudio.com", role = c("aut", "cre"),
+    person("Max", "Kuhn", , "max@rstudio.com", role = c("aut"),
            comment = c(ORCID = "0000-0003-2402-136X")),
+    person("Hannah", "Frick", , "hannah@rstudio.com", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-6049-5258")),
     person("RStudio", role = c("cph", "fnd"))
   )
 Description: Bindings for Poisson regression models for use with the
