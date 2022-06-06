@@ -22,3 +22,6 @@ glm
 stan
 warmup
 ORCID
+funder
+poisson
+zeroinfl
