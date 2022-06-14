@@ -1,4 +1,6 @@
-# poissonreg (development version)
+# poissonreg 1.0.0
+
+* Changes for using case weights with parsnip 1.0.0.
 
 # poissonreg 0.2.0
 
