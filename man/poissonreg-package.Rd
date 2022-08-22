@@ -15,7 +15,9 @@ The model function works with the tidymodels infrastructure so that the model
 can be resampled, tuned, tided, etc.
 }
 \section{Example}{
-Let’s fit a model to the data from Agresti (2007) Table 7.6:\if{html}{\out{<div class="sourceCode r">}}\preformatted{library(poissonreg)
+Let’s fit a model to the data from Agresti (2007) Table 7.6:
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{library(poissonreg)
 library(tidymodels)
 tidymodels_prefer()
 
@@ -29,7 +31,9 @@ log_lin_fit <-
   fit(count ~ (.)^2, data = seniors)
 
 log_lin_fit
-}\if{html}{\out{</div>}}\preformatted{## parsnip model object
+}\if{html}{\out{</div>}}
+
+\if{html}{\out{<div class="sourceCode">}}\preformatted{## parsnip model object
 ## 
 ## 
 ## Call:  stats::glm(formula = count ~ (.)^2, family = stats::poisson, 
@@ -48,11 +52,15 @@ log_lin_fit
 ## Degrees of Freedom: 7 Total (i.e. Null);  1 Residual
 ## Null Deviance:       2851 
 ## Residual Deviance: 0.374     AIC: 63.42
-}
+}\if{html}{\out{</div>}}
 
 The different engines for the model that are provided by this package
-are:\if{html}{\out{<div class="sourceCode r">}}\preformatted{show_engines("poisson_reg")
-}\if{html}{\out{</div>}}\preformatted{## # A tibble: 5 × 2
+are:
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{show_engines("poisson_reg")
+}\if{html}{\out{</div>}}
+
+\if{html}{\out{<div class="sourceCode">}}\preformatted{## # A tibble: 5 × 2
 ##   engine   mode      
 ##   <chr>    <chr>     
 ## 1 glm      regression
@@ -60,7 +68,7 @@ are:\if{html}{\out{<div class="sourceCode r">}}\preformatted{show_engines("poiss
 ## 3 zeroinfl regression
 ## 4 glmnet   regression
 ## 5 stan     regression
-}
+}\if{html}{\out{</div>}}
 }
 
 \seealso{
@@ -73,7 +81,12 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Max Kuhn \email{max@rstudio.com} (\href{https://orcid.org/0000-0003-2402-136X}{ORCID})
+\strong{Maintainer}: Hannah Frick \email{hannah@rstudio.com} (\href{https://orcid.org/0000-0002-6049-5258}{ORCID})
+
+Authors:
+\itemize{
+  \item Max Kuhn \email{max@rstudio.com} (\href{https://orcid.org/0000-0003-2402-136X}{ORCID})
+}
 
 Other contributors:
 \itemize{
