@@ -1,3 +1,5 @@
+# poissonreg (development version)
+
 # poissonreg 1.0.1
 
 * Update to the .Rd files to generate valid HTML5
