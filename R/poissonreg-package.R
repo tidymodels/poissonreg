@@ -7,7 +7,7 @@
 #' The model function works with the tidymodels infrastructure so that the model
 #' can be resampled, tuned, tided, etc.
 #'
-#' @includeRmd man/rmd/example.Rmd details
+#' @includeRmd man/rmd/example.Rmd
 #' @keywords internal
 "_PACKAGE"
 
