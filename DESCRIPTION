@@ -30,6 +30,7 @@ Imports:
     tidyr
 Suggests: 
     covr,
+    glmnet,
     pscl,
     spelling,
     testthat (>= 3.0.0)
