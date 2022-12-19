@@ -60,7 +60,7 @@ are:
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{show_engines("poisson_reg")
 }\if{html}{\out{</div>}}
 
-\if{html}{\out{<div class="sourceCode">}}\preformatted{## # A tibble: 5 × 2
+\if{html}{\out{<div class="sourceCode">}}\preformatted{## # A tibble: 5 x 2
 ##   engine   mode      
 ##   <chr>    <chr>     
 ## 1 glm      regression
