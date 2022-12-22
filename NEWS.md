@@ -4,6 +4,8 @@
 
 * Removed the now obsolete registration of the `predict_raw()` generic as it is now exported from parnsip (#52).
 
+* Removed the unused internal `s3_register()` function (#53).
+
 
 # poissonreg 1.0.1
 
