@@ -2,6 +2,8 @@
 
 * Predictions for a single observation now work for `poisson_reg()` with the `"glmnet"` engine (#48).
 
+* Tests on the model specification have been updated to the current testing pattern in parsnip and other extension packages (#55).
+
 
 # poissonreg 1.0.1
 
