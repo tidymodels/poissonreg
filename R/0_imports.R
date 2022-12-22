@@ -13,12 +13,3 @@ utils::globalVariables(
 )
 
 # nocov end
-
-# ------------------------------------------------------------------------------
-# The generic for predict_raw is not exported so make one here (if needed)
-
-if (!any(getNamespaceExports("parsnip") == "predict_raw")) {
-  predict_raw <- function(object, ...) {
-    UseMethod("predict_raw")
-  }
-}
