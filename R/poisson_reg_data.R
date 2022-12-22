@@ -4,8 +4,7 @@
 # coverage stats for this reason.
 
 # nocov
-make_poisson_reg <- function() {
-  # ------------------------------------------------------------------------------
+make_poisson_reg_glm <- function() {
 
   parsnip::set_model_engine("poisson_reg", "regression", "glm")
   parsnip::set_dependency("poisson_reg", "glm", "stats")
@@ -65,8 +64,9 @@ make_poisson_reg <- function() {
       args = list(object = expr(object$fit), newdata = expr(new_data))
     )
   )
+}
 
-  # ------------------------------------------------------------------------------
+make_poisson_reg_hurdle <- function() {
 
   parsnip::set_model_engine("poisson_reg", "regression", "hurdle")
   parsnip::set_dependency("poisson_reg", "hurdle", "pscl")
@@ -125,8 +125,9 @@ make_poisson_reg <- function() {
       args = list(object = expr(object$fit), newdata = expr(new_data))
     )
   )
+}
 
-  # ------------------------------------------------------------------------------
+make_poisson_reg_zeroinfl <- function() {
 
   parsnip::set_model_engine("poisson_reg", "regression", "zeroinfl")
   parsnip::set_dependency("poisson_reg", "zeroinfl", "pscl")
@@ -185,8 +186,9 @@ make_poisson_reg <- function() {
       args = list(object = expr(object$fit), newdata = expr(new_data))
     )
   )
+}
 
-  # ------------------------------------------------------------------------------
+make_poisson_reg_glmnet <- function() {
 
   parsnip::set_model_engine("poisson_reg", "regression", "glmnet")
   parsnip::set_dependency("poisson_reg", "glmnet", "glmnet")
@@ -200,7 +202,6 @@ make_poisson_reg <- function() {
     func = list(pkg = "dials", fun = "penalty"),
     has_submodel = TRUE
   )
-
 
   parsnip::set_model_arg(
     model = "poisson_reg",
@@ -270,8 +271,9 @@ make_poisson_reg <- function() {
         )
     )
   )
+}
 
-  # ------------------------------------------------------------------------------
+make_poisson_reg_stan <- function() {
 
   parsnip::set_model_engine("poisson_reg", "regression", "stan")
   parsnip::set_dependency("poisson_reg", "stan", "rstanarm")
