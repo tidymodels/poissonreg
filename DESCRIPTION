@@ -22,7 +22,6 @@ Depends:
 Imports: 
     dplyr,
     generics,
-    glue,
     purrr,
     rlang,
     stats,

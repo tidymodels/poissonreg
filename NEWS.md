@@ -8,6 +8,8 @@
 
 * Tests on the model specification have been updated to the current testing pattern in parsnip and other extension packages (#55).
 
+* The `predict()` method for the `"glmnet"` engine now checks the penalty value via `parsnip::.check_glmnet_penalty_predict()` instead of a copied version of the function (#57).
+
 
 # poissonreg 1.0.1
 
