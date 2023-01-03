@@ -21,7 +21,6 @@ Depends:
     R (>= 3.4)
 Imports: 
     dplyr,
-    generics,
     purrr,
     rlang,
     stats,

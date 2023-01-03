@@ -10,6 +10,8 @@
 
 * The `predict()` method for the `"glmnet"` engine now checks the penalty value via `parsnip::.check_glmnet_penalty_predict()` instead of a copied version of the function (#57).
 
+* The tidiers for `hurdle` and `zeroinf` models from the `pscl` package moved to broom (#58).
+
 
 # poissonreg 1.0.1
 
