@@ -1,18 +1,105 @@
-# updating
+# arguments
 
     Code
-      poisson_reg(penalty = 1) %>% set_engine("glmnet", lambda.min.ratio = 0.001) %>%
-        update(mixture = tune())
+      translate_args(basic)
     Output
-      Poisson Regression Model Specification (regression)
+      $formula
+      missing_arg()
       
-      Main Arguments:
-        penalty = 1
-        mixture = tune()
+      $data
+      missing_arg()
       
-      Engine-Specific Arguments:
-        lambda.min.ratio = 0.001
+      $weights
+      missing_arg()
       
-      Computational engine: glmnet 
+      $family
+      stats::poisson
+      
+
+---
+
+    Code
+      translate_args(penalty %>% set_engine("glmnet"))
+    Output
+      $x
+      missing_arg()
+      
+      $y
+      missing_arg()
+      
+      $weights
+      missing_arg()
+      
+      $family
+      [1] "poisson"
+      
+
+---
+
+    Code
+      translate_args(penalty %>% set_engine("glmnet", path_values = 4:2))
+    Output
+      $x
+      missing_arg()
+      
+      $y
+      missing_arg()
+      
+      $weights
+      missing_arg()
+      
+      $path_values
+      <quosure>
+      expr: ^4:2
+      env:  empty
+      
+      $family
+      [1] "poisson"
+      
+
+---
+
+    Code
+      translate_args(mixture %>% set_engine("glmnet"))
+    Output
+      $x
+      missing_arg()
+      
+      $y
+      missing_arg()
+      
+      $weights
+      missing_arg()
+      
+      $alpha
+      <quosure>
+      expr: ^0.128
+      env:  empty
+      
+      $family
+      [1] "poisson"
+      
+
+---
+
+    Code
+      translate_args(mixture_tune %>% set_engine("glmnet"))
+    Output
+      $x
+      missing_arg()
+      
+      $y
+      missing_arg()
+      
+      $weights
+      missing_arg()
+      
+      $alpha
+      <quosure>
+      expr: ^tune()
+      env:  empty
+      
+      $family
+      [1] "poisson"
       
 

@@ -6,6 +6,8 @@
 
 * Removed the unused internal `s3_register()` function (#53).
 
+* Tests on the model specification have been updated to the current testing pattern in parsnip and other extension packages (#55).
+
 
 # poissonreg 1.0.1
 
