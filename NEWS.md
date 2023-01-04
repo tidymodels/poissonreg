@@ -1,5 +1,11 @@
 # poissonreg (development version)
 
+## Breaking Change
+
+* The `tidy()` methods for `hurdle` and `zeroinf` models from the `pscl` package moved to the broom package (#58).
+
+## Other changes
+
 * Predictions for a single observation now work for `poisson_reg()` with the `"glmnet"` engine (#48).
 
 * Removed the now obsolete registration of the `predict_raw()` generic as it is now exported from parnsip (#52).
@@ -9,8 +15,6 @@
 * Tests on the model specification have been updated to the current testing pattern in parsnip and other extension packages (#55).
 
 * The `predict()` method for the `"glmnet"` engine now checks the penalty value via `parsnip::.check_glmnet_penalty_predict()` instead of a copied version of the function (#57).
-
-* The tidiers for `hurdle` and `zeroinf` models from the `pscl` package moved to broom (#58).
 
 
 # poissonreg 1.0.1
