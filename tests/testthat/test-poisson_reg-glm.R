@@ -30,7 +30,10 @@ test_that("glm prediction", {
     control = ctrl
   )
 
-  expect_equal(glm_pred, predict(res_xy, seniors[1:3, 1:3])$.pred)
+  expect_equal(
+    predict(res_xy, seniors[1:3, 1:3])$.pred,
+    glm_pred
+  )
 
   res_form <- fit(
     glm_spec,
@@ -38,5 +41,8 @@ test_that("glm prediction", {
     data = seniors,
     control = ctrl
   )
-  expect_equal(glm_pred, predict(res_form, seniors[1:3, ])$.pred)
+  expect_equal(
+    predict(res_form, seniors[1:3, ])$.pred,
+    glm_pred
+  )
 })
