@@ -10,6 +10,8 @@
 
 * The `predict()` method for the `"glmnet"` engine now checks the penalty value via `parsnip::.check_glmnet_penalty_predict()` instead of a copied version of the function (#57).
 
+* Moved imports and declaration of global variables into the standard place (#59).
+
 
 # poissonreg 1.0.1
 
