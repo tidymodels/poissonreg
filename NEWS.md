@@ -12,6 +12,8 @@
 
 * Moved imports and declaration of global variables into the standard place (#59).
 
+* Tests are now self-contained (#60).
+
 
 # poissonreg 1.0.1
 
