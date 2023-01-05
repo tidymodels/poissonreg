@@ -2,15 +2,13 @@ test_that("zeroinfl execution", {
   skip_if_not_installed("pscl")
   skip_on_cran()
 
-  data("bioChemists", package = "pscl")
+  data("bioChemists", package = "pscl", envir = rlang::current_env())
+
+  zeroinfl_spec <- poisson_reg() %>% set_engine("zeroinfl")
+  ctrl <- control_parsnip(verbosity = 1, catch = FALSE)
 
   expect_error(
-    res <- fit(
-      zeroinfl_spec,
-      art ~ .,
-      data = bioChemists,
-      control = ctrl
-    ),
+    fit(zeroinfl_spec, art ~ ., data = bioChemists, control = ctrl),
     regexp = NA
   )
   expect_error(
@@ -27,19 +25,18 @@ test_that("zeroinfl execution", {
   expect_equal(multi_predict_args(res), NA_character_)
 
   expect_error(
-    res <- fit(
-      zeroinfl_spec,
-      Species ~ term,
-      data = bioChemists,
-      control = ctrl
-    )
+    fit(zeroinfl_spec, Species ~ term, data = bioChemists, control = ctrl)
   )
 })
-
 
 test_that("zeroinfl prediction", {
   skip_if_not_installed("pscl")
   skip_on_cran()
+
+  data("bioChemists", package = "pscl", envir = rlang::current_env())
+
+  zeroinfl_spec <- poisson_reg() %>% set_engine("zeroinfl")
+  quiet_ctrl <- control_parsnip(verbosity = 0, catch = TRUE)
 
   zeroinfl_pred <- c(
     2.03795552288294, 1.32312378302603,
@@ -54,7 +51,11 @@ test_that("zeroinfl prediction", {
     control = quiet_ctrl
   )
 
-  expect_equal(zeroinfl_pred, predict(res_xy, bioChemists[1:5, 2:6])$.pred, tolerance = 0.001)
+  expect_equal(
+    predict(res_xy, bioChemists[1:5, 2:6])$.pred,
+    zeroinfl_pred,
+    tolerance = 0.001
+  )
 
   form_pred <- c(
     1.95901387152585, 1.33126661829735,
@@ -68,5 +69,9 @@ test_that("zeroinfl prediction", {
     data = bioChemists,
     control = quiet_ctrl
   )
-  expect_equal(form_pred, predict(res_form, bioChemists[1:5, ])$.pred, tolerance = 0.001)
+  expect_equal(
+    predict(res_form, bioChemists[1:5, ])$.pred,
+    form_pred,
+    tolerance = 0.001
+  )
 })
