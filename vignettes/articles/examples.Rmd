@@ -1,0 +1,196 @@
+---
+title: "Fitting and Predicting with poissonreg"
+vignette: >
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteIndexEntry{Fitting and Predicting with poissonreg}
+output:
+  knitr:::html_vignette
+---
+
+```{r startup, include = FALSE}
+library(utils)
+library(ggplot2)
+theme_set(theme_bw())
+```
+
+These examples illustrate which models, engines, and prediction types are available in poissonreg. As a reminder, in parsnip, 
+
+- the **model type** differentiates basic modeling approaches, such as random forests, proportional hazards models, etc.,
+
+- the **mode** denotes in what kind of modeling context it will be used (here: regression), and
+
+- the computational **engine** indicates how the model is fit, such as with a specific R package implementation or even methods outside of R like Keras or Stan.
+
+The following examples use the same data set throughout.
+
+## `poisson_reg()` models
+  
+  <details id="poisson-reg-glm"> 
+  
+  <summary>With the `"glm"` engine</summary>
+  
+  ```{r echo=FALSE}
+  knitr::spin_child("template-biochemists.R")
+  ```
+
+  We can define the model:
+  
+  ```{r}
+  pr_spec <- 
+    poisson_reg() %>%
+    set_engine("glm") %>% 
+    set_mode("regression") 
+  pr_spec
+  ```
+
+  Now we create the model fit object:
+  
+  ```{r}
+  set.seed(1)
+  pr_fit <- pr_spec %>% fit(art ~ ., data = biochemists_train)
+  pr_fit
+  ```
+
+  The holdout data can be predicted:
+  
+  ```{r}
+  predict(pr_fit, biochemists_test)
+  ```
+  
+  </details>
+  
+  <details id="poisson-reg-glmnet"> 
+  
+  <summary>With the `"glmnet"` engine</summary>
+  
+  ```{r echo=FALSE}
+  knitr::spin_child("template-biochemists.R")
+  ```
+
+  We can define the model with specific parameters:
+  
+  ```{r}
+  pr_spec <- 
+    poisson_reg(penalty = 0.1) %>%
+    set_engine("glmnet") %>% 
+    set_mode("regression") 
+  pr_spec
+  ```
+
+  Now we create the model fit object:
+  
+  ```{r}
+  set.seed(1)
+  pr_fit <- pr_spec %>% fit(art ~ ., data = biochemists_train)
+  pr_fit
+  ```
+
+  The holdout data can be predicted:
+  
+  ```{r}
+  predict(pr_fit, biochemists_test)
+  ```
+  
+  </details>
+
+  <details id="poisson-reg-hurdle"> 
+  
+  <summary>With the `"hurdle"` engine</summary>
+  
+  ```{r echo=FALSE}
+  knitr::spin_child("template-biochemists.R")
+  ```
+
+  We can define the model:
+  
+  ```{r}
+  pr_spec <- 
+    poisson_reg() %>%
+    set_engine("hurdle") %>% 
+    set_mode("regression") 
+  pr_spec
+  ```
+
+  Now we create the model fit object:
+  
+  ```{r}
+  set.seed(1)
+  pr_fit <- pr_spec %>% fit(art ~ . | ., data = biochemists_train)
+  pr_fit
+  ```
+
+  The holdout data can be predicted:
+  
+  ```{r}
+  predict(pr_fit, biochemists_test)
+  ```
+  
+  </details>
+
+  <details id="poisson-reg-stan"> 
+  
+  <summary>With the `"stan"` engine</summary>
+  
+  ```{r echo=FALSE}
+  knitr::spin_child("template-biochemists.R")
+  ```
+
+  We can define the model:
+  
+  ```{r}
+  pr_spec <- 
+    poisson_reg() %>%
+    set_engine("stan") %>% 
+    set_mode("regression") 
+  pr_spec
+  ```
+
+  Now we create the model fit object:
+  
+  ```{r}
+  set.seed(1)
+  pr_fit <- pr_spec %>% fit(art ~ ., data = biochemists_train)
+  pr_fit
+  ```
+
+  The holdout data can be predicted:
+  
+  ```{r}
+  predict(pr_fit, biochemists_test)
+  ```
+  
+  </details>
+
+  <details id="poisson-reg-zeroinfl"> 
+  
+  <summary>With the `"zeroinfl"` engine</summary>
+  
+  ```{r echo=FALSE}
+  knitr::spin_child("template-biochemists.R")
+  ```
+
+  We can define the model:
+  
+  ```{r}
+  pr_spec <- 
+    poisson_reg() %>%
+    set_engine("zeroinfl") %>% 
+    set_mode("regression") 
+  pr_spec
+  ```
+
+  Now we create the model fit object:
+  
+  ```{r}
+  set.seed(1)
+  pr_fit <- pr_spec %>% fit(art ~ . | ., data = biochemists_train)
+  pr_fit
+  ```
+
+  The holdout data can be predicted:
+  
+  ```{r}
+  predict(pr_fit, biochemists_test)
+  ```
+  
+  </details>
