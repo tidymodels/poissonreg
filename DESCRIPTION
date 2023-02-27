@@ -33,7 +33,9 @@ Suggests:
     pscl,
     spelling,
     testthat (>= 3.0.0)
-Config/Needs/website: tidyverse/tidytemplate, rmarkdown
+Config/Needs/website: 
+    tidymodels,
+    tidyverse/tidytemplate
 Config/testthat/edition: 3
 Encoding: UTF-8
 Language: en-US
