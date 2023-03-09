@@ -14,3 +14,4 @@
 ^man-roxygen$
 ^pkgdown$
 ^CRAN-SUBMISSION$
+^vignettes/articles$
