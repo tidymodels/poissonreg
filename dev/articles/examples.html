@@ -127,7 +127,7 @@ biochemistry Ph.D. programs.</p>
 <span>  <span class="co">## <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">dplyr</span>::<span style="color: #00BB00;">filter()</span>  masks <span style="color: #0000BB;">stats</span>::filter()</span></span>
 <span>  <span class="co">## <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">dplyr</span>::<span style="color: #00BB00;">lag()</span>     masks <span style="color: #0000BB;">stats</span>::lag()</span></span>
 <span>  <span class="co">## <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">recipes</span>::<span style="color: #00BB00;">step()</span>  masks <span style="color: #0000BB;">stats</span>::step()</span></span>
-<span>  <span class="co">## <span style="color: #0000BB;">•</span> Dig deeper into tidy modeling with R at <span style="color: #00BB00;">https://www.tmwr.org</span></span></span></code></pre>
+<span>  <span class="co">## <span style="color: #0000BB;">•</span> Search for functions across packages at <span style="color: #00BB00;">https://www.tidymodels.org/find/</span></span></span></code></pre>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span>  <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/tidymodels/poissonreg" class="external-link">poissonreg</a></span><span class="op">)</span></span>
 <span>  <span class="fu"><a href="https://tidymodels.tidymodels.org/reference/tidymodels_prefer.html" class="external-link">tidymodels_prefer</a></span><span class="op">(</span><span class="op">)</span></span>
@@ -372,8 +372,8 @@ biochemistry Ph.D. programs.</p>
 <pre><code><span>  <span class="co">## </span></span>
 <span>  <span class="co">## SAMPLING FOR MODEL 'count' NOW (CHAIN 1).</span></span>
 <span>  <span class="co">## Chain 1: </span></span>
-<span>  <span class="co">## Chain 1: Gradient evaluation took 5.1e-05 seconds</span></span>
-<span>  <span class="co">## Chain 1: 1000 transitions using 10 leapfrog steps per transition would take 0.51 seconds.</span></span>
+<span>  <span class="co">## Chain 1: Gradient evaluation took 5.3e-05 seconds</span></span>
+<span>  <span class="co">## Chain 1: 1000 transitions using 10 leapfrog steps per transition would take 0.53 seconds.</span></span>
 <span>  <span class="co">## Chain 1: Adjust your expectations accordingly!</span></span>
 <span>  <span class="co">## Chain 1: </span></span>
 <span>  <span class="co">## Chain 1: </span></span>
@@ -390,15 +390,15 @@ biochemistry Ph.D. programs.</p>
 <span>  <span class="co">## Chain 1: Iteration: 1800 / 2000 [ 90%]  (Sampling)</span></span>
 <span>  <span class="co">## Chain 1: Iteration: 2000 / 2000 [100%]  (Sampling)</span></span>
 <span>  <span class="co">## Chain 1: </span></span>
-<span>  <span class="co">## Chain 1:  Elapsed Time: 0.326536 seconds (Warm-up)</span></span>
-<span>  <span class="co">## Chain 1:                0.341508 seconds (Sampling)</span></span>
-<span>  <span class="co">## Chain 1:                0.668044 seconds (Total)</span></span>
+<span>  <span class="co">## Chain 1:  Elapsed Time: 0.321626 seconds (Warm-up)</span></span>
+<span>  <span class="co">## Chain 1:                0.331439 seconds (Sampling)</span></span>
+<span>  <span class="co">## Chain 1:                0.653065 seconds (Total)</span></span>
 <span>  <span class="co">## Chain 1: </span></span>
 <span>  <span class="co">## </span></span>
 <span>  <span class="co">## SAMPLING FOR MODEL 'count' NOW (CHAIN 2).</span></span>
 <span>  <span class="co">## Chain 2: </span></span>
-<span>  <span class="co">## Chain 2: Gradient evaluation took 4.5e-05 seconds</span></span>
-<span>  <span class="co">## Chain 2: 1000 transitions using 10 leapfrog steps per transition would take 0.45 seconds.</span></span>
+<span>  <span class="co">## Chain 2: Gradient evaluation took 4.3e-05 seconds</span></span>
+<span>  <span class="co">## Chain 2: 1000 transitions using 10 leapfrog steps per transition would take 0.43 seconds.</span></span>
 <span>  <span class="co">## Chain 2: Adjust your expectations accordingly!</span></span>
 <span>  <span class="co">## Chain 2: </span></span>
 <span>  <span class="co">## Chain 2: </span></span>
@@ -415,15 +415,15 @@ biochemistry Ph.D. programs.</p>
 <span>  <span class="co">## Chain 2: Iteration: 1800 / 2000 [ 90%]  (Sampling)</span></span>
 <span>  <span class="co">## Chain 2: Iteration: 2000 / 2000 [100%]  (Sampling)</span></span>
 <span>  <span class="co">## Chain 2: </span></span>
-<span>  <span class="co">## Chain 2:  Elapsed Time: 0.32572 seconds (Warm-up)</span></span>
-<span>  <span class="co">## Chain 2:                0.353055 seconds (Sampling)</span></span>
-<span>  <span class="co">## Chain 2:                0.678775 seconds (Total)</span></span>
+<span>  <span class="co">## Chain 2:  Elapsed Time: 0.322589 seconds (Warm-up)</span></span>
+<span>  <span class="co">## Chain 2:                0.344508 seconds (Sampling)</span></span>
+<span>  <span class="co">## Chain 2:                0.667097 seconds (Total)</span></span>
 <span>  <span class="co">## Chain 2: </span></span>
 <span>  <span class="co">## </span></span>
 <span>  <span class="co">## SAMPLING FOR MODEL 'count' NOW (CHAIN 3).</span></span>
 <span>  <span class="co">## Chain 3: </span></span>
-<span>  <span class="co">## Chain 3: Gradient evaluation took 4.5e-05 seconds</span></span>
-<span>  <span class="co">## Chain 3: 1000 transitions using 10 leapfrog steps per transition would take 0.45 seconds.</span></span>
+<span>  <span class="co">## Chain 3: Gradient evaluation took 4.3e-05 seconds</span></span>
+<span>  <span class="co">## Chain 3: 1000 transitions using 10 leapfrog steps per transition would take 0.43 seconds.</span></span>
 <span>  <span class="co">## Chain 3: Adjust your expectations accordingly!</span></span>
 <span>  <span class="co">## Chain 3: </span></span>
 <span>  <span class="co">## Chain 3: </span></span>
@@ -440,15 +440,15 @@ biochemistry Ph.D. programs.</p>
 <span>  <span class="co">## Chain 3: Iteration: 1800 / 2000 [ 90%]  (Sampling)</span></span>
 <span>  <span class="co">## Chain 3: Iteration: 2000 / 2000 [100%]  (Sampling)</span></span>
 <span>  <span class="co">## Chain 3: </span></span>
-<span>  <span class="co">## Chain 3:  Elapsed Time: 0.327357 seconds (Warm-up)</span></span>
-<span>  <span class="co">## Chain 3:                0.4355 seconds (Sampling)</span></span>
-<span>  <span class="co">## Chain 3:                0.762857 seconds (Total)</span></span>
+<span>  <span class="co">## Chain 3:  Elapsed Time: 0.323868 seconds (Warm-up)</span></span>
+<span>  <span class="co">## Chain 3:                0.427281 seconds (Sampling)</span></span>
+<span>  <span class="co">## Chain 3:                0.751149 seconds (Total)</span></span>
 <span>  <span class="co">## Chain 3: </span></span>
 <span>  <span class="co">## </span></span>
 <span>  <span class="co">## SAMPLING FOR MODEL 'count' NOW (CHAIN 4).</span></span>
 <span>  <span class="co">## Chain 4: </span></span>
-<span>  <span class="co">## Chain 4: Gradient evaluation took 4.1e-05 seconds</span></span>
-<span>  <span class="co">## Chain 4: 1000 transitions using 10 leapfrog steps per transition would take 0.41 seconds.</span></span>
+<span>  <span class="co">## Chain 4: Gradient evaluation took 4.4e-05 seconds</span></span>
+<span>  <span class="co">## Chain 4: 1000 transitions using 10 leapfrog steps per transition would take 0.44 seconds.</span></span>
 <span>  <span class="co">## Chain 4: Adjust your expectations accordingly!</span></span>
 <span>  <span class="co">## Chain 4: </span></span>
 <span>  <span class="co">## Chain 4: </span></span>
@@ -465,9 +465,9 @@ biochemistry Ph.D. programs.</p>
 <span>  <span class="co">## Chain 4: Iteration: 1800 / 2000 [ 90%]  (Sampling)</span></span>
 <span>  <span class="co">## Chain 4: Iteration: 2000 / 2000 [100%]  (Sampling)</span></span>
 <span>  <span class="co">## Chain 4: </span></span>
-<span>  <span class="co">## Chain 4:  Elapsed Time: 0.311577 seconds (Warm-up)</span></span>
-<span>  <span class="co">## Chain 4:                0.390749 seconds (Sampling)</span></span>
-<span>  <span class="co">## Chain 4:                0.702326 seconds (Total)</span></span>
+<span>  <span class="co">## Chain 4:  Elapsed Time: 0.306961 seconds (Warm-up)</span></span>
+<span>  <span class="co">## Chain 4:                0.380135 seconds (Sampling)</span></span>
+<span>  <span class="co">## Chain 4:                0.687096 seconds (Total)</span></span>
 <span>  <span class="co">## Chain 4:</span></span></code></pre>
 <div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span>  <span class="va">pr_fit</span></span></code></pre></div>
