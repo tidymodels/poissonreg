@@ -58,7 +58,7 @@ poissonreg_models <- get_from_env("models") %>%
   purrr::map_dfr(get_from_env, .id = "model")
 
 dplyr::anti_join(
-  poissonreg_models, parsnip_models, 
+  poissonreg_models, parsnip_models,
   by = c("model", "engine", "mode")
 ) %>%
   knitr::kable()
@@ -71,9 +71,9 @@ A log-linear model for categorical data analysis:
 ```{r example}
 library(poissonreg)
 
-# 3D contingency table from Agresti (2007): 
-poisson_reg() %>% 
-  set_engine("glm") %>% 
+# 3D contingency table from Agresti (2007):
+poisson_reg() %>%
+  set_engine("glm") %>%
   fit(count ~ (.)^2, data = seniors)
 ```
 
