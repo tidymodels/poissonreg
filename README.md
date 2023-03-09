@@ -31,8 +31,8 @@ install.packages("poissonreg")
 Install the development version from GitHub with:
 
 ``` r
-require("devtools")
-install_github("tidymodels/poissonreg")
+# install.packages("pak")
+pak::pak("tidymodels/poissonreg")
 ```
 
 ## Available Engines
