@@ -5,7 +5,6 @@
 
 # nocov start
 make_poisson_reg_glm <- function() {
-
   parsnip::set_model_engine("poisson_reg", "regression", "glm")
   parsnip::set_dependency("poisson_reg", "glm", "stats")
   parsnip::set_dependency("poisson_reg", "glm", "poissonreg")
@@ -67,7 +66,6 @@ make_poisson_reg_glm <- function() {
 }
 
 make_poisson_reg_hurdle <- function() {
-
   parsnip::set_model_engine("poisson_reg", "regression", "hurdle")
   parsnip::set_dependency("poisson_reg", "hurdle", "pscl")
   parsnip::set_dependency("poisson_reg", "hurdle", "poissonreg")
@@ -128,7 +126,6 @@ make_poisson_reg_hurdle <- function() {
 }
 
 make_poisson_reg_zeroinfl <- function() {
-
   parsnip::set_model_engine("poisson_reg", "regression", "zeroinfl")
   parsnip::set_dependency("poisson_reg", "zeroinfl", "pscl")
   parsnip::set_dependency("poisson_reg", "zeroinfl", "poissonreg")
@@ -189,7 +186,6 @@ make_poisson_reg_zeroinfl <- function() {
 }
 
 make_poisson_reg_glmnet <- function() {
-
   parsnip::set_model_engine("poisson_reg", "regression", "glmnet")
   parsnip::set_dependency("poisson_reg", "glmnet", "glmnet")
   parsnip::set_dependency("poisson_reg", "glmnet", "poissonreg")
@@ -274,7 +270,6 @@ make_poisson_reg_glmnet <- function() {
 }
 
 make_poisson_reg_stan <- function() {
-
   parsnip::set_model_engine("poisson_reg", "regression", "stan")
   parsnip::set_dependency("poisson_reg", "stan", "rstanarm")
   parsnip::set_dependency("poisson_reg", "stan", "poissonreg")
