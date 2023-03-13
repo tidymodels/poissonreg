@@ -319,24 +319,7 @@ make_poisson_reg_stan <- function() {
     value = list(
       pre = NULL,
       post = function(results, object) {
-        res <-
-          tibble(
-            .pred_lower =
-              parsnip::convert_stan_interval(
-                results,
-                level = object$spec$method$pred$conf_int$extras$level
-              ),
-            .pred_upper =
-              parsnip::convert_stan_interval(
-                results,
-                level = object$spec$method$pred$conf_int$extras$level,
-                lower = FALSE
-              ),
-          )
-        if (object$spec$method$pred$conf_int$extras$std_error) {
-          res$.std_error <- apply(results, 2, sd, na.rm = TRUE)
-        }
-        res
+        organize_stan_interval(results, object, interval_type = "conf")
       },
       func = c(pkg = "rstanarm", fun = "posterior_linpred"),
       args =
@@ -357,24 +340,7 @@ make_poisson_reg_stan <- function() {
     value = list(
       pre = NULL,
       post = function(results, object) {
-        res <-
-          tibble(
-            .pred_lower =
-              parsnip::convert_stan_interval(
-                results,
-                level = object$spec$method$pred$pred_int$extras$level
-              ),
-            .pred_upper =
-              parsnip::convert_stan_interval(
-                results,
-                level = object$spec$method$pred$pred_int$extras$level,
-                lower = FALSE
-              ),
-          )
-        if (object$spec$method$pred$pred_int$extras$std_error) {
-          res$.std_error <- apply(results, 2, sd, na.rm = TRUE)
-        }
-        res
+        organize_stan_interval(results, object, interval_type = "pred")
       },
       func = c(pkg = "rstanarm", fun = "posterior_predict"),
       args =
