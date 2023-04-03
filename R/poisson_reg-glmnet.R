@@ -105,7 +105,7 @@ multi_predict._fishnet <-
     )
     param_key <- tibble(group = colnames(pred), penalty = penalty)
     pred <- as_tibble(pred)
-    pred$.row <- 1:nrow(pred)
+    pred$.row <- seq_len(nrow(pred))
     pred <- gather(pred, group, .pred, -.row)
     if (utils::packageVersion("dplyr") >= "1.0.99.9000") {
       pred <- full_join(param_key, pred, by = "group", multiple = "all")
