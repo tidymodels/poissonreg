@@ -15,8 +15,8 @@
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png">
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/Source_Sans_Pro-0.4.8/font.css" rel="stylesheet">
-<link href="../deps/Source_Code_Pro-0.4.8/font.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/Source_Sans_Pro-0.4.9/font.css" rel="stylesheet">
+<link href="../deps/Source_Code_Pro-0.4.9/font.css" rel="stylesheet">
 <!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Fitting and Predicting with poissonreg">
@@ -113,21 +113,21 @@ With the <code>"glm"</code> engine
 biochemistry Ph.D. programs.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span>  <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidymodels.tidymodels.org" class="external-link">tidymodels</a></span><span class="op">)</span></span></code></pre></div>
-<pre><code><span>  <span class="co">## ── <span style="font-weight: bold;">Attaching packages</span> ──────────────────────────────── tidymodels 1.1.1 ──</span></span></code></pre>
-<pre><code><span>  <span class="co">## <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">broom       </span> 1.0.5     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">rsample     </span> 1.2.0</span></span>
-<span>  <span class="co">## <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">dials       </span> 1.2.0     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">tibble      </span> 3.2.1</span></span>
-<span>  <span class="co">## <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">dplyr       </span> 1.1.4     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">tidyr       </span> 1.3.0</span></span>
-<span>  <span class="co">## <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">infer       </span> 1.0.5     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">tune        </span> 1.1.2</span></span>
-<span>  <span class="co">## <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">modeldata   </span> 1.2.0     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">workflows   </span> 1.1.3</span></span>
-<span>  <span class="co">## <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">parsnip     </span> 1.1.1     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">workflowsets</span> 1.0.1</span></span>
-<span>  <span class="co">## <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">purrr       </span> 1.0.2     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">yardstick   </span> 1.2.0</span></span>
-<span>  <span class="co">## <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">recipes     </span> 1.0.9</span></span></code></pre>
+<pre><code><span>  <span class="co">## ── <span style="font-weight: bold;">Attaching packages</span> ──────────────────────────────── tidymodels 1.2.0 ──</span></span></code></pre>
+<pre><code><span>  <span class="co">## <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">broom       </span> 1.0.5      <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">rsample     </span> 1.2.1 </span></span>
+<span>  <span class="co">## <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">dials       </span> 1.2.1      <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">tibble      </span> 3.2.1 </span></span>
+<span>  <span class="co">## <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">dplyr       </span> 1.1.4      <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">tidyr       </span> 1.3.1 </span></span>
+<span>  <span class="co">## <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">infer       </span> 1.0.7      <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">tune        </span> 1.2.0 </span></span>
+<span>  <span class="co">## <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">modeldata   </span> 1.3.0      <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">workflows   </span> 1.1.4 </span></span>
+<span>  <span class="co">## <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">parsnip     </span> 1.2.1      <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">workflowsets</span> 1.1.0 </span></span>
+<span>  <span class="co">## <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">purrr       </span> 1.0.2      <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">yardstick   </span> 1.3.1 </span></span>
+<span>  <span class="co">## <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">recipes     </span> 1.0.10</span></span></code></pre>
 <pre><code><span>  <span class="co">## ── <span style="font-weight: bold;">Conflicts</span> ─────────────────────────────────── tidymodels_conflicts() ──</span></span>
 <span>  <span class="co">## <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">purrr</span>::<span style="color: #00BB00;">discard()</span> masks <span style="color: #0000BB;">scales</span>::discard()</span></span>
 <span>  <span class="co">## <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">dplyr</span>::<span style="color: #00BB00;">filter()</span>  masks <span style="color: #0000BB;">stats</span>::filter()</span></span>
 <span>  <span class="co">## <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">dplyr</span>::<span style="color: #00BB00;">lag()</span>     masks <span style="color: #0000BB;">stats</span>::lag()</span></span>
 <span>  <span class="co">## <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">recipes</span>::<span style="color: #00BB00;">step()</span>  masks <span style="color: #0000BB;">stats</span>::step()</span></span>
-<span>  <span class="co">## <span style="color: #0000BB;">•</span> Search for functions across packages at <span style="color: #00BB00;">https://www.tidymodels.org/find/</span></span></span></code></pre>
+<span>  <span class="co">## <span style="color: #0000BB;">•</span> Use <span style="color: #00BB00;">tidymodels_prefer()</span> to resolve common conflicts.</span></span></code></pre>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span>  <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/tidymodels/poissonreg" class="external-link">poissonreg</a></span><span class="op">)</span></span>
 <span>  <span class="fu"><a href="https://tidymodels.tidymodels.org/reference/tidymodels_prefer.html" class="external-link">tidymodels_prefer</a></span><span class="op">(</span><span class="op">)</span></span>
@@ -372,8 +372,8 @@ biochemistry Ph.D. programs.</p>
 <pre><code><span>  <span class="co">## </span></span>
 <span>  <span class="co">## SAMPLING FOR MODEL 'count' NOW (CHAIN 1).</span></span>
 <span>  <span class="co">## Chain 1: </span></span>
-<span>  <span class="co">## Chain 1: Gradient evaluation took 4e-05 seconds</span></span>
-<span>  <span class="co">## Chain 1: 1000 transitions using 10 leapfrog steps per transition would take 0.4 seconds.</span></span>
+<span>  <span class="co">## Chain 1: Gradient evaluation took 4.9e-05 seconds</span></span>
+<span>  <span class="co">## Chain 1: 1000 transitions using 10 leapfrog steps per transition would take 0.49 seconds.</span></span>
 <span>  <span class="co">## Chain 1: Adjust your expectations accordingly!</span></span>
 <span>  <span class="co">## Chain 1: </span></span>
 <span>  <span class="co">## Chain 1: </span></span>
@@ -390,15 +390,15 @@ biochemistry Ph.D. programs.</p>
 <span>  <span class="co">## Chain 1: Iteration: 1800 / 2000 [ 90%]  (Sampling)</span></span>
 <span>  <span class="co">## Chain 1: Iteration: 2000 / 2000 [100%]  (Sampling)</span></span>
 <span>  <span class="co">## Chain 1: </span></span>
-<span>  <span class="co">## Chain 1:  Elapsed Time: 0.204 seconds (Warm-up)</span></span>
-<span>  <span class="co">## Chain 1:                0.212 seconds (Sampling)</span></span>
-<span>  <span class="co">## Chain 1:                0.416 seconds (Total)</span></span>
+<span>  <span class="co">## Chain 1:  Elapsed Time: 0.237 seconds (Warm-up)</span></span>
+<span>  <span class="co">## Chain 1:                0.247 seconds (Sampling)</span></span>
+<span>  <span class="co">## Chain 1:                0.484 seconds (Total)</span></span>
 <span>  <span class="co">## Chain 1: </span></span>
 <span>  <span class="co">## </span></span>
 <span>  <span class="co">## SAMPLING FOR MODEL 'count' NOW (CHAIN 2).</span></span>
 <span>  <span class="co">## Chain 2: </span></span>
-<span>  <span class="co">## Chain 2: Gradient evaluation took 2.7e-05 seconds</span></span>
-<span>  <span class="co">## Chain 2: 1000 transitions using 10 leapfrog steps per transition would take 0.27 seconds.</span></span>
+<span>  <span class="co">## Chain 2: Gradient evaluation took 2.8e-05 seconds</span></span>
+<span>  <span class="co">## Chain 2: 1000 transitions using 10 leapfrog steps per transition would take 0.28 seconds.</span></span>
 <span>  <span class="co">## Chain 2: Adjust your expectations accordingly!</span></span>
 <span>  <span class="co">## Chain 2: </span></span>
 <span>  <span class="co">## Chain 2: </span></span>
@@ -415,15 +415,15 @@ biochemistry Ph.D. programs.</p>
 <span>  <span class="co">## Chain 2: Iteration: 1800 / 2000 [ 90%]  (Sampling)</span></span>
 <span>  <span class="co">## Chain 2: Iteration: 2000 / 2000 [100%]  (Sampling)</span></span>
 <span>  <span class="co">## Chain 2: </span></span>
-<span>  <span class="co">## Chain 2:  Elapsed Time: 0.203 seconds (Warm-up)</span></span>
-<span>  <span class="co">## Chain 2:                0.22 seconds (Sampling)</span></span>
-<span>  <span class="co">## Chain 2:                0.423 seconds (Total)</span></span>
+<span>  <span class="co">## Chain 2:  Elapsed Time: 0.229 seconds (Warm-up)</span></span>
+<span>  <span class="co">## Chain 2:                0.238 seconds (Sampling)</span></span>
+<span>  <span class="co">## Chain 2:                0.467 seconds (Total)</span></span>
 <span>  <span class="co">## Chain 2: </span></span>
 <span>  <span class="co">## </span></span>
 <span>  <span class="co">## SAMPLING FOR MODEL 'count' NOW (CHAIN 3).</span></span>
 <span>  <span class="co">## Chain 3: </span></span>
-<span>  <span class="co">## Chain 3: Gradient evaluation took 2.6e-05 seconds</span></span>
-<span>  <span class="co">## Chain 3: 1000 transitions using 10 leapfrog steps per transition would take 0.26 seconds.</span></span>
+<span>  <span class="co">## Chain 3: Gradient evaluation took 2.8e-05 seconds</span></span>
+<span>  <span class="co">## Chain 3: 1000 transitions using 10 leapfrog steps per transition would take 0.28 seconds.</span></span>
 <span>  <span class="co">## Chain 3: Adjust your expectations accordingly!</span></span>
 <span>  <span class="co">## Chain 3: </span></span>
 <span>  <span class="co">## Chain 3: </span></span>
@@ -440,15 +440,15 @@ biochemistry Ph.D. programs.</p>
 <span>  <span class="co">## Chain 3: Iteration: 1800 / 2000 [ 90%]  (Sampling)</span></span>
 <span>  <span class="co">## Chain 3: Iteration: 2000 / 2000 [100%]  (Sampling)</span></span>
 <span>  <span class="co">## Chain 3: </span></span>
-<span>  <span class="co">## Chain 3:  Elapsed Time: 0.204 seconds (Warm-up)</span></span>
-<span>  <span class="co">## Chain 3:                0.271 seconds (Sampling)</span></span>
-<span>  <span class="co">## Chain 3:                0.475 seconds (Total)</span></span>
+<span>  <span class="co">## Chain 3:  Elapsed Time: 0.227 seconds (Warm-up)</span></span>
+<span>  <span class="co">## Chain 3:                0.31 seconds (Sampling)</span></span>
+<span>  <span class="co">## Chain 3:                0.537 seconds (Total)</span></span>
 <span>  <span class="co">## Chain 3: </span></span>
 <span>  <span class="co">## </span></span>
 <span>  <span class="co">## SAMPLING FOR MODEL 'count' NOW (CHAIN 4).</span></span>
 <span>  <span class="co">## Chain 4: </span></span>
-<span>  <span class="co">## Chain 4: Gradient evaluation took 2.7e-05 seconds</span></span>
-<span>  <span class="co">## Chain 4: 1000 transitions using 10 leapfrog steps per transition would take 0.27 seconds.</span></span>
+<span>  <span class="co">## Chain 4: Gradient evaluation took 2.9e-05 seconds</span></span>
+<span>  <span class="co">## Chain 4: 1000 transitions using 10 leapfrog steps per transition would take 0.29 seconds.</span></span>
 <span>  <span class="co">## Chain 4: Adjust your expectations accordingly!</span></span>
 <span>  <span class="co">## Chain 4: </span></span>
 <span>  <span class="co">## Chain 4: </span></span>
@@ -465,9 +465,9 @@ biochemistry Ph.D. programs.</p>
 <span>  <span class="co">## Chain 4: Iteration: 1800 / 2000 [ 90%]  (Sampling)</span></span>
 <span>  <span class="co">## Chain 4: Iteration: 2000 / 2000 [100%]  (Sampling)</span></span>
 <span>  <span class="co">## Chain 4: </span></span>
-<span>  <span class="co">## Chain 4:  Elapsed Time: 0.194 seconds (Warm-up)</span></span>
-<span>  <span class="co">## Chain 4:                0.245 seconds (Sampling)</span></span>
-<span>  <span class="co">## Chain 4:                0.439 seconds (Total)</span></span>
+<span>  <span class="co">## Chain 4:  Elapsed Time: 0.216 seconds (Warm-up)</span></span>
+<span>  <span class="co">## Chain 4:                0.273 seconds (Sampling)</span></span>
+<span>  <span class="co">## Chain 4:                0.489 seconds (Total)</span></span>
 <span>  <span class="co">## Chain 4:</span></span></code></pre>
 <div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span>  <span class="va">pr_fit</span></span></code></pre></div>
@@ -537,13 +537,13 @@ biochemistry Ph.D. programs.</p>
 <span>  <span class="co">## </span></span>
 <span>  <span class="co">## Count model coefficients (poisson with log link):</span></span>
 <span>  <span class="co">## (Intercept)     femWomen   marMarried         kid5          phd  </span></span>
-<span>  <span class="co">##    0.637599    -0.205020     0.099135    -0.143444    -0.005037  </span></span>
+<span>  <span class="co">##    0.637600    -0.205020     0.099136    -0.143444    -0.005037  </span></span>
 <span>  <span class="co">##        ment  </span></span>
 <span>  <span class="co">##    0.018101  </span></span>
 <span>  <span class="co">## </span></span>
 <span>  <span class="co">## Zero-inflation model coefficients (binomial with logit link):</span></span>
 <span>  <span class="co">## (Intercept)     femWomen   marMarried         kid5          phd  </span></span>
-<span>  <span class="co">##    -0.65530      0.12466     -0.35861      0.22921      0.03239  </span></span>
+<span>  <span class="co">##    -0.65529      0.12466     -0.35861      0.22921      0.03238  </span></span>
 <span>  <span class="co">##        ment  </span></span>
 <span>  <span class="co">##    -0.14778</span></span></code></pre>
 <p>The holdout data can be predicted:</p>
