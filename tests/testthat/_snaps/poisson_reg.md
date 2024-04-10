@@ -103,3 +103,23 @@
       [1] "poisson"
       
 
+# check_args() works
+
+    Code
+      spec <- poisson_reg(mixture = -1) %>% set_engine("glm") %>% set_mode(
+        "regression")
+      fit(spec, gear ~ ., data = mtcars)
+    Condition
+      Error in `fit()`:
+      ! `mixture` must be a number between 0 and 1 or `NULL`, not the number -1.
+
+---
+
+    Code
+      spec <- poisson_reg(penalty = -1) %>% set_engine("glm") %>% set_mode(
+        "regression")
+      fit(spec, gear ~ ., data = mtcars)
+    Condition
+      Error in `fit()`:
+      ! The amount of regularization, `penalty`, should be `>= 0`.
+

@@ -13,3 +13,28 @@ test_that("arguments", {
   expect_snapshot(translate_args(mixture %>% set_engine("glmnet")))
   expect_snapshot(translate_args(mixture_tune %>% set_engine("glmnet")))
 })
+
+
+test_that('check_args() works', {
+  skip_if_not_installed("parsnip", "1.2.1.9001")
+  
+  expect_snapshot(
+    error = TRUE,
+    {
+      spec <- poisson_reg(mixture = -1) %>% 
+        set_engine("glm") %>%
+        set_mode("regression")
+      fit(spec, gear ~ ., data = mtcars)
+    }
+  )
+
+  expect_snapshot(
+    error = TRUE,
+    {
+      spec <- poisson_reg(penalty = -1) %>% 
+        set_engine("glm") %>%
+        set_mode("regression")
+      fit(spec, gear ~ ., data = mtcars)
+    }
+  )
+})
