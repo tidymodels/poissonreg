@@ -14,6 +14,8 @@
 
 * Tests are now self-contained (#60).
 
+* Predictions of type `"conf_int"` for the `"stan"` engine now use the function suggested by rstanarm (#86).
+
 
 # poissonreg 1.0.1
 
