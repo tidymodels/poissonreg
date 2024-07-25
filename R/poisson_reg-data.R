@@ -370,12 +370,11 @@ make_poisson_reg_stan <- function() {
       post = function(results, object) {
         organize_stan_interval(results, object, interval_type = "conf")
       },
-      func = c(pkg = "rstanarm", fun = "posterior_linpred"),
+      func = c(pkg = "rstanarm", fun = "posterior_epred"),
       args =
         list(
           object = expr(object$fit),
           newdata = expr(new_data),
-          transform = TRUE,
           seed = expr(sample.int(10^5, 1))
         )
     )
