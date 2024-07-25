@@ -44,6 +44,7 @@
 <li><p>The <code><a href="https://rdrr.io/r/stats/predict.html" class="external-link">predict()</a></code> method for the <code>"glmnet"</code> engine now checks the penalty value via <code><a href="https://parsnip.tidymodels.org/reference/glmnet_helpers.html" class="external-link">parsnip::.check_glmnet_penalty_predict()</a></code> instead of a copied version of the function (<a href="https://github.com/tidymodels/poissonreg/issues/57" class="external-link">#57</a>).</p></li>
 <li><p>Moved imports and declaration of global variables into the standard place (<a href="https://github.com/tidymodels/poissonreg/issues/59" class="external-link">#59</a>).</p></li>
 <li><p>Tests are now self-contained (<a href="https://github.com/tidymodels/poissonreg/issues/60" class="external-link">#60</a>).</p></li>
+<li><p>Predictions of type <code>"conf_int"</code> for the <code>"stan"</code> engine now use the function suggested by rstanarm (<a href="https://github.com/tidymodels/poissonreg/issues/86" class="external-link">#86</a>).</p></li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.0.1" id="poissonreg-101">poissonreg 1.0.1<a class="anchor" aria-label="anchor" href="#poissonreg-101"></a></h2><p class="text-muted">CRAN release: 2022-08-22</p>
