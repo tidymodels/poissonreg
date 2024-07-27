@@ -69,10 +69,6 @@ predict_raw._fishnet <- function(object, new_data, opts = list(), ...) {
 #' @param penalty A numeric vector of penalty values.
 multi_predict._fishnet <-
   function(object, new_data, type = NULL, penalty = NULL, ...) {
-    if (any(names(enquos(...)) == "newdata")) {
-      rlang::abort("Did you mean to use `new_data` instead of `newdata`?")
-    }
-
     dots <- list(...)
 
     object$spec <- eval_args(object$spec)
