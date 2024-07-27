@@ -16,6 +16,8 @@
 
 * Predictions of type `"conf_int"` for the `"stan"` engine now use the function suggested by rstanarm (#86).
 
+* Removed obsolte check on supplying `newdata` as an argument to `predict()` or `multi_predict()` (#87).
+
 
 # poissonreg 1.0.1
 
