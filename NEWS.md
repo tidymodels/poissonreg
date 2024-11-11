@@ -1,8 +1,10 @@
 # poissonreg (development version)
 
+* Predictions via `multi_predict()` for glmnet models now correctly are the mean counts instead of the linear predictor (#89).
+
 * Predictions for a single observation now work for `poisson_reg()` with the `"glmnet"` engine (#48).
 
-* Removed the now obsolete registration of the `predict_raw()` generic as it is now exported from parnsip (#52).
+* Removed the now obsolete registration of the `predict_raw()` generic as it is now exported from parsnip (#52).
 
 * Removed the unused internal `s3_register()` function (#53).
 
@@ -16,7 +18,7 @@
 
 * Predictions of type `"conf_int"` for the `"stan"` engine now use the function suggested by rstanarm (#86).
 
-* Removed obsolte check on supplying `newdata` as an argument to `predict()` or `multi_predict()` (#87).
+* Removed obsolete check on supplying `newdata` as an argument to `predict()` or `multi_predict()` (#87).
 
 
 # poissonreg 1.0.1
