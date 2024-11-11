@@ -82,6 +82,13 @@ multi_predict._fishnet <-
       }
     }
 
+    if (is.null(type)) {
+      type <- "numeric"
+    }
+    if (type == "numeric") {
+      dots$type <- "response"
+    }
+
     pred <- predict._fishnet(
       object,
       new_data = new_data, type = "raw",
