@@ -86,6 +86,8 @@ multi_predict._fishnet <-
       type <- "numeric"
     }
     if (type == "numeric") {
+      # `glmnet:::predict.fishnet()` will receive `type = "response"`
+      # via `parsnip:::predict_raw.model_fit` (#89)
       dots$type <- "response"
     }
 

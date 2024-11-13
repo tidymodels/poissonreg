@@ -1,6 +1,6 @@
 # poissonreg (development version)
 
-* Predictions via `multi_predict()` for glmnet models now correctly are the mean counts instead of the linear predictor (#89).
+* Predictions via `multi_predict()` for glmnet models now correctly default to mean counts instead of the linear predictor (#89).
 
 * Predictions for a single observation now work for `poisson_reg()` with the `"glmnet"` engine (#48).
 
