@@ -15,3 +15,5 @@
 ^pkgdown$
 ^CRAN-SUBMISSION$
 ^vignettes/articles$
+^[\.]?air\.toml$
+^\.vscode$
