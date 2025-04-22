@@ -9,7 +9,7 @@
 [![CRAN
 status](https://www.r-pkg.org/badges/version/poissonreg)](https://CRAN.R-project.org/package=poissonreg)
 [![Codecov test
-coverage](https://codecov.io/gh/tidymodels/poissonreg/branch/main/graph/badge.svg)](https://app.codecov.io/gh/tidymodels/poissonreg?branch=main)
+coverage](https://codecov.io/gh/tidymodels/poissonreg/graph/badge.svg)](https://app.codecov.io/gh/tidymodels/poissonreg)
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 <!-- badges: end -->
