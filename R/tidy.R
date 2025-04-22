@@ -1,4 +1,3 @@
-
 tidy_mat <- function(x, type) {
   ret <- tibble::as_tibble(x, rownames = "term")
   colnames(ret) <- c("term", "estimate", "std.error", "statistic", "p.value")

@@ -7,8 +7,8 @@
 make_poisson_reg_glm <- function() {
   parsnip::set_model_engine("poisson_reg", mode = "regression", eng = "glm")
   parsnip::set_dependency(
-    "poisson_reg", 
-    eng = "glm", 
+    "poisson_reg",
+    eng = "glm",
     pkg = "stats",
     mode = "regression"
   )
@@ -52,12 +52,11 @@ make_poisson_reg_glm <- function() {
       pre = NULL,
       post = NULL,
       func = c(fun = "predict"),
-      args =
-        list(
-          object = expr(object$fit),
-          newdata = expr(new_data),
-          type = "response"
-        )
+      args = list(
+        object = expr(object$fit),
+        newdata = expr(new_data),
+        type = "response"
+      )
     )
   )
 
@@ -78,13 +77,14 @@ make_poisson_reg_glm <- function() {
 make_poisson_reg_hurdle <- function() {
   parsnip::set_model_engine("poisson_reg", "regression", "hurdle")
   parsnip::set_dependency(
-    "poisson_reg", 
-    eng = "hurdle", 
+    "poisson_reg",
+    eng = "hurdle",
     pkg = "pscl",
-  mode = "regression")
+    mode = "regression"
+  )
   parsnip::set_dependency(
-    "poisson_reg", 
-    eng = "hurdle", 
+    "poisson_reg",
+    eng = "hurdle",
     pkg = "poissonreg",
     mode = "regression"
   )
@@ -122,11 +122,10 @@ make_poisson_reg_hurdle <- function() {
       pre = NULL,
       post = NULL,
       func = c(fun = "predict"),
-      args =
-        list(
-          object = expr(object$fit),
-          newdata = expr(new_data)
-        )
+      args = list(
+        object = expr(object$fit),
+        newdata = expr(new_data)
+      )
     )
   )
 
@@ -147,14 +146,14 @@ make_poisson_reg_hurdle <- function() {
 make_poisson_reg_zeroinfl <- function() {
   parsnip::set_model_engine("poisson_reg", "regression", "zeroinfl")
   parsnip::set_dependency(
-    "poisson_reg", 
-    eng = "zeroinfl", 
+    "poisson_reg",
+    eng = "zeroinfl",
     pkg = "pscl",
     mode = "regression"
   )
   parsnip::set_dependency(
-    "poisson_reg", 
-    eng = "zeroinfl", 
+    "poisson_reg",
+    eng = "zeroinfl",
     pkg = "poissonreg",
     mode = "regression"
   )
@@ -192,11 +191,10 @@ make_poisson_reg_zeroinfl <- function() {
       pre = NULL,
       post = NULL,
       func = c(fun = "predict"),
-      args =
-        list(
-          object = expr(object$fit),
-          newdata = expr(new_data)
-        )
+      args = list(
+        object = expr(object$fit),
+        newdata = expr(new_data)
+      )
     )
   )
 
@@ -218,13 +216,13 @@ make_poisson_reg_glmnet <- function() {
   parsnip::set_model_engine("poisson_reg", "regression", "glmnet")
   parsnip::set_dependency(
     "poisson_reg",
-    eng = "glmnet", 
+    eng = "glmnet",
     pkg = "glmnet",
     mode = "regression"
   )
   parsnip::set_dependency(
     "poisson_reg",
-    eng = "glmnet", 
+    eng = "glmnet",
     pkg = "poissonreg",
     mode = "regression"
   )
@@ -280,13 +278,15 @@ make_poisson_reg_glmnet <- function() {
       pre = NULL,
       post = parsnip::.organize_glmnet_pred,
       func = c(fun = "predict"),
-      args =
-        list(
-          object = expr(object$fit),
-          newx = expr(as.matrix(new_data[, rownames(object$fit$beta), drop = FALSE])),
-          type = "response",
-          s = expr(object$spec$args$penalty)
-        )
+      args = list(
+        object = expr(object$fit),
+        newx = expr(as.matrix(new_data[,
+          rownames(object$fit$beta),
+          drop = FALSE
+        ])),
+        type = "response",
+        s = expr(object$spec$args$penalty)
+      )
     )
   )
 
@@ -299,11 +299,13 @@ make_poisson_reg_glmnet <- function() {
       pre = NULL,
       post = NULL,
       func = c(fun = "predict"),
-      args =
-        list(
-          object = expr(object$fit),
-          newx = expr(as.matrix(new_data[, rownames(object$fit$beta), drop = FALSE]))
-        )
+      args = list(
+        object = expr(object$fit),
+        newx = expr(as.matrix(new_data[,
+          rownames(object$fit$beta),
+          drop = FALSE
+        ]))
+      )
     )
   )
 }
@@ -311,14 +313,14 @@ make_poisson_reg_glmnet <- function() {
 make_poisson_reg_stan <- function() {
   parsnip::set_model_engine("poisson_reg", "regression", "stan")
   parsnip::set_dependency(
-    "poisson_reg", 
-    eng = "stan", 
+    "poisson_reg",
+    eng = "stan",
     pkg = "rstanarm",
     mode = "regression"
   )
   parsnip::set_dependency(
-    "poisson_reg", 
-    eng = "stan", 
+    "poisson_reg",
+    eng = "stan",
     pkg = "poissonreg",
     mode = "regression"
   )
@@ -371,12 +373,11 @@ make_poisson_reg_stan <- function() {
         organize_stan_interval(results, object, interval_type = "conf")
       },
       func = c(pkg = "rstanarm", fun = "posterior_epred"),
-      args =
-        list(
-          object = expr(object$fit),
-          newdata = expr(new_data),
-          seed = expr(sample.int(10^5, 1))
-        )
+      args = list(
+        object = expr(object$fit),
+        newdata = expr(new_data),
+        seed = expr(sample.int(10^5, 1))
+      )
     )
   )
 
@@ -391,12 +392,11 @@ make_poisson_reg_stan <- function() {
         organize_stan_interval(results, object, interval_type = "pred")
       },
       func = c(pkg = "rstanarm", fun = "posterior_predict"),
-      args =
-        list(
-          object = expr(object$fit),
-          newdata = expr(new_data),
-          seed = expr(sample.int(10^5, 1))
-        )
+      args = list(
+        object = expr(object$fit),
+        newdata = expr(new_data),
+        seed = expr(sample.int(10^5, 1))
+      )
     )
   )
 

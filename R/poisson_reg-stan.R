@@ -9,17 +9,15 @@ organize_stan_interval <- function(results, object, interval_type = "conf") {
   }
   res <-
     tibble(
-      .pred_lower =
-        parsnip::convert_stan_interval(
-          results,
-          level = lvl
-        ),
-      .pred_upper =
-        parsnip::convert_stan_interval(
-          results,
-          level = lvl,
-          lower = FALSE
-        ),
+      .pred_lower = parsnip::convert_stan_interval(
+        results,
+        level = lvl
+      ),
+      .pred_upper = parsnip::convert_stan_interval(
+        results,
+        level = lvl,
+        lower = FALSE
+      ),
     )
   if (add_standard_error) {
     res$.std_error <- apply(results, 2, sd, na.rm = TRUE)

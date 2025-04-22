@@ -9,7 +9,6 @@
 #       predict_numeric.model_fit()
 #        predict.fishnet()
 
-
 # glmnet call stack for poisson regression using `multi_predict` when object has
 # classes "_fishnet" and "model_fit":
 #
@@ -22,19 +21,36 @@
 #          predict_raw.model_fit(opts = list(s = penalty))
 #           predict.fishnet()
 
-
 #' @export
 predict._fishnet <-
-  function(object, new_data, type = NULL, opts = list(), penalty = NULL, multi = FALSE, ...) {
+  function(
+    object,
+    new_data,
+    type = NULL,
+    opts = list(),
+    penalty = NULL,
+    multi = FALSE,
+    ...
+  ) {
     # See discussion in https://github.com/tidymodels/parsnip/issues/195
     if (is.null(penalty) & !is.null(object$spec$args$penalty)) {
       penalty <- object$spec$args$penalty
     }
 
-    object$spec$args$penalty <- .check_glmnet_penalty_predict(penalty, object, multi)
+    object$spec$args$penalty <- .check_glmnet_penalty_predict(
+      penalty,
+      object,
+      multi
+    )
 
     object$spec <- parsnip::eval_args(object$spec)
-    predict.model_fit(object, new_data = new_data, type = type, opts = opts, ...)
+    predict.model_fit(
+      object,
+      new_data = new_data,
+      type = type,
+      opts = opts,
+      ...
+    )
   }
 
 #' @export
@@ -93,8 +109,11 @@ multi_predict._fishnet <-
 
     pred <- predict._fishnet(
       object,
-      new_data = new_data, type = "raw",
-      opts = dots, penalty = penalty, multi = TRUE
+      new_data = new_data,
+      type = "raw",
+      opts = dots,
+      penalty = penalty,
+      multi = TRUE
     )
     param_key <- tibble(group = colnames(pred), penalty = penalty)
     pred <- as_tibble(pred)

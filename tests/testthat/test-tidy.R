@@ -1,4 +1,3 @@
-
 test_that("hurdle", {
   library(pscl)
   data("bioChemists", package = "pscl")
