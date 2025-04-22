@@ -12,7 +12,12 @@ test_that("hurdle execution", {
     regexp = NA
   )
   expect_error(
-    res <- fit_xy(hurdle_spec, x = bioChemists[, 2:6], y = bioChemists$art, control = ctrl),
+    res <- fit_xy(
+      hurdle_spec,
+      x = bioChemists[, 2:6],
+      y = bioChemists$art,
+      control = ctrl
+    ),
     regexp = NA
   )
 
@@ -34,8 +39,10 @@ test_that("hurdle prediction", {
   quiet_ctrl <- control_parsnip(verbosity = 0, catch = TRUE)
 
   hurdle_pred <- c(
-    2.00569689955261, 1.29916133671851,
-    1.30005204940495, 1.43756150261801,
+    2.00569689955261,
+    1.29916133671851,
+    1.30005204940495,
+    1.43756150261801,
     2.37677697507562
   )
 
@@ -53,8 +60,10 @@ test_that("hurdle prediction", {
   )
 
   form_pred <- c(
-    1.83402584880366, 1.45332695575065,
-    1.43412114470316, 1.58891378718055,
+    1.83402584880366,
+    1.45332695575065,
+    1.43412114470316,
+    1.58891378718055,
     1.855682964733
   )
 
