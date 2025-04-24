@@ -68,10 +68,13 @@ test_that("glmnet multi_predict(): type numeric", {
   expect_equal(names(f_pred), ".pred")
   expect_equal(nrow(f_pred), nrow(seniors))
   expect_true(
-    all(purrr::map_lgl(f_pred$.pred, ~ all(dim(.x) == c(2, 2))))
+    all(purrr::map_lgl(f_pred$.pred, \(.x) all(dim(.x) == c(2, 2))))
   )
   expect_true(
-    all(purrr::map_lgl(f_pred$.pred, ~ all(names(.x) == c("penalty", ".pred"))))
+    all(purrr::map_lgl(
+      f_pred$.pred,
+      \(.x) all(names(.x) == c("penalty", ".pred"))
+    ))
   )
 
   # single prediction
