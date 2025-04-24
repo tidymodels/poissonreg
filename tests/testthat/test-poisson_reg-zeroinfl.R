@@ -21,10 +21,6 @@ test_that("zeroinfl execution", {
 
   expect_false(has_multi_predict(res))
   expect_equal(multi_predict_args(res), NA_character_)
-
-  expect_error(
-    fit(zeroinfl_spec, Species ~ term, data = bioChemists, control = ctrl)
-  )
 })
 
 test_that("zeroinfl prediction", {

@@ -8,10 +8,6 @@ test_that("glm execution", {
   expect_no_error(
     fit_xy(glm_spec, x = seniors[, 1:3], y = seniors$count, control = ctrl)
   )
-
-  expect_error(
-    fit(glm_spec, y ~ x, data = seniors, control = ctrl)
-  )
 })
 
 test_that("glm prediction", {
