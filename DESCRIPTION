@@ -2,11 +2,12 @@ Package: poissonreg
 Title: Model Wrappers for Poisson Regression
 Version: 1.0.1.9001
 Authors@R: c(
-    person("Max", "Kuhn", , "max@posit.co", role = c("aut"),
+    person("Max", "Kuhn", , "max@posit.co", role = "aut",
            comment = c(ORCID = "0000-0003-2402-136X")),
     person("Hannah", "Frick", , "hannah@posit.co", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-6049-5258")),
-    person(given = "Posit Software, PBC", role = c("cph", "fnd"))
+    person("Posit Software, PBC", role = c("cph", "fnd"),
+           comment = c(ROR = "03wc8by49"))
   )
 Description: Bindings for Poisson regression models for use with the
     'parsnip' package. Models include simple generalized linear models,
@@ -18,7 +19,7 @@ URL: https://github.com/tidymodels/poissonreg,
 BugReports: https://github.com/tidymodels/poissonreg/issues
 Depends: 
     parsnip (>= 0.2.0),
-    R (>= 3.4)
+    R (>= 4.1)
 Imports: 
     dplyr,
     generics,
@@ -38,6 +39,7 @@ Config/Needs/website:
     tidymodels,
     tidyverse/tidytemplate
 Config/testthat/edition: 3
+Config/usethis/last-upkeep: 2025-04-24
 Encoding: UTF-8
 Language: en-US
 LazyData: true

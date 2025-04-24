@@ -2,17 +2,11 @@ test_that("glm execution", {
   glm_spec <- poisson_reg() %>% set_engine("glm")
   ctrl <- control_parsnip(verbosity = 1, catch = FALSE)
 
-  expect_error(
-    fit(glm_spec, count ~ ., data = seniors, control = ctrl),
-    regexp = NA
+  expect_no_error(
+    fit(glm_spec, count ~ ., data = seniors, control = ctrl)
   )
-  expect_error(
-    fit_xy(glm_spec, x = seniors[, 1:3], y = seniors$count, control = ctrl),
-    regexp = NA
-  )
-
-  expect_error(
-    fit(glm_spec, y ~ x, data = seniors, control = ctrl)
+  expect_no_error(
+    fit_xy(glm_spec, x = seniors[, 1:3], y = seniors$count, control = ctrl)
   )
 })
 

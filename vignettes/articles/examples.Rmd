@@ -7,7 +7,9 @@ output:
   knitr:::html_vignette
 ---
 
-```{r startup, include = FALSE}
+```{r}
+#| label: startup
+#| include: false
 library(utils)
 library(ggplot2)
 theme_set(theme_bw())
@@ -29,7 +31,8 @@ The following examples use the same data set throughout.
   
   <summary>With the `"glm"` engine</summary>
   
-  ```{r echo=FALSE}
+  ```{r}
+  #| echo: false
   knitr::spin_child("template-biochemists.R")
   ```
 
@@ -63,7 +66,8 @@ The following examples use the same data set throughout.
   
   <summary>With the `"glmnet"` engine</summary>
   
-  ```{r echo=FALSE}
+  ```{r}
+  #| echo: false
   knitr::spin_child("template-biochemists.R")
   ```
 
@@ -97,7 +101,8 @@ The following examples use the same data set throughout.
   
   <summary>With the `"hurdle"` engine</summary>
   
-  ```{r echo=FALSE}
+  ```{r}
+  #| echo: false
   knitr::spin_child("template-biochemists.R")
   ```
 
@@ -131,7 +136,8 @@ The following examples use the same data set throughout.
   
   <summary>With the `"stan"` engine</summary>
   
-  ```{r echo=FALSE}
+  ```{r}
+  #| echo: false
   knitr::spin_child("template-biochemists.R")
   ```
 
@@ -165,7 +171,8 @@ The following examples use the same data set throughout.
   
   <summary>With the `"zeroinfl"` engine</summary>
   
-  ```{r echo=FALSE}
+  ```{r}
+  #| echo: false
   knitr::spin_child("template-biochemists.R")
   ```
 

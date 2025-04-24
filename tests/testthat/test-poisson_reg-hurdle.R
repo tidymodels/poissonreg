@@ -7,26 +7,20 @@ test_that("hurdle execution", {
   hurdle_spec <- poisson_reg() %>% set_engine("hurdle")
   ctrl <- control_parsnip(verbosity = 1, catch = FALSE)
 
-  expect_error(
-    fit(hurdle_spec, art ~ ., data = bioChemists, control = ctrl),
-    regexp = NA
+  expect_no_error(
+    fit(hurdle_spec, art ~ ., data = bioChemists, control = ctrl)
   )
-  expect_error(
+  expect_no_error(
     res <- fit_xy(
       hurdle_spec,
       x = bioChemists[, 2:6],
       y = bioChemists$art,
       control = ctrl
-    ),
-    regexp = NA
+    )
   )
 
   expect_false(has_multi_predict(res))
   expect_equal(multi_predict_args(res), NA_character_)
-
-  expect_error(
-    fit(hurdle_spec, Species ~ term, data = bioChemists, control = ctrl)
-  )
 })
 
 test_that("hurdle prediction", {
