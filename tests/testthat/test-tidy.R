@@ -4,9 +4,9 @@ test_that("hurdle", {
   hurd <- hurdle(art ~ fem | ment, data = bioChemists)
   summ <- summary(hurd)
 
-  expect_error(counts <- tidy(hurd), regexp = NA)
-  expect_error(zeros <- tidy(hurd, "zero"), regexp = NA)
-  expect_error(both <- tidy(hurd, "all"), regexp = NA)
+  expect_no_error(counts <- tidy(hurd))
+  expect_no_error(zeros <- tidy(hurd, "zero"))
+  expect_no_error(both <- tidy(hurd, "all"))
 
   expect_equal(
     unname(summ$coefficients$count[, "Estimate"]),

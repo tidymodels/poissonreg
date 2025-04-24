@@ -7,18 +7,16 @@ test_that("zeroinfl execution", {
   zeroinfl_spec <- poisson_reg() %>% set_engine("zeroinfl")
   ctrl <- control_parsnip(verbosity = 1, catch = FALSE)
 
-  expect_error(
-    fit(zeroinfl_spec, art ~ ., data = bioChemists, control = ctrl),
-    regexp = NA
+  expect_no_error(
+    fit(zeroinfl_spec, art ~ ., data = bioChemists, control = ctrl)
   )
-  expect_error(
+  expect_no_error(
     res <- fit_xy(
       zeroinfl_spec,
       x = bioChemists[, 2:6],
       y = bioChemists$art,
       control = ctrl
-    ),
-    regexp = NA
+    )
   )
 
   expect_false(has_multi_predict(res))
