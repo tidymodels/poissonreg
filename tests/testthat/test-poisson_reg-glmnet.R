@@ -1,8 +1,8 @@
 test_that("prediction of single row", {
   skip_if_not_installed("glmnet")
 
-  m <- poisson_reg(penalty = 0.1) %>%
-    set_engine("glmnet") %>%
+  m <- poisson_reg(penalty = 0.1) |>
+    set_engine("glmnet") |>
     fit(count ~ (.)^2, data = seniors[, 2:4])
 
   pred_1 <- predict(m, new_data = seniors[1, ], penalty = 0.1)
@@ -30,7 +30,7 @@ test_that("glmnet multi_predict(): type numeric", {
   )
   exp_pred <- predict(exp_fit, seniors_x, s = penalty_values, type = "response")
 
-  spec <- poisson_reg(penalty = 0.1, mixture = 0.3) %>%
+  spec <- poisson_reg(penalty = 0.1, mixture = 0.3) |>
     set_engine("glmnet", nlambda = 15)
   f_fit <- fit(spec, count ~ ., data = seniors)
   xy_fit <- fit_xy(spec, x = seniors_x, y = seniors_y)
@@ -52,13 +52,13 @@ test_that("glmnet multi_predict(): type numeric", {
   )
   expect_equal(f_pred, xy_pred)
 
-  f_pred_001 <- f_pred %>%
-    tidyr::unnest(cols = .pred) %>%
-    dplyr::filter(penalty == 0.01) %>%
+  f_pred_001 <- f_pred |>
+    tidyr::unnest(cols = .pred) |>
+    dplyr::filter(penalty == 0.01) |>
     dplyr::pull(.pred)
-  f_pred_01 <- f_pred %>%
-    tidyr::unnest(cols = .pred) %>%
-    dplyr::filter(penalty == 0.1) %>%
+  f_pred_01 <- f_pred |>
+    tidyr::unnest(cols = .pred) |>
+    dplyr::filter(penalty == 0.1) |>
     dplyr::pull(.pred)
   expect_equal(f_pred_001, unname(exp_pred[, 1]))
   expect_equal(f_pred_01, unname(exp_pred[, 2]))
@@ -100,7 +100,7 @@ test_that("glmnet prediction type NULL", {
 
   data(seniors, package = "poissonreg", envir = rlang::current_env())
 
-  spec <- poisson_reg(penalty = 0.1, mixture = 0.3) %>%
+  spec <- poisson_reg(penalty = 0.1, mixture = 0.3) |>
     set_engine("glmnet", nlambda = 15)
   f_fit <- fit(spec, count ~ ., data = seniors)
 
@@ -112,8 +112,8 @@ test_that("glmnet prediction type NULL", {
   mpred_numeric <- multi_predict(f_fit, seniors[1:5, ], type = "numeric")
   expect_identical(mpred, mpred_numeric)
 
-  mpred_pred <- mpred %>%
-    tidyr::unnest(cols = .pred) %>%
+  mpred_pred <- mpred |>
+    tidyr::unnest(cols = .pred) |>
     dplyr::pull(.pred)
   expect_identical(pred$.pred, mpred_pred)
 })

@@ -4,7 +4,7 @@ test_that("zeroinfl execution", {
 
   data("bioChemists", package = "pscl", envir = rlang::current_env())
 
-  zeroinfl_spec <- poisson_reg() %>% set_engine("zeroinfl")
+  zeroinfl_spec <- poisson_reg() |> set_engine("zeroinfl")
   ctrl <- control_parsnip(verbosity = 1, catch = FALSE)
 
   expect_no_error(
@@ -29,7 +29,7 @@ test_that("zeroinfl prediction", {
 
   data("bioChemists", package = "pscl", envir = rlang::current_env())
 
-  zeroinfl_spec <- poisson_reg() %>% set_engine("zeroinfl")
+  zeroinfl_spec <- poisson_reg() |> set_engine("zeroinfl")
   quiet_ctrl <- control_parsnip(verbosity = 0, catch = TRUE)
 
   zeroinfl_pred <- c(

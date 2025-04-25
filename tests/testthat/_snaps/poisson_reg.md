@@ -19,7 +19,7 @@
 ---
 
     Code
-      translate_args(penalty %>% set_engine("glmnet"))
+      translate_args(set_engine(penalty, "glmnet"))
     Output
       $x
       missing_arg()
@@ -37,7 +37,7 @@
 ---
 
     Code
-      translate_args(penalty %>% set_engine("glmnet", path_values = 4:2))
+      translate_args(set_engine(penalty, "glmnet", path_values = 4:2))
     Output
       $x
       missing_arg()
@@ -60,7 +60,7 @@
 ---
 
     Code
-      translate_args(mixture %>% set_engine("glmnet"))
+      translate_args(set_engine(mixture, "glmnet"))
     Output
       $x
       missing_arg()
@@ -83,7 +83,7 @@
 ---
 
     Code
-      translate_args(mixture_tune %>% set_engine("glmnet"))
+      translate_args(set_engine(mixture_tune, "glmnet"))
     Output
       $x
       missing_arg()
@@ -106,8 +106,7 @@
 # check_args() works
 
     Code
-      spec <- poisson_reg(mixture = -1) %>% set_engine("glm") %>% set_mode(
-        "regression")
+      spec <- set_mode(set_engine(poisson_reg(mixture = -1), "glm"), "regression")
       fit(spec, gear ~ ., data = mtcars)
     Condition
       Error in `fit()`:
@@ -116,8 +115,7 @@
 ---
 
     Code
-      spec <- poisson_reg(penalty = -1) %>% set_engine("glm") %>% set_mode(
-        "regression")
+      spec <- set_mode(set_engine(poisson_reg(penalty = -1), "glm"), "regression")
       fit(spec, gear ~ ., data = mtcars)
     Condition
       Error in `fit()`:

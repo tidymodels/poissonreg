@@ -40,8 +40,8 @@ The following examples use the same data set throughout.
   
   ```{r}
   pr_spec <- 
-    poisson_reg() %>%
-    set_engine("glm") %>% 
+    poisson_reg() |>
+    set_engine("glm") |> 
     set_mode("regression") 
   pr_spec
   ```
@@ -50,7 +50,7 @@ The following examples use the same data set throughout.
   
   ```{r}
   set.seed(1)
-  pr_fit <- pr_spec %>% fit(art ~ ., data = biochemists_train)
+  pr_fit <- pr_spec |> fit(art ~ ., data = biochemists_train)
   pr_fit
   ```
 
@@ -75,8 +75,8 @@ The following examples use the same data set throughout.
   
   ```{r}
   pr_spec <- 
-    poisson_reg(penalty = 0.1) %>%
-    set_engine("glmnet") %>% 
+    poisson_reg(penalty = 0.1) |>
+    set_engine("glmnet") |> 
     set_mode("regression") 
   pr_spec
   ```
@@ -85,7 +85,7 @@ The following examples use the same data set throughout.
   
   ```{r}
   set.seed(1)
-  pr_fit <- pr_spec %>% fit(art ~ ., data = biochemists_train)
+  pr_fit <- pr_spec |> fit(art ~ ., data = biochemists_train)
   pr_fit
   ```
 
@@ -110,8 +110,8 @@ The following examples use the same data set throughout.
   
   ```{r}
   pr_spec <- 
-    poisson_reg() %>%
-    set_engine("hurdle") %>% 
+    poisson_reg() |>
+    set_engine("hurdle") |> 
     set_mode("regression") 
   pr_spec
   ```
@@ -120,7 +120,7 @@ The following examples use the same data set throughout.
   
   ```{r}
   set.seed(1)
-  pr_fit <- pr_spec %>% fit(art ~ . | ., data = biochemists_train)
+  pr_fit <- pr_spec |> fit(art ~ . | ., data = biochemists_train)
   pr_fit
   ```
 
@@ -145,8 +145,8 @@ The following examples use the same data set throughout.
   
   ```{r}
   pr_spec <- 
-    poisson_reg() %>%
-    set_engine("stan") %>% 
+    poisson_reg() |>
+    set_engine("stan") |> 
     set_mode("regression") 
   pr_spec
   ```
@@ -155,7 +155,7 @@ The following examples use the same data set throughout.
   
   ```{r}
   set.seed(1)
-  pr_fit <- pr_spec %>% fit(art ~ ., data = biochemists_train)
+  pr_fit <- pr_spec |> fit(art ~ ., data = biochemists_train)
   pr_fit
   ```
 
@@ -180,8 +180,8 @@ The following examples use the same data set throughout.
   
   ```{r}
   pr_spec <- 
-    poisson_reg() %>%
-    set_engine("zeroinfl") %>% 
+    poisson_reg() |>
+    set_engine("zeroinfl") |> 
     set_mode("regression") 
   pr_spec
   ```
@@ -190,7 +190,7 @@ The following examples use the same data set throughout.
   
   ```{r}
   set.seed(1)
-  pr_fit <- pr_spec %>% fit(art ~ . | ., data = biochemists_train)
+  pr_fit <- pr_spec |> fit(art ~ . | ., data = biochemists_train)
   pr_fit
   ```
 

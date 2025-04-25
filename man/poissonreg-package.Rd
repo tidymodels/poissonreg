@@ -23,10 +23,10 @@ tidymodels_prefer()
 
 log_lin_fit <-
   # Define the model
-  poisson_reg() \%>\%
+  poisson_reg() |>
   # Choose an engine for fitting. The default is 'glm' so
   # this next line is not strictly needed:
-  set_engine("glm") \%>\%
+  set_engine("glm") |>
   # Fit the model to the data:
   fit(count ~ (.)^2, data = seniors)
 
