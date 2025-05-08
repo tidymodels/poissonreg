@@ -1,5 +1,5 @@
 test_that("glm execution", {
-  glm_spec <- poisson_reg() %>% set_engine("glm")
+  glm_spec <- poisson_reg() |> set_engine("glm")
   ctrl <- control_parsnip(verbosity = 1, catch = FALSE)
 
   expect_no_error(
@@ -11,7 +11,7 @@ test_that("glm execution", {
 })
 
 test_that("glm prediction", {
-  glm_spec <- poisson_reg() %>% set_engine("glm")
+  glm_spec <- poisson_reg() |> set_engine("glm")
   ctrl <- control_parsnip(verbosity = 1, catch = FALSE)
 
   glm_fit <- glm(count ~ ., data = seniors, family = "poisson")

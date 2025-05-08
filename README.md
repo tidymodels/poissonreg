@@ -56,8 +56,8 @@ A log-linear model for categorical data analysis:
 library(poissonreg)
 
 # 3D contingency table from Agresti (2007):
-poisson_reg() %>%
-  set_engine("glm") %>%
+poisson_reg() |>
+  set_engine("glm") |>
   fit(count ~ (.)^2, data = seniors)
 #> parsnip model object
 #> 

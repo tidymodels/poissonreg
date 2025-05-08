@@ -4,7 +4,7 @@ test_that("hurdle execution", {
 
   data("bioChemists", package = "pscl", envir = rlang::current_env())
 
-  hurdle_spec <- poisson_reg() %>% set_engine("hurdle")
+  hurdle_spec <- poisson_reg() |> set_engine("hurdle")
   ctrl <- control_parsnip(verbosity = 1, catch = FALSE)
 
   expect_no_error(
@@ -29,7 +29,7 @@ test_that("hurdle prediction", {
 
   data("bioChemists", package = "pscl", envir = rlang::current_env())
 
-  hurdle_spec <- poisson_reg() %>% set_engine("hurdle")
+  hurdle_spec <- poisson_reg() |> set_engine("hurdle")
   quiet_ctrl <- control_parsnip(verbosity = 0, catch = TRUE)
 
   hurdle_pred <- c(

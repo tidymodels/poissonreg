@@ -8,14 +8,14 @@ test_that("arguments", {
   mixture_tune <- poisson_reg(penalty = 1, mixture = tune())
 
   expect_snapshot(translate_args(basic))
-  expect_snapshot(translate_args(penalty %>% set_engine("glmnet")))
+  expect_snapshot(translate_args(penalty |> set_engine("glmnet")))
   expect_snapshot(
     translate_args(
-      penalty %>% set_engine("glmnet", path_values = 4:2)
+      penalty |> set_engine("glmnet", path_values = 4:2)
     )
   )
-  expect_snapshot(translate_args(mixture %>% set_engine("glmnet")))
-  expect_snapshot(translate_args(mixture_tune %>% set_engine("glmnet")))
+  expect_snapshot(translate_args(mixture |> set_engine("glmnet")))
+  expect_snapshot(translate_args(mixture_tune |> set_engine("glmnet")))
 })
 
 
@@ -25,8 +25,8 @@ test_that('check_args() works', {
   expect_snapshot(
     error = TRUE,
     {
-      spec <- poisson_reg(mixture = -1) %>%
-        set_engine("glm") %>%
+      spec <- poisson_reg(mixture = -1) |>
+        set_engine("glm") |>
         set_mode("regression")
       fit(spec, gear ~ ., data = mtcars)
     }
@@ -35,8 +35,8 @@ test_that('check_args() works', {
   expect_snapshot(
     error = TRUE,
     {
-      spec <- poisson_reg(penalty = -1) %>%
-        set_engine("glm") %>%
+      spec <- poisson_reg(penalty = -1) |>
+        set_engine("glm") |>
         set_mode("regression")
       fit(spec, gear ~ ., data = mtcars)
     }
