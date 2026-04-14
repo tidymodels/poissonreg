@@ -28,14 +28,14 @@ biochemistry Ph.D. programs.
 
       ## ── Attaching packages ───────────────────────────── tidymodels 1.4.1 ──
 
-      ## ✔ broom        1.0.10     ✔ rsample      1.3.1 
-      ## ✔ dials        1.4.2      ✔ tailor       0.1.0 
-      ## ✔ dplyr        1.1.4      ✔ tidyr        1.3.1 
-      ## ✔ infer        1.0.9      ✔ tune         2.0.1 
+      ## ✔ broom        1.0.12     ✔ rsample      1.3.2 
+      ## ✔ dials        1.4.3      ✔ tailor       0.1.0 
+      ## ✔ dplyr        1.2.1      ✔ tidyr        1.3.2 
+      ## ✔ infer        1.1.0      ✔ tune         2.0.1 
       ## ✔ modeldata    1.5.1      ✔ workflows    1.3.0 
-      ## ✔ parsnip      1.3.3      ✔ workflowsets 1.1.1 
-      ## ✔ purrr        1.2.0      ✔ yardstick    1.3.2 
-      ## ✔ recipes      1.3.1
+      ## ✔ parsnip      1.5.0      ✔ workflowsets 1.1.1 
+      ## ✔ purrr        1.2.2      ✔ yardstick    1.4.0 
+      ## ✔ recipes      1.3.2
 
       ## ── Conflicts ──────────────────────────────── tidymodels_conflicts() ──
       ## ✖ purrr::discard() masks scales::discard()
@@ -341,8 +341,8 @@ Now we create the model fit object:
       ## 
       ## SAMPLING FOR MODEL 'count' NOW (CHAIN 1).
       ## Chain 1: 
-      ## Chain 1: Gradient evaluation took 5.2e-05 seconds
-      ## Chain 1: 1000 transitions using 10 leapfrog steps per transition would take 0.52 seconds.
+      ## Chain 1: Gradient evaluation took 4.4e-05 seconds
+      ## Chain 1: 1000 transitions using 10 leapfrog steps per transition would take 0.44 seconds.
       ## Chain 1: Adjust your expectations accordingly!
       ## Chain 1: 
       ## Chain 1: 
@@ -359,15 +359,15 @@ Now we create the model fit object:
       ## Chain 1: Iteration: 1800 / 2000 [ 90%]  (Sampling)
       ## Chain 1: Iteration: 2000 / 2000 [100%]  (Sampling)
       ## Chain 1: 
-      ## Chain 1:  Elapsed Time: 0.239 seconds (Warm-up)
-      ## Chain 1:                0.251 seconds (Sampling)
-      ## Chain 1:                0.49 seconds (Total)
+      ## Chain 1:  Elapsed Time: 0.235 seconds (Warm-up)
+      ## Chain 1:                0.243 seconds (Sampling)
+      ## Chain 1:                0.478 seconds (Total)
       ## Chain 1: 
       ## 
       ## SAMPLING FOR MODEL 'count' NOW (CHAIN 2).
       ## Chain 2: 
-      ## Chain 2: Gradient evaluation took 3.1e-05 seconds
-      ## Chain 2: 1000 transitions using 10 leapfrog steps per transition would take 0.31 seconds.
+      ## Chain 2: Gradient evaluation took 3.2e-05 seconds
+      ## Chain 2: 1000 transitions using 10 leapfrog steps per transition would take 0.32 seconds.
       ## Chain 2: Adjust your expectations accordingly!
       ## Chain 2: 
       ## Chain 2: 
@@ -384,9 +384,9 @@ Now we create the model fit object:
       ## Chain 2: Iteration: 1800 / 2000 [ 90%]  (Sampling)
       ## Chain 2: Iteration: 2000 / 2000 [100%]  (Sampling)
       ## Chain 2: 
-      ## Chain 2:  Elapsed Time: 0.238 seconds (Warm-up)
-      ## Chain 2:                0.26 seconds (Sampling)
-      ## Chain 2:                0.498 seconds (Total)
+      ## Chain 2:  Elapsed Time: 0.234 seconds (Warm-up)
+      ## Chain 2:                0.252 seconds (Sampling)
+      ## Chain 2:                0.486 seconds (Total)
       ## Chain 2: 
       ## 
       ## SAMPLING FOR MODEL 'count' NOW (CHAIN 3).
@@ -409,15 +409,15 @@ Now we create the model fit object:
       ## Chain 3: Iteration: 1800 / 2000 [ 90%]  (Sampling)
       ## Chain 3: Iteration: 2000 / 2000 [100%]  (Sampling)
       ## Chain 3: 
-      ## Chain 3:  Elapsed Time: 0.246 seconds (Warm-up)
-      ## Chain 3:                0.322 seconds (Sampling)
-      ## Chain 3:                0.568 seconds (Total)
+      ## Chain 3:  Elapsed Time: 0.235 seconds (Warm-up)
+      ## Chain 3:                0.311 seconds (Sampling)
+      ## Chain 3:                0.546 seconds (Total)
       ## Chain 3: 
       ## 
       ## SAMPLING FOR MODEL 'count' NOW (CHAIN 4).
       ## Chain 4: 
-      ## Chain 4: Gradient evaluation took 3.1e-05 seconds
-      ## Chain 4: 1000 transitions using 10 leapfrog steps per transition would take 0.31 seconds.
+      ## Chain 4: Gradient evaluation took 3.2e-05 seconds
+      ## Chain 4: 1000 transitions using 10 leapfrog steps per transition would take 0.32 seconds.
       ## Chain 4: Adjust your expectations accordingly!
       ## Chain 4: 
       ## Chain 4: 
@@ -434,9 +434,9 @@ Now we create the model fit object:
       ## Chain 4: Iteration: 1800 / 2000 [ 90%]  (Sampling)
       ## Chain 4: Iteration: 2000 / 2000 [100%]  (Sampling)
       ## Chain 4: 
-      ## Chain 4:  Elapsed Time: 0.229 seconds (Warm-up)
-      ## Chain 4:                0.288 seconds (Sampling)
-      ## Chain 4:                0.517 seconds (Total)
+      ## Chain 4:  Elapsed Time: 0.224 seconds (Warm-up)
+      ## Chain 4:                0.279 seconds (Sampling)
+      ## Chain 4:                0.503 seconds (Total)
       ## Chain 4:
 
 ``` r
