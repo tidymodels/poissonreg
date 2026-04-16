@@ -341,8 +341,8 @@ Now we create the model fit object:
       ## 
       ## SAMPLING FOR MODEL 'count' NOW (CHAIN 1).
       ## Chain 1: 
-      ## Chain 1: Gradient evaluation took 4.7e-05 seconds
-      ## Chain 1: 1000 transitions using 10 leapfrog steps per transition would take 0.47 seconds.
+      ## Chain 1: Gradient evaluation took 4.5e-05 seconds
+      ## Chain 1: 1000 transitions using 10 leapfrog steps per transition would take 0.45 seconds.
       ## Chain 1: Adjust your expectations accordingly!
       ## Chain 1: 
       ## Chain 1: 
@@ -359,15 +359,15 @@ Now we create the model fit object:
       ## Chain 1: Iteration: 1800 / 2000 [ 90%]  (Sampling)
       ## Chain 1: Iteration: 2000 / 2000 [100%]  (Sampling)
       ## Chain 1: 
-      ## Chain 1:  Elapsed Time: 0.243 seconds (Warm-up)
-      ## Chain 1:                0.258 seconds (Sampling)
-      ## Chain 1:                0.501 seconds (Total)
+      ## Chain 1:  Elapsed Time: 0.235 seconds (Warm-up)
+      ## Chain 1:                0.247 seconds (Sampling)
+      ## Chain 1:                0.482 seconds (Total)
       ## Chain 1: 
       ## 
       ## SAMPLING FOR MODEL 'count' NOW (CHAIN 2).
       ## Chain 2: 
-      ## Chain 2: Gradient evaluation took 3.1e-05 seconds
-      ## Chain 2: 1000 transitions using 10 leapfrog steps per transition would take 0.31 seconds.
+      ## Chain 2: Gradient evaluation took 2.9e-05 seconds
+      ## Chain 2: 1000 transitions using 10 leapfrog steps per transition would take 0.29 seconds.
       ## Chain 2: Adjust your expectations accordingly!
       ## Chain 2: 
       ## Chain 2: 
@@ -384,15 +384,15 @@ Now we create the model fit object:
       ## Chain 2: Iteration: 1800 / 2000 [ 90%]  (Sampling)
       ## Chain 2: Iteration: 2000 / 2000 [100%]  (Sampling)
       ## Chain 2: 
-      ## Chain 2:  Elapsed Time: 0.246 seconds (Warm-up)
-      ## Chain 2:                0.266 seconds (Sampling)
-      ## Chain 2:                0.512 seconds (Total)
+      ## Chain 2:  Elapsed Time: 0.233 seconds (Warm-up)
+      ## Chain 2:                0.256 seconds (Sampling)
+      ## Chain 2:                0.489 seconds (Total)
       ## Chain 2: 
       ## 
       ## SAMPLING FOR MODEL 'count' NOW (CHAIN 3).
       ## Chain 3: 
-      ## Chain 3: Gradient evaluation took 3.1e-05 seconds
-      ## Chain 3: 1000 transitions using 10 leapfrog steps per transition would take 0.31 seconds.
+      ## Chain 3: Gradient evaluation took 2.9e-05 seconds
+      ## Chain 3: 1000 transitions using 10 leapfrog steps per transition would take 0.29 seconds.
       ## Chain 3: Adjust your expectations accordingly!
       ## Chain 3: 
       ## Chain 3: 
@@ -409,15 +409,15 @@ Now we create the model fit object:
       ## Chain 3: Iteration: 1800 / 2000 [ 90%]  (Sampling)
       ## Chain 3: Iteration: 2000 / 2000 [100%]  (Sampling)
       ## Chain 3: 
-      ## Chain 3:  Elapsed Time: 0.249 seconds (Warm-up)
-      ## Chain 3:                0.328 seconds (Sampling)
-      ## Chain 3:                0.577 seconds (Total)
+      ## Chain 3:  Elapsed Time: 0.234 seconds (Warm-up)
+      ## Chain 3:                0.318 seconds (Sampling)
+      ## Chain 3:                0.552 seconds (Total)
       ## Chain 3: 
       ## 
       ## SAMPLING FOR MODEL 'count' NOW (CHAIN 4).
       ## Chain 4: 
-      ## Chain 4: Gradient evaluation took 3.1e-05 seconds
-      ## Chain 4: 1000 transitions using 10 leapfrog steps per transition would take 0.31 seconds.
+      ## Chain 4: Gradient evaluation took 2.9e-05 seconds
+      ## Chain 4: 1000 transitions using 10 leapfrog steps per transition would take 0.29 seconds.
       ## Chain 4: Adjust your expectations accordingly!
       ## Chain 4: 
       ## Chain 4: 
@@ -434,9 +434,9 @@ Now we create the model fit object:
       ## Chain 4: Iteration: 1800 / 2000 [ 90%]  (Sampling)
       ## Chain 4: Iteration: 2000 / 2000 [100%]  (Sampling)
       ## Chain 4: 
-      ## Chain 4:  Elapsed Time: 0.233 seconds (Warm-up)
-      ## Chain 4:                0.294 seconds (Sampling)
-      ## Chain 4:                0.527 seconds (Total)
+      ## Chain 4:  Elapsed Time: 0.223 seconds (Warm-up)
+      ## Chain 4:                0.282 seconds (Sampling)
+      ## Chain 4:                0.505 seconds (Total)
       ## Chain 4:
 
 ``` r
