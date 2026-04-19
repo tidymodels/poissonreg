@@ -1,0 +1,170 @@
+test_that("stan execution", {
+  skip_if_not_installed("rstanarm")
+  skip_on_cran()
+
+  ctrl <- control_parsnip(verbosity = 1, catch = FALSE)
+  stan_spec <- poisson_reg() |> set_engine("stan", refresh = 0)
+
+  expect_no_error(
+    fit(stan_spec, count ~ ., data = seniors, control = ctrl)
+  )
+  expect_no_error(
+    res <- fit_xy(
+      stan_spec,
+      x = seniors[, 1:3],
+      y = seniors$count,
+      control = ctrl
+    )
+  )
+
+  expect_false(has_multi_predict(res))
+  expect_identical(multi_predict_args(res), NA_character_)
+
+  expect_snapshot(error = TRUE, {
+    fit(stan_spec, Species ~ term, data = seniors, control = ctrl)
+  })
+})
+
+test_that("stan prediction", {
+  skip_if_not_installed("rstanarm")
+  skip_on_cran()
+
+  quiet_ctrl <- control_parsnip(verbosity = 0, catch = TRUE)
+
+  stan_pred <- c(
+    6.291754969016,
+    6.60564806379581,
+    5.64226626722825,
+    5.95615936200806,
+    4.509666320371
+  )
+
+  res_xy <- fit_xy(
+    poisson_reg() |> set_engine("stan", seed = 10, chains = 1, refresh = 0),
+    x = seniors[, 1:3],
+    y = seniors$count,
+    control = quiet_ctrl
+  )
+
+  expect_identical(
+    predict(res_xy, seniors[1:5, 1:3])$.pred,
+    stan_pred,
+    tolerance = 0.001
+  )
+
+  res_form <- fit(
+    poisson_reg() |> set_engine("stan", refresh = 0),
+    count ~ .,
+    data = seniors,
+    control = quiet_ctrl
+  )
+  expect_identical(
+    predict(res_form, seniors[1:5, ])$.pred,
+    stan_pred,
+    tolerance = 0.001
+  )
+})
+
+test_that("stan intervals", {
+  skip_if_not_installed("rstanarm")
+  skip_on_cran()
+
+  quiet_ctrl <- control_parsnip(verbosity = 0, catch = TRUE)
+
+  res_xy <- fit_xy(
+    poisson_reg() |>
+      set_engine("stan", seed = 1333, chains = 10, iter = 1000, refresh = 0),
+    x = seniors[, 1:3],
+    y = seniors$count,
+    control = quiet_ctrl
+  )
+
+  confidence_parsnip <-
+    predict(res_xy, new_data = seniors[1:5, ], type = "conf_int", level = 0.93)
+
+  prediction_parsnip <-
+    predict(res_xy, new_data = seniors[1:5, ], type = "pred_int", level = 0.93)
+
+  ci_lower <- c(
+    503.82551692366,
+    698.305441192173,
+    259.975461883233,
+    359.06627830285,
+    80.6032220648686
+  )
+  ci_upper <- c(
+    576.810144573584,
+    783.482928914321,
+    304.974935105559,
+    415.426474145917,
+    101.122581030063
+  )
+
+  pi_lower <- c(483, 676, 244, 340, 71)
+  pi_upper <- c(595, 808, 320, 433, 112)
+
+  expect_identical(
+    confidence_parsnip$.pred_lower,
+    ci_lower,
+    tolerance = 1e-2,
+    ignore_attr = TRUE
+  )
+  expect_identical(
+    confidence_parsnip$.pred_upper,
+    ci_upper,
+    tolerance = 1e-2,
+    ignore_attr = TRUE
+  )
+
+  expect_identical(
+    prediction_parsnip$.pred_lower,
+    pi_lower,
+    tolerance = 1e-2,
+    ignore_attr = TRUE
+  )
+  expect_identical(
+    prediction_parsnip$.pred_upper,
+    pi_upper,
+    tolerance = 1e-2,
+    ignore_attr = TRUE
+  )
+})
+
+test_that("stan intervals with standard error", {
+  skip_if_not_installed("rstanarm")
+  skip_on_cran()
+
+  quiet_ctrl <- control_parsnip(verbosity = 0, catch = TRUE)
+
+  res_xy <- fit_xy(
+    poisson_reg() |>
+      set_engine("stan", seed = 1333, chains = 1, iter = 1000, refresh = 0),
+    x = seniors[, 1:3],
+    y = seniors$count,
+    control = quiet_ctrl
+  )
+
+  confidence_parsnip <- predict(
+    res_xy,
+    new_data = seniors[1:5, ],
+    type = "conf_int",
+    std_error = TRUE
+  )
+  expect_identical(
+    names(confidence_parsnip),
+    c(".pred_lower", ".pred_upper", ".std_error")
+  )
+  expect_identical(nrow(confidence_parsnip), 5L)
+
+  prediction_parsnip <- predict(
+    res_xy,
+    new_data = seniors[1:5, ],
+    type = "pred_int",
+    std_error = TRUE
+  )
+  expect_identical(
+    names(prediction_parsnip),
+    c(".pred_lower", ".pred_upper", ".std_error")
+  )
+  expect_identical(nrow(prediction_parsnip), 5L)
+})
