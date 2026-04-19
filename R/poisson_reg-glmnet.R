@@ -33,7 +33,7 @@ predict._fishnet <-
     ...
   ) {
     # See discussion in https://github.com/tidymodels/parsnip/issues/195
-    if (is.null(penalty) & !is.null(object$spec$args$penalty)) {
+    if (is.null(penalty) && !is.null(object$spec$args$penalty)) {
       penalty <- object$spec$args$penalty
     }
 
