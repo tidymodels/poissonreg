@@ -160,3 +160,40 @@ test_that('stan intervals', {
     ignore_attr = TRUE
   )
 })
+
+test_that("stan intervals with standard error", {
+  skip_if_not_installed("rstanarm")
+  skip_on_cran()
+
+  res_xy <- fit_xy(
+    poisson_reg() |>
+      set_engine("stan", seed = 1333, chains = 1, iter = 1000, refresh = 0),
+    x = seniors[, 1:3],
+    y = seniors$count,
+    control = quiet_ctrl
+  )
+
+  confidence_parsnip <- predict(
+    res_xy,
+    new_data = seniors[1:5, ],
+    type = "conf_int",
+    std_error = TRUE
+  )
+  expect_identical(
+    names(confidence_parsnip),
+    c(".pred_lower", ".pred_upper", ".std_error")
+  )
+  expect_identical(nrow(confidence_parsnip), 5L)
+
+  prediction_parsnip <- predict(
+    res_xy,
+    new_data = seniors[1:5, ],
+    type = "pred_int",
+    std_error = TRUE
+  )
+  expect_identical(
+    names(prediction_parsnip),
+    c(".pred_lower", ".pred_upper", ".std_error")
+  )
+  expect_identical(nrow(prediction_parsnip), 5L)
+})
