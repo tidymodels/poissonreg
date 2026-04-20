@@ -4,21 +4,21 @@
 
 * Predictions for a single observation now work for `poisson_reg()` with the `"glmnet"` engine (#48).
 
-* Removed the now obsolete registration of the `predict_raw()` generic as it is now exported from parsnip (#52).
-
-* Removed the unused internal `s3_register()` function (#53).
-
-* Tests on the model specification have been updated to the current testing pattern in parsnip and other extension packages (#55).
-
-* The `predict()` method for the `"glmnet"` engine now checks the penalty value via `parsnip::.check_glmnet_penalty_predict()` instead of a copied version of the function (#57).
+* Predictions of type `"conf_int"` for the `"stan"` engine now use the new function suggested by rstanarm (#86).
 
 * Moved imports and declaration of global variables into the standard place (#59).
 
+* Tests on the model specification have been updated to the current testing pattern in parsnip and other extension packages (#55).
+
 * Tests are now self-contained (#60).
 
-* Predictions of type `"conf_int"` for the `"stan"` engine now use the function suggested by rstanarm (#86).
-
 * Removed obsolete check on supplying `newdata` as an argument to `predict()` or `multi_predict()` (#87).
+
+* The `predict()` method for the `"glmnet"` engine now checks the penalty value via `parsnip::.check_glmnet_penalty_predict()` instead of a copied version of the function (#57).
+
+* Removed the now obsolete registration of the `predict_raw()` generic as it is now exported from parsnip (#52).
+
+* Removed the unused internal `s3_register()` function (#53).
 
 
 # poissonreg 1.0.1
