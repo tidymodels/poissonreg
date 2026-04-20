@@ -1,4 +1,4 @@
-# poissonreg (development version)
+# poissonreg 1.0.2
 
 * Predictions via `multi_predict()` for glmnet models now correctly default to mean counts instead of the linear predictor (#89).
 
