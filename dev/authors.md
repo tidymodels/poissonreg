@@ -18,13 +18,13 @@ Source:
 [`DESCRIPTION`](https://github.com/tidymodels/poissonreg/blob/main/DESCRIPTION)
 
 Kuhn M, Frick H (2026). *poissonreg: Model Wrappers for Poisson
-Regression*. R package version 1.0.1.9001,
+Regression*. R package version 1.0.2.9000,
 <https://github.com/tidymodels/poissonreg>.
 
     @Manual{,
       title = {poissonreg: Model Wrappers for Poisson Regression},
       author = {Max Kuhn and Hannah Frick},
       year = {2026},
-      note = {R package version 1.0.1.9001},
+      note = {R package version 1.0.2.9000},
       url = {https://github.com/tidymodels/poissonreg},
     }

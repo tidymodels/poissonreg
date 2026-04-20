@@ -2,6 +2,8 @@
 
 ## poissonreg (development version)
 
+## poissonreg 1.0.2
+
 - Predictions via
   [`multi_predict()`](https://parsnip.tidymodels.org/reference/multi_predict.html)
   for glmnet models now correctly default to mean counts instead of the
@@ -13,17 +15,24 @@
   with the `"glmnet"` engine
   ([\#48](https://github.com/tidymodels/poissonreg/issues/48)).
 
-- Removed the now obsolete registration of the
-  [`predict_raw()`](https://parsnip.tidymodels.org/reference/predict.model_fit.html)
-  generic as it is now exported from parsnip
-  ([\#52](https://github.com/tidymodels/poissonreg/issues/52)).
+- Predictions of type `"conf_int"` for the `"stan"` engine now use the
+  new function suggested by rstanarm
+  ([\#86](https://github.com/tidymodels/poissonreg/issues/86)).
 
-- Removed the unused internal `s3_register()` function
-  ([\#53](https://github.com/tidymodels/poissonreg/issues/53)).
+- Moved imports and declaration of global variables into the standard
+  place ([\#59](https://github.com/tidymodels/poissonreg/issues/59)).
 
 - Tests on the model specification have been updated to the current
   testing pattern in parsnip and other extension packages
   ([\#55](https://github.com/tidymodels/poissonreg/issues/55)).
+
+- Tests are now self-contained
+  ([\#60](https://github.com/tidymodels/poissonreg/issues/60)).
+
+- Removed obsolete check on supplying `newdata` as an argument to
+  [`predict()`](https://rdrr.io/r/stats/predict.html) or
+  [`multi_predict()`](https://parsnip.tidymodels.org/reference/multi_predict.html)
+  ([\#87](https://github.com/tidymodels/poissonreg/issues/87)).
 
 - The [`predict()`](https://rdrr.io/r/stats/predict.html) method for the
   `"glmnet"` engine now checks the penalty value via
@@ -31,20 +40,13 @@
   instead of a copied version of the function
   ([\#57](https://github.com/tidymodels/poissonreg/issues/57)).
 
-- Moved imports and declaration of global variables into the standard
-  place ([\#59](https://github.com/tidymodels/poissonreg/issues/59)).
+- Removed the now obsolete registration of the
+  [`predict_raw()`](https://parsnip.tidymodels.org/reference/predict.model_fit.html)
+  generic as it is now exported from parsnip
+  ([\#52](https://github.com/tidymodels/poissonreg/issues/52)).
 
-- Tests are now self-contained
-  ([\#60](https://github.com/tidymodels/poissonreg/issues/60)).
-
-- Predictions of type `"conf_int"` for the `"stan"` engine now use the
-  function suggested by rstanarm
-  ([\#86](https://github.com/tidymodels/poissonreg/issues/86)).
-
-- Removed obsolete check on supplying `newdata` as an argument to
-  [`predict()`](https://rdrr.io/r/stats/predict.html) or
-  [`multi_predict()`](https://parsnip.tidymodels.org/reference/multi_predict.html)
-  ([\#87](https://github.com/tidymodels/poissonreg/issues/87)).
+- Removed the unused internal `s3_register()` function
+  ([\#53](https://github.com/tidymodels/poissonreg/issues/53)).
 
 ## poissonreg 1.0.1
 
