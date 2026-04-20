@@ -47,22 +47,23 @@ The poissonreg package provides engines for the models in the following table.
 ```{r, echo=FALSE, message=FALSE}
 library(parsnip)
 
-parsnip_models <- get_from_env("models") 
+parsnip_models <- get_from_env("models")
 names(parsnip_models) <- parsnip_models
-parsnip_models <- parsnip_models |> 
+parsnip_models <- parsnip_models |>
   purrr::map_dfr(get_from_env, .id = "model")
 
 library(poissonreg)
 
-poissonreg_models <- get_from_env("models") 
+poissonreg_models <- get_from_env("models")
 names(poissonreg_models) <- poissonreg_models
-poissonreg_models <- poissonreg_models |> 
+poissonreg_models <- poissonreg_models |>
   purrr::map_dfr(get_from_env, .id = "model")
 
 dplyr::anti_join(
-  poissonreg_models, parsnip_models,
+  poissonreg_models,
+  parsnip_models,
   by = c("model", "engine", "mode")
-) |> 
+) |>
   knitr::kable()
 ```
 
@@ -83,7 +84,7 @@ poisson_reg() |>
 
 This project is released with a [Contributor Code of Conduct](https://www.contributor-covenant.org/version/2/1/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.
 
-- For questions and discussions about tidymodels packages, modeling, and machine learning, please [post on RStudio Community](https://community.rstudio.com/new-topic?category_id=15&tags=tidymodels,question).
+- For questions and discussions about tidymodels packages, modeling, and machine learning, please [post on Posit Community](https://forum.posit.co/new-topic?category_id=15&tags=tidymodels,question).
 
 - If you think you have encountered a bug, please [submit an issue](https://github.com/tidymodels/poissonreg/issues).
 
